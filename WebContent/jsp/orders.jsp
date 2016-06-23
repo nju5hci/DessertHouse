@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="dessert.model.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +15,7 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">一亩e田</div>
+    <div class="title">半亩田</div>
     <div class="float-right">
         <a href="">购物车</a>
         <a href="">我的订单</a>
@@ -32,11 +33,14 @@
    }
    System.out.println(type);
    %>
+     
+  
+   
    <li class="fore1">
    <a href="orders.jsp" id="allorders" class="txt curr">全部订单</a>  
    </li>
    <li>
-   <a href="orders.jsp?s=2" id="ordertoPay" class="txt">待订单</a>
+   <a href="orders.jsp?s=2" id="ordertoPay" class="txt">待付款</a>
    </li>
    <li>
    <a href="orders.jsp?s=3"  id="ordertoReceive" class="txt">待收货</a>
@@ -68,6 +72,75 @@
   <tr class="noshow_row">
      <td colspan="6"></td>
    <tr>
+   <!-- 
+   <% //for(int i=0;i<orders.size();i++){ 
+      //Order order=(Order)orders.get(i);%>
+       <tr class="th-title">
+     <td colspan="6">
+     <span class="gap"></span>
+     <span class="dealtime" id="dealtime">ordertime</span>
+     <span class="number">订单号<a name="orderidlink" id="orderidlink" href="#">orderid</a></span>
+     </td>
+    </tr>
+   <% //ArrayList<Item>itemlist=(ArrayList)order.getitemlist;
+    //int size=itemlist.size();
+    //Item item=itemlist.get(0);
+    %>
+    <tr class="th-notitle">
+      <td>
+         <div class="good">
+         <div class="good-item">
+           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
+         </div>
+         <div class="good-mes">
+            <a href="#">item.getName();</a>
+         </div>
+         </div>        
+      </td>
+      <td>
+         <div class="good-price">
+         item.getPrice();
+         </div>
+      </td>
+       <td>
+         <div class="good-number">
+         item.getNumber();
+         </div>
+      </td>
+        <td rowspan="//size">
+        <div class="good-pay">
+        
+        <span>总额￥ order.getMoney</span> 
+             
+        <p></p>
+        <span>order.getPayType在线支付</span>
+         </div>
+      </td>
+       <td rowspan="//size">
+        <div class="good-state">
+        <div class="w">
+        <span>已完成order.getState</span>
+        </div>
+         <a href="#" >订单详情</a>
+        </div>
+      </td>
+       <td rowspan="//size">
+        <div class="good-operate">
+        <span><a href="#">评价</a></span>
+        <br>
+        <div class="goog-buy">
+        <a href="#">立即购买</a>
+        </div>
+        </div>
+      </td>
+   </tr>
+    -->
+   
+   
+   
+   
+   
+   
    <tr class="th-title">
      <td colspan="6">
      <span class="gap"></span>
@@ -154,7 +227,7 @@
 <div class="footer">
 	<div class="seperator"></div>
 	<div class="footer-info">		
-		<p>Copyright@2002-2016 一亩e田版权所有</p>
+		<p>Copyright@2002-2016 半亩田版权所有</p>
 	</div>
 </div>
 </body>

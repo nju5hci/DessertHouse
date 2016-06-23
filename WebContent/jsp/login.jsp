@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>一亩e田</title>
+<title>半亩田</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<script type="text/javascript"src="../js/script.js"></script>
@@ -21,7 +21,7 @@
 <div>
 <div id="log">
 
- <a href="../html/index.html"><img src="../images/mu3.png" alt="" /></a>
+ <a href="../html/index.html"><img src="../image/tag.jpg" alt="" /></a>
 					
 </div>
 </div>
@@ -33,24 +33,26 @@
 			<div class="seperator"></div>
 		<section id="content">
 		  <form action="/DessertHouse/login" method="post">
-			   <%		
+		   <%		
 			    System.out.println(request.getParameter("error"));
 				if(request.getParameter("error") != null && request.getParameter("error").equals("0")){
 					
 				%>
-				<p style="color: red;">账户或密码输入不能为空</p>
+				<p style="color: red;text-align:center">账户或密码输入不能为空</p>
 				<%
 				}
 				%>
 			<%		
 			    System.out.println(request.getParameter("error"));
-				if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
-					
+			if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
+			
 				%>
-				<p style="color: red;">您的账号或密码有误</p>
+				<p style="color: red;text-align:center">您的账号或密码有误</p>
 				<%
 				}
 				%>
+			
+			
 			<div class="login-info-input">
 				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
 			</div>
@@ -58,13 +60,13 @@
 				<input type="password" placeholder="请输入密码" required="" id="password" name="password" />
 			</div>
 			 <div class="login-info-input">
-			        <a href="" class="alink" style="float:left" >忘记密码</a>
+			        <a href="passwordGet.jsp" class="alink" style="float:left" >忘记密码</a>
 			    	<a href="register.jsp" class="alink" style="float:right">免费注册</a>
 			    </div>
 			<div class="login-info-input">
 			    	<input type="submit" value="登录" class="input-submit"></input>
 			    </div>
-			 
+			
 		</form><!-- form -->
 		
 	    </section><!-- content -->
@@ -76,7 +78,7 @@
 	<div class="seperator"></div>
 	<div class="footer-info">
 		
-		<p>Copyright@2002-2016 一亩e田版权所有</p>
+		<p>Copyright@2002-2016 半亩田版权所有</p>
 	</div>
 </div>
 </body>

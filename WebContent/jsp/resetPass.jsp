@@ -12,7 +12,7 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">一亩e田</div>
+    <div class="title">半亩田</div>
     <div class="float-right">
         <a href="">购物车</a>
         <a href="">我的订单</a>
@@ -30,18 +30,18 @@
  </div>
  <div class="info">
     <div class="left" id="left">
- <p style='height:25px'>旧密码:</p><p style='height:25px'>新密码:</p><p style='height:25px'>确认新密码:</p>
+   <p >旧密码:</p><p>新密码:</p><p >确认新密码:</p>
    </div>
    <div class="right" id="right">
-    <p><input type='password' style='margin-left: 10px;margin-top:-10px' id="oldp" /></p>
-   <p><input type='password' style='margin-left: 10px' id='newp' /></p>
-  <p><input type='password' style='margin-left: 10px' id='newp1' /></p>
+    <p><input type='password' class="text-input"  id="oldp" /></p>
+   <p><input type='password' class="text-input" id='newp' /></p>
+  <p><input type='password' class="text-input" id='newp1' /></p>
    </div>
    <div class="bottom" id="bottom">
-  <div class='login-info-input'>
-  <input type='button' class='input-submit' value='确定' style='width:130px;margin-left:10px;float:left' id='confirm'/>
+  <div class='input'>
+  <input type='button' class='input-submit' value='确定' style='width:130px;margin-left:120px;margin-top:20px;float:left' id='confirm'/>
   </div>
-  <p id="name_exist" style="margin-left:120px;color:red;display:none">用户名不存在</p>
+  <p id="update_result" style="margin-left:120px;color:red;display:none">修改失败</p>
 					  
    </div>
    </div>
@@ -51,7 +51,7 @@
 <div class="footer">
 	<div class="seperator"></div>
 	<div class="footer-info">		
-		<p>Copyright@2002-2016 一亩e田版权所有</p>
+		<p>Copyright@2002-2016 半亩田版权所有</p>
 	</div>
 </div>
 <script type="text/javascript">
@@ -74,8 +74,7 @@ $(document).ready(function(){
 					alert("修改成功");
 					window.location.href="personalSet.jsp";
 				}else{
-					
-					
+					$("#update_result").css("display","block");					
 		        // view(data.msg);  
 				  }
 			}
@@ -83,7 +82,6 @@ $(document).ready(function(){
 		});
 		});
 		
-		});
 });
 </script>
 </body>

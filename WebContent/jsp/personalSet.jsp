@@ -36,17 +36,18 @@
    <p>银行卡号:</p>
    </div>
    <div class="right" id="right">
-    <p> xxx</p>
- <p><span>xxxx</span></p>
-   <p>xxxx</p>
-   <p>xxx</p>
+    <p id="name"> 用户名:</p>
+ <p id="pass"> 密  码:</p>
+   <p id="tele">手机号:</p>
+   <p id="acc">银行卡号:</p>
    </div>
    <div class="bottom" id="bottom">
-   <div class="login-info-input">
-   <input type="button" class="input-submit" value="修改" style="width:130px;margin-left:10px;float:left"/>
-   <input type="button" class="input-submit" id="updateP" value="修改密码" style="width:130px;margin-left:30px;float:left"/>
+   <div class="input" id="input">
+   <input type="button" class="input-submit" id="Update" value="修改" style="width:20%;margin-left:80px;float:left"/>
+   <input type="button" class="input-submit" id="updateP" value="修改密码" style="width:20%;margin-left:30px;float:left"/>
    </div>
    </div>
+   <p id="update_result" style="margin-left:120px;color:red;display:none">修改失败</p>
    </div>
  </div>
 </div>
@@ -62,6 +63,49 @@ $(document).ready(function(){
 	$("#updateP").click(function(){
 		window.location.href="resetPass.jsp";		
 	});
+	var name;
+	$("#Update").click(function(){
+		name=$("#name").html();
+		var pass=$("#pass").html();
+		var tele=$("#tele").html();
+		var acc=$("#acc").html();
+		
+		var mystring="<input type='text' class='text-input' name='account' id='account' placeholder='"+acc+"''>";
+
+		$("#acc").html("<input type='text' class='text-input' name='account' id='account' placeholder='"+acc+"''>");
+		$("#tele").html("<input type='text' class='text-input' name='tele' id='tele' placeholder='"+tele+"''>");
+		$("#updateP").css("display","none");
+		$("#input").html("<input type='button' class='input-submit' id='save' value='确定' style='width:20%;margin-left:140px;float:left'/>");
+		
+		});
+	$("#save").click(function(){
+		alert(name);
+		var tele=$("#tele").html;
+		var acc=$("#acc").html;
+		$.ajax({
+			url:'....',
+			data:{
+				name:name,
+				tele:tele,
+				acc:acc
+				
+				},
+			type:'post',
+			success:function(data){
+				console.log("---"+data);
+				if(data.msg=="success"){
+					window.location.href="personalSet.jsp";
+				}else{
+					
+					$("#update_result").css("display","block");		
+		        // view(data.msg);  
+				  }
+			}
+			
+		});
+		});
+		
+	
 });
 </script>
 </body>
