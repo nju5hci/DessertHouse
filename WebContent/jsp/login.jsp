@@ -1,53 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>登录-DessertHouse</title>
-		<meta charset="utf-8">
-        <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-		<link href="../css/login-register.css" rel='stylesheet' type='text/css' />
-		<link href='../images/logo.png' rel="shortcut icon" type="image/x-icon" media="screen"/>
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>一亩e田</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<script type="text/javascript"src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
+<style type="text/css">
+#log{   
+    margin-left:50px;
+}
+
+</style>
 <body>
-	 <!-----start-main---->
-	 <div class="main">
-         <div class="wrap">
-         <div class="header_top">
-					<div class="logo">
-						<a href="index.html"><img src="../images/mu3.png" alt="" /></a>
-					</div>
-						<div class="header_top_right">
-							  
-						 <div class="clear"></div>
-					</div>
-			 <div class="clear"></div>
-  		</div>
-        </div>
-		<div class="login-form">
-			<h1><b>会员登录</b></h1>
-					<div class="head">
-						<img src="../images/user.png" alt=""/>
-					</div>
-				<form action="/DessertHouse/login" method="post">
-				<%
+
+<div>
+<div id="log">
+
+ <a href="../html/index.html"><img src="../images/mu3.png" alt="" /></a>
+					
+</div>
+</div>
+
+        <div class="wrapper" style="background:url(../image/bc1.jpg)  no-repeat;height:600px">
+        
+		<div class="login-form-div box">
+			<div class="login-form-header">账户登录</div>
+			<div class="seperator"></div>
+		<section id="content">
+		  <form action="/DessertHouse/login" method="post">
+			
+			<div class="login-info-input">
+				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
+			</div>
+			<div class="login-info-input">
+				<input type="password" placeholder="请输入密码" required="" id="password" name="password" />
+			</div>
+			 <div class="login-info-input">
+			        <a href="" class="alink" style="float:left" >忘记密码</a>
+			    	<a href="register.jsp" class="alink" style="float:right">免费注册</a>
+			    </div>
+			<div class="login-info-input">
+			    	<input type="submit" value="登录" class="input-submit"></input>
+			    </div>
+			<%		
+			    System.out.println(request.getParameter("error"));
 				if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
+					
 				%>
 				<p style="color: red;">您的账号或密码有误</p>
 				<%
 				}
 				%>
-						<input type="text" class="text" name="account" placeholder="手机号/会员卡号" onfocus="this.value = '';"  >
-						<input type="password" name="password" placeholder="密码" onfocus="this.value = '';" >
-						<div class="submit">
-							<input type="submit" value="登录" >
-					    </div>	
-					<p><a href="register.jsp">还没有账号？点击免费注册</a></p>
-				</form>
-			</div>
-			<!--//End-login-form-->
+		</form><!-- form -->
+		
+	    </section><!-- content -->
+				  
+
 		</div>
-			 <!-----//end-main---->
+</div>
+<div class="footer">
+	<div class="seperator"></div>
+	<div class="footer-info">
+		
+		<p>Copyright@2002-2016 一亩e田版权所有</p>
+	</div>
+</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+.choose_panel{
+	width:80%;
+	margin:0 auto;
+	min-height:600px;
+	
+}
+
+div.mod-main .mt .extra-l li {
+    padding-right: 15px
+}
+
+div.mod-main .mt .extra-l li.fore1 {
+    padding-right: 20px
+}
+
+div.mod-main .mt .extra-l li.fore2 {
+    position: relative;
+    border-left: 1px dotted #ddd;
+    padding: 0 15px
+}
+
+div.mod-main .mt .extra-l li.fore2 a.curr, div.mod-main .mt .extra-l li.fore2 a.ftx-03:hover {
+    color: #e4393c
+}
+
+div.mod-main .mt .extra-l li a {
+    display: inline-block;
+    * display: inline;
+    * zoom: 1;
+    vertical-align: middle;
+    color: #333
+}
+
+div.mod-main .mt .extra-l li a.ftx-03 {
+    color: #999
+}
+
+div.mod-main .mt .extra-l li a:hover em {
+    color: #fff
+}
+
+div.mod-main .mt .extra-l li em {
+    position: relative;
+    display: inline-block;
+    * display: inline;
+    * zoom: 1;
+    height: 15px;
+    line-height: 15px;
+    font-family: arial;
+    top: -5px;
+    padding: 0 4px;
+    background: #e4393c;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 10px;
+    margin: 0 0 0 2px;
+    _position: static
+}
+
+
+.root61 div.mod-main .mt .extra-l li {
+    padding-right: 20px
+}
+
+.root61 div.mod-main .mt .extra-l li.fore2 {
+    padding-left: 40px;
+    margin-left: 20px
+}
+

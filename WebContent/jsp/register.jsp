@@ -1,36 +1,80 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>注册-一亩e田</title>
-		<meta charset="utf-8">
-        <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-		<link href="../css/login-register.css" rel='stylesheet' type='text/css' />
-		<link href='../images/logo.png' rel="shortcut icon" type="image/x-icon" media="screen"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>个人注册</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="stylesheet" type="text/css" href="../css/test.css">
+	<script type="text/javascript"src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
+
 <body>
-	 <!-----start-main---->
-	 <div class="main">
-         <div class="wrap">
-         <div class="header_top">
-					<div class="logo">
-						<a href="/DessertHouse/index"><img src="../images/mu3.png" alt="" /></a>
-					</div>
-						<div class="header_top_right">
-							  
-						 <div class="clear"></div>
-					</div>
-			 <div class="clear"></div>
-  		</div>
-        </div>
-		<div class="login-form">
-			<h1><b>注册会员（四项必填）</b></h1>
-					<div class="head">
-						<img src="../images/user.png" alt=""/>
-					</div>
-				<form action="/DessertHouse/register" method="post">
-				<%
+
+
+<div class="header1">
+<div class="logo-con w clearfix">
+<a href="index.html" class="logo"><img src="../images/mu3.png" alt="" /></a>
+<div class="logo-title">欢迎注册</div>
+<div class="have-account">
+已有账号&nbsp<a href="login.jsp">请登录</a>
+</div>
+</div>
+</div>
+<div class="wrapper" style="margin-top:50px;">
+<div class="main_tape">
+<div class="reg-form fl">
+            <form action="/DessertHouse/register" method="post">
+          
+                <input style="display:none" name="hack" />
+                <input type="password" style="display:none" name="hack1" />
+
+                <div class="form-item form-item-account" id="form-item-account">
+                    <label>用　户　名</label>
+                    <input type="text" id="form-account" name="name" class="field" autocomplete="off" maxlength="20"
+                           placeholder="请输入用户名"  />
+                  
+                </div>
+                
+                 <div class="input-tip">
+                    <span></span>
+                </div>
+                <div class="item-phone-wrap">
+                                            <div class="form-item form-item-phone">
+                            <label class="select-country" id="select-country" country_id="0086">中国 + 86<a href="javascript:void(0) "class="arrow"></a></label>
+                            <input type="text" id="form-phone" name="tel" class="field" placeholder="建议使用常用手机"
+                                   autocomplete="off" maxlength="11"  />
+                            
+                        </div>
+                        </div>
+               
+                <div class="form-item">
+                    <label>设 置 密 码</label>
+                    <input style="display:none" type="password" name="pwd" class="fakeinput"/>
+                    <input type="password" name="password" id="form-pwd" class="field" maxlength="20"
+                           placeholder="建议至少使用两种字符组合"  />
+                    
+                </div>
+                <div class="input-tip">
+                    <span></span>
+                </div>
+                <div class="form-item">
+                    <label>确 认 密 码</label>
+          
+                    <input type="password" name="confirm" id="form-equalTopwd" class="field" placeholder="请再次输入密码"
+                           maxlength="20"  />
+                    
+                </div>
+                <div class="input-tip">
+                    <span></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn-register">立即注册</button>
+                </div>
+                	<%
                 if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
                 %>
                         <p style="color: red;">请正确填写注册信息</p>
@@ -42,18 +86,18 @@
                 <%
                 }
                 %>
-						<input type="text" class="text" name="name" placeholder="请输入您的姓名" onfocus="this.value = '';" >
-                        <input type="text" class="text" name="tel" placeholder="请输入您的手机号" onfocus="this.value = '';" >
-						<input type="password" name="password" placeholder="请输入6-16位密码" onfocus="this.value = '';" >
-                        <input type="password" name="confirm" placeholder="重复输入6-16位密码" onfocus="this.value = '';" >
-						<div class="submit">
-							<input type="submit" value="注册" >
-					</div>	
-					<p><a href="login.jsp">已有账号？点此登录</a></p>
-				</form>
-			</div>
-			<!--//End-login-form-->
-		</div>
-			 <!-----//end-main---->
+            </form>
+        </div>
+
+
+</div>
+</div>
+<div class="footer">
+	<div class="seperator"></div>
+	<div class="footer-info">
+		
+		<p>Copyright@2002-2016 一亩e田版权所有</p>
+	</div>
+</div>
 </body>
 </html>
