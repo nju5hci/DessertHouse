@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+	<package name="struts2"  namespace="/" extends="struts-default">
+
+
+		
+		<action name="login" class="dessert.action.LoginAction">
+
+			<result name="member" type="redirect">/DessertHouse/index</result>
+			
+			<result name="manager" type="redirect">/DessertHouse/allowPlan</result>
+			<result name="systemmanager" type="redirect">/DessertHouse/systemActivity</result>
+	
+			<result name="input" type="redirect">/jsp/login.jsp</result>
+
+		</action>
+			<action name="editprofile" class="dessert.action.UserUpdateprofileAction">
+
+			<result name="changed" type="redirect">/DessertHouse/profile</result>
+			
+
+		</action>
+		<action name="profile" class="dessert.action.UserprofileAction">
+
+			<result name="profile" type="redirect">/jsp/profile.jsp</result>
+			
+
+		</action>
+		<action name="register" class="dessert.action.RegisterAction">
+
+			<result name="success" type="redirect">/DessertHouse/index</result>
+
+			<result name="input" type="redirect">/jsp/register.jsp</result>
+			
+			<result name="exist" type="redirect">/jsp/register.jsp</result>
+
+		</action>
+			<action name="account" class="dessert.action.AccountAction">
+
+			<result name="success" type="redirect">/jsp/myaccount.jsp</result>
+
+		</action>
+		<action name="index" class="dessert.action.IndexAction">
+
+			<result name="success" type="redirect">/jsp/index.jsp</result>
+
+		</action>
+			<action name="branch" class="dessert.action.BranchAction">
+
+			<result name="success" type="redirect">/jsp/branch.jsp</result>
+
+		</action>
+		
+			<action name="branchlist" class="dessert.action.BranchListAction">
+
+			<result name="success" type="redirect">/jsp/branchlist.jsp</result>
+
+		</action>
+			<action name="selectbranch" class="dessert.action.SelectBranchListAction">
+
+			<result name="success" type="redirect">/jsp/reserve.jsp</result>
+
+		</action>
+			<action name="waiter" class="dessert.action.WaiterAction">
+
+			<result name="success" type="redirect">/jsp/waiter.jsp</result>
+
+		</action>
+		<action name="addWaiter" class="dessert.action.AddWaiterAction">
+
+			<result name="success" type="redirect">/DessertHouse/waiter</result>
+
+		</action>
+	
+			<action name="waiterlist" class="dessert.action.WaiterListAction">
+
+			<result name="success" type="redirect">/jsp/waiterlist.jsp</result>
+
+		</action>
+		<action name="deleteWaiter" class="dessert.action.DeleteWaiterAction">
+
+			<result name="success" type="redirect">/DessertHouse/waiter</result>
+			<result name="nowaiter" type="redirect">/jsp/waiter.jsp?error=1</result>
+
+		</action>
+		<action name="preview" class="dessert.action.PreviewAction">
+
+			<result name="success" type="redirect">/jsp/preview.jsp</result>
+			<result name="nowaiter" type="redirect">/jsp/index.jsp?error=1</result>
+
+		</action>
+		<action name="card" class="dessert.action.CardAction">
+
+			<result name="success" type="redirect">/DessertHouse/account</result>
+
+			<result name="input" type="redirect">/jsp/myaccount.jsp?error=1</result>
+			
+			<result name="money" type="redirect">/jsp/myaccount.jsp?error=2</result>
+			
+			<result name="card" type="redirect">/jsp/myaccount.jsp?error=3</result>
+
+		</action>
+			<action name="addBranch" class="dessert.action.AddBranchAction">
+
+			<result name="success" type="redirect">/DessertHouse/branch</result>
+
+			<result name="input" type="redirect">/jsp/myaccount.jsp?error=1</result>
+
+		</action>
+		<action name="plan" class="dessert.action.PlanAction">
+
+			<result name="success" type="redirect">/jsp/plan.jsp</result>
+
+
+		</action>
+		<action name="addPlan" class="dessert.action.AddPlanAction">
+
+			<result name="success" type="redirect">/DessertHouse/plan</result>
+
+				<result name="input" type="redirect">/jsp/plan.jsp?error=1</result>
+				<result name="nodessert" type="redirect">/jsp/plan.jsp?error=2</result>
+		</action>
+		<action name="allowPlan" class="dessert.action.AllowPlanAction">
+
+			<result name="success" type="redirect">/jsp/allowplan.jsp</result>
+
+				
+		</action>
+		<action name="allowandalter" class="dessert.action.AllowAndAlterAction">
+
+			<result name="success" type="redirect">/DessertHouse/payed</result>
+
+				
+		</action>
+		<action name="allowandalterActivity" class="dessert.action.AllowAndAlterActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/payedActivity</result>
+
+				
+		</action>
+		<action name="addReserve" class="dessert.action.AddReserveAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserve</result>
+				<result name="card_fail" type="redirect">/jsp/preview.jsp?error=2</result>
+			<result name="card_stop" type="redirect">/jsp/preview.jsp?error=3</result>
+					<result name="input" type="redirect">/jsp/preview.jsp?error=1</result>
+				
+				
+		</action>
+		<action name="addActivity" class="dessert.action.AddActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserveActivity</result>
+				<result name="card_fail" type="redirect">/jsp/reserveActivity.jsp?error=2</result>
+			<result name="card_stop" type="redirect">/jsp/reserveActivity.jsp?error=3</result>
+				
+				
+		</action>
+		<action name="reserve" class="dessert.action.ReserveAction">
+
+			<result name="success" type="redirect">/jsp/reserve.jsp</result>
+
+				
+		</action>
+		<action name="stopCard" class="dessert.action.StopCardAction">
+
+			<result name="success" type="redirect">/DessertHouse/account</result>
+
+				
+		</action>
+		<action name="sale" class="dessert.action.SaleAction">
+
+			<result name="success" type="redirect">/jsp/sale.jsp</result>
+
+				
+		</action>
+		<action name="addSale" class="dessert.action.AddSaleAction">
+
+			<result name="success" type="redirect">/DessertHouse/sale</result>
+
+				
+		</action>
+			<action name="updateSale" class="dessert.action.UpdateSaleAction">
+
+			<result name="success" type="redirect">/DessertHouse/sale</result>
+
+				
+		</action>
+		<action name="checkValue" class="dessert.action.CheckValueAction">
+
+			<result name="success" type="redirect">/jsp/checkAccount.jsp</result>
+
+				
+		</action>
+		<action name="checkAccount" class="dessert.action.CheckAccountAction">
+
+			<result name="success" type="redirect">/jsp/checkAccount.jsp</result>
+
+				
+		</action>
+		<action name="buyReserve" class="dessert.action.BuyReserveAction">
+
+			<result name="success" type="redirect">/DessertHouse/payed</result>
+
+				
+		</action>
+		<action name="buySoil" class="dessert.action.BuySoilAction">
+
+			<result name="success" type="redirect">/DessertHouse/payedSoil</result>
+
+				
+		</action>
+		<action name="buyGift" class="dessert.action.BuyGiftAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserveGift</result>
+<result name="nomoney" type="redirect">/jsp/reserveGift.jsp?error=1</result>
+
+				
+		</action>
+		<action name="buyActivity" class="dessert.action.BuyActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/payedActivity</result>
+
+				
+		</action>
+		<action name="payed" class="dessert.action.PayedAction">
+
+			<result name="success" type="redirect">/jsp/payed.jsp</result>
+
+				
+		</action>
+		<action name="payedActivity" class="dessert.action.PayedActivityAction">
+
+			<result name="success" type="redirect">/jsp/payedActivity.jsp</result>
+
+				
+		</action>
+			<action name="assess" class="dessert.action.AssessAction">
+
+			<result name="success" type="redirect">/jsp/assess.jsp</result>
+
+				
+		</action>
+		<action name="assessActivity" class="dessert.action.AssessActivityAction">
+
+			<result name="success" type="redirect">/jsp/assessActivity.jsp</result>
+
+				
+		</action>
+		<action name="addAssessActivity" class="dessert.action.AddAssessActivityAction">
+
+			<result name="success" type="redirect">/jsp/addAssessActivity.jsp</result>
+
+				
+		</action>
+		<action name="addThisAssessActivity" class="dessert.action.AddThisAssessActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/assessActivity</result>
+
+				
+		</action>
+		<action name="addAssess" class="dessert.action.AddAssessAction">
+
+			<result name="success" type="redirect">/jsp/addassess.jsp</result>
+
+				
+		</action>
+		<action name="addThisAssess" class="dessert.action.AddThisAssessAction">
+
+			<result name="success" type="redirect">/DessertHouse/assess</result>
+
+				
+		</action>
+		<action name="systemDessert" class="dessert.action.SystemDessertAction">
+
+			<result name="success" type="redirect">/jsp/systemDessert.jsp</result>
+
+				
+		</action>
+		<action name="systemActivity" class="dessert.action.SystemActivityAction">
+
+			<result name="success" type="redirect">/jsp/systemActivity.jsp</result>
+
+				
+		</action>
+		<action name="systemSoil" class="dessert.action.SystemSoilAction">
+
+			<result name="success" type="redirect">/jsp/systemSoil.jsp</result>
+
+				
+		</action>
+		<action name="addProduct" class="dessert.action.AddProductAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemDessert</result>
+
+				
+		</action>
+		<action name="addSoil" class="dessert.action.AddSoilAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemSoil</result>
+
+				
+		</action>
+			<action name="addReserveActivityAction" class="dessert.action.AddReserveActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemActivity</result>
+
+				
+		</action>
+		<action name="manageProduct" class="dessert.action.ManageProductAction">
+
+			<result name="success" type="redirect">/jsp/manageProduct.jsp</result>
+
+				
+		</action>
+		<action name="manageActivity" class="dessert.action.ManageActivityAction">
+
+			<result name="success" type="redirect">/jsp/manageActivity.jsp</result>
+
+				
+		</action>
+		<action name="deleteProduct" class="dessert.action.DeleteProductAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemDessert</result>
+
+				
+		</action>
+		<action name="deleteSoil" class="dessert.action.DeleteSoilAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemSoil</result>
+
+				
+		</action>
+			<action name="deleteActivity" class="dessert.action.DeleteActivityAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemActivity</result>
+
+				
+		</action>
+		<action name="updateProduct" class="dessert.action.UpdateProductAction">
+
+			<result name="success" type="redirect">/DessertHouse/systemDessert</result>
+
+				
+		</action>
+			<action name="searchProduct" class="dessert.action.SearchProductAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserve</result>
+
+				
+		</action>
+		<action name="searchActivity" class="dessert.action.SearchActivityAction">
+
+			<result name="success" type="redirect">/jsp/searchActivity.jsp</result>
+
+				
+		</action>
+		<action name="reserveActivity" class="dessert.action.ReserveActivityAction">
+
+			<result name="success" type="redirect">/jsp/reserveActivity.jsp</result>
+
+				
+		</action>
+		<action name="reserveSoil" class="dessert.action.ReserveSoilAction">
+
+			<result name="success" type="redirect">/jsp/reserveSoil.jsp</result>
+
+				
+		</action>
+		<action name="reserveGift" class="dessert.action.ReserveGiftAction">
+
+			<result name="success" type="redirect">/jsp/reserveGift.jsp</result>
+
+				
+		</action>
+		<action name="deleteThis" class="dessert.action.DeleteThisAction">
+
+			<result name="gift" type="redirect">/DessertHouse/reserveGift</result>
+	<result name="dessert" type="redirect">/DessertHouse/reserve</result>
+					<result name="soil" type="redirect">/DessertHouse/reserveSoil</result>
+						<result name="activity" type="redirect">/DessertHouse/reserveActivity</result>
+		</action>
+		<action name="previewActivity" class="dessert.action.PreviewActivityAction">
+
+			<result name="success" type="redirect">/jsp/previewActivity.jsp</result>
+
+				
+		</action>
+		<action name="previewSoil" class="dessert.action.PreviewSoilAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserveSoil</result>
+
+				
+		</action>
+		<action name="previewGift" class="dessert.action.PreviewGiftAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserveGift</result>
+
+				
+		</action>
+		<action name="previewGift" class="dessert.action.PreviewGiftAction">
+
+			<result name="success" type="redirect">/DessertHouse/reserveGift</result>
+
+				
+		</action>
+		<action name="payedSoil" class="dessert.action.PayedSoilAction">
+
+			<result name="success" type="redirect">/jsp/payedSoil.jsp</result>
+
+				
+		</action>
+		<action name="mySoil" class="dessert.action.MySoilAction">
+
+			<result name="success" type="redirect">/jsp/mySoil.jsp</result>
+
+				
+		</action>
+		<action name="oneTeamActivity" class="dessert.action.OneTeamActivityAction">
+
+			<result name="success" type="redirect">/jsp/searchActivity.jsp</result>
+
+				
+		</action>
+	</package>
+
+</struts>
+

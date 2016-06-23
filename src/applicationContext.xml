@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd        
+      http://www.springframework.org/schema/aop         
+      http://www.springframework.org/schema/aop/spring-aop-4.0.xsd        
+      http://www.springframework.org/schema/context         
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd        
+      http://www.springframework.org/schema/tx         
+      http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+      http://www.springframework.org/schema/cache 
+      http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+	<!-- <bean id="..." class="..."> collaborators and configuration for this 
+		bean go here </bean> <bean id="..." class="..."> collaborators and configuration 
+		for this bean go here </bean> more bean definitions go here -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/dessert" />
+		<property name="username" value="root" />
+		<property name="password" value="66362170" />
+	</bean>
+
+	<!-- 配置sessionFactory -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="dessert.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	<bean id="dessertDao" class="dessert.DaoImpl.DessertDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="memberCardDao" class="dessert.DaoImpl.MemberCardDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="memberDao" class="dessert.DaoImpl.MemberDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	
+		<bean id="rechargeDao" class="dessert.DaoImpl.RechargeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	<bean id="systemManagerDao" class="dessert.DaoImpl.SystemManagerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	<bean id="assessDao" class="dessert.DaoImpl.AssessDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+<bean id="giftDao" class="dessert.DaoImpl.GiftDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="reserveDao" class="dessert.DaoImpl.ReserveDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="activityDao" class="dessert.DaoImpl.ActivityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="soilDao" class="dessert.DaoImpl.SoilDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	<bean id="dessertService" class="dessert.serviceImpl.DessertServiceImpl">
+			<property name="dessertDao" ref="dessertDao" ></property>
+			<property name="assessDao" ref="assessDao" ></property>
+	</bean>	
+	<bean id="memberService" class="dessert.serviceImpl.MemberServiceImpl">
+			<property name="memberDao" ref="memberDao" ></property>
+			<property name="dessertDao" ref="dessertDao" ></property>
+		<property name="memberCardDao" ref="memberCardDao" ></property>
+		<property name="reserveDao" ref="reserveDao" ></property>
+		<property name="assessDao" ref="assessDao" ></property>
+	</bean>	
+	<bean id="memberCardService" class="dessert.serviceImpl.MemberCardServiceImpl">
+			<property name="memberCardDao" ref="memberCardDao" ></property>
+			<property name="rechargeDao" ref="rechargeDao" ></property>
+		
+	</bean>	
+	<bean id="systemManagerService" class="dessert.serviceImpl.SystemManagerServiceImpl">
+		<property name="systemManagerDao" ref="systemManagerDao" ></property>
+	</bean>	
+	
+	<bean id="activityService" class="dessert.serviceImpl.ActivityServiceImpl">
+		<property name="activityDao" ref="activityDao" ></property>
+		<property name="assessDao" ref="assessDao" ></property>
+	</bean>	
+	
+<bean id="soilService" class="dessert.serviceImpl.SoilServiceImpl">
+		<property name="soilDao" ref="soilDao" ></property>
+	</bean>	
+	<bean id="giftService" class="dessert.serviceImpl.GiftServiceImpl">
+		<property name="giftDao" ref="giftDao" ></property>
+	</bean>	
+	<bean id="LoginAction" class="dessert.action.LoginAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+	
+		<property name="systemManagerService" ref="systemManagerService" ></property>
+	</bean>
+	<bean id="RegisterAction" class="dessert.action.RegisterAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+	</bean>
+	<bean id="IndexAction" class="dessert.action.IndexAction">
+		<property name="dessertService" ref="dessertService" ></property>
+		
+	</bean>
+	<bean id="UserprofileAction" class="dessert.action.UserprofileAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+	</bean>
+	<bean id="UserUpdateprofileAction" class="dessert.action.UserUpdateprofileAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+	</bean>
+	<bean id="AccountAction" class="dessert.action.AccountAction">
+		<property name="memberService" ref="memberService" ></property>
+		<property name="memberCardService" ref="memberCardService" ></property>
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	
+	<bean id="CardAction" class="dessert.action.CardAction">
+		<property name="memberService" ref="memberService" ></property>
+		<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="StopCardAction" class="dessert.action.StopCardAction">
+		
+		<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	
+	
+	<bean id="PreviewAction" class="dessert.action.PreviewAction">
+		<property name="dessertService" ref="dessertService" ></property>
+
+	</bean>
+	
+	
+	<bean id="AddReserveAction" class="dessert.action.AddReserveAction">
+		<property name="memberService" ref="memberService" ></property>
+<property name="memberCardService" ref="memberCardService" ></property>
+<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="AddActivityAction" class="dessert.action.AddActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="ReserveAction" class="dessert.action.ReserveAction">
+		<property name="memberService" ref="memberService" ></property>
+<property name="dessertService" ref="dessertService" ></property>
+	
+	</bean>
+	
+	<bean id="AllowAndAlterAction" class="dessert.action.AllowAndAlterAction">
+		<property name="memberService" ref="memberService" ></property>
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="AllowAndAlterActivityAction" class="dessert.action.AllowAndAlterActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+	</bean>
+	<bean id="CheckAccountAction" class="dessert.action.CheckAccountAction">
+		<property name="memberService" ref="memberService" ></property>
+	</bean>
+	
+	<bean id="BuyReserveAction" class="dessert.action.BuyReserveAction">
+		<property name="memberService" ref="memberService" ></property>
+		<property name="memberCardService" ref="memberCardService" ></property>
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="BuyActivityAction" class="dessert.action.BuyActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+		<property name="memberCardService" ref="memberCardService" ></property>
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="PayedAction" class="dessert.action.PayedAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="PayedActivityAction" class="dessert.action.PayedActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="AssessAction" class="dessert.action.AssessAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="AssessActivityAction" class="dessert.action.AssessActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="AddAssessAction" class="dessert.action.AddAssessAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="AddAssessActivityAction" class="dessert.action.AddAssessActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="AddThisAssessActivityAction" class="dessert.action.AddThisAssessActivityAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="AddThisAssessAction" class="dessert.action.AddThisAssessAction">
+		<property name="memberService" ref="memberService" ></property>
+		
+		<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+		<bean id="SystemDessertAction" class="dessert.action.SystemDessertAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="SystemActivityAction" class="dessert.action.SystemActivityAction">
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+		<bean id="AddProductAction" class="dessert.action.AddProductAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+		<bean id="AddReserveActivityAction" class="dessert.action.AddReserveActivityAction">
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="DeleteProductAction" class="dessert.action.DeleteProductAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="DeleteActivityAction" class="dessert.action.DeleteActivityAction">
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="UpdateProductAction" class="dessert.action.UpdateProductAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="ManageProductAction" class="dessert.action.ManageProductAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+		<bean id="ManageActivityAction" class="dessert.action.ManageActivityAction">
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="SearchProductAction" class="dessert.action.SearchProductAction">
+	
+		
+		<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+	<bean id="SearchActivityAction" class="dessert.action.SearchActivityAction">
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="ReserveActivityAction" class="dessert.action.ReserveActivityAction">
+	<property name="memberService" ref="memberService" ></property>
+	
+		
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="PreviewActivityAction" class="dessert.action.PreviewActivityAction">
+	
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+		<bean id="OneTeamActivityAction" class="dessert.action.OneTeamActivityAction">
+	
+		<property name="activityService" ref="activityService" ></property>
+	</bean>
+	<bean id="ReserveSoilAction" class="dessert.action.ReserveSoilAction">
+	
+		<property name="soilService" ref="soilService" ></property>
+			<property name="memberService" ref="memberService" ></property>
+	</bean>
+	<bean id="ReserveGiftAction" class="dessert.action.ReserveGiftAction">
+	
+		<property name="giftService" ref="giftService" ></property>
+			<property name="memberService" ref="memberService" ></property>
+	</bean>
+	<bean id="PreviewSoilAction" class="dessert.action.PreviewSoilAction">
+	
+		<property name="soilService" ref="soilService" ></property>
+			<property name="memberService" ref="memberService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="PreviewGiftAction" class="dessert.action.PreviewGiftAction">
+	
+		<property name="giftService" ref="giftService" ></property>
+			<property name="memberService" ref="memberService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="BuySoilAction" class="dessert.action.BuySoilAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="BuyGiftAction" class="dessert.action.BuyGiftAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
+	</bean>
+	<bean id="PayedSoilAction" class="dessert.action.PayedSoilAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+			<property name="soilService" ref="soilService" ></property>
+	</bean>
+	<bean id="MySoilAction" class="dessert.action.MySoilAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+			<property name="soilService" ref="soilService" ></property>
+	</bean>
+	<bean id="SystemSoilAction" class="dessert.action.SystemSoilAction">
+	
+		
+			<property name="soilService" ref="soilService" ></property>
+	</bean>
+	<bean id="AddSoilAction" class="dessert.action.AddSoilAction">
+	
+		
+			<property name="soilService" ref="soilService" ></property>
+	</bean>
+	<bean id="DeleteSoilAction" class="dessert.action.DeleteSoilAction">
+	
+		
+			<property name="soilService" ref="soilService" ></property>
+	</bean>
+	<bean id="DeleteThisAction" class="dessert.action.DeleteThisAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+	</bean>
+		<!-- 定义 Autowired 自动注入 bean -->
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<!-- 扫描有注解的文件 base-package 包路径 -->
+	<context:component-scan base-package="dessert" />
+	<!-- 声明式容器事务管理 ,transaction-manager指定事务管理器为transactionManager -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*User" propagation="REQUIRED" />
+			<tx:method name="*" propagation="NOT_SUPPORTED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 定义切面，在edu.nju.onlinestock.service包及子包中所有以Service结尾的方法中,执行有关的hibernate session的事务操作 -->
+	<aop:config>
+		<!-- 只对业务逻辑层实施事务 -->
+		<aop:pointcut id="serviceOperation"
+			expression="execution( * dessert.service..*Service.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
+	</aop:config>
+</beans>
