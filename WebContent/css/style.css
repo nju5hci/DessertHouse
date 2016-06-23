@@ -631,7 +631,9 @@ input:FOCUS{
 	opacity: 0;
     width: 22px;
     height: 22px;
-	position: relative;
+    z-index: 1;
+    position: relative;
+    left: 3px;
 }
 
 .checkbox-img {
@@ -643,16 +645,16 @@ input:FOCUS{
     position: relative;
     background-size: 100%;
 	top:-29px;
-	left:8px;
+	left:10px;
+	z-index: 0;
 }
 
- input[type=checkbox]:checked + label,
-input[type=checkbox]:checked + label {
+ input[type=checkbox]:checked + label{
     background: url("../img/check.png") 0 -67px;
     background-size: 100%;
 }
 .wapper-chart-title{
-	margin-top: 5px;
+	margin: 5px 0;
 	padding: 5px;
 }
 .wapper-chart-title span{
@@ -674,4 +676,71 @@ span#title-5{
 }
 span#title-6{
 	margin-left: 8%;
+}
+.wapper-chart-list{}
+.wapper-chart-item{
+	padding: 15px;
+	height: 70px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.wapper-chart-item .checkbox >*{
+	margin-left: -28px;
+	margin-top: 4px;
+}
+.wapper-chart-item .checkbox{
+	width: 1.1%;
+}
+.chart-item-info{
+	width: 45%;
+}
+.chart-item-photo{
+	width: 60px;
+	height: 60px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.chart-item-name{
+	width: 60%;
+	margin-left: 8%;
+	display: inline-block;
+	vertical-align: top;
+}
+.chart-item-num{
+	margin-top: 2.5%;
+	margin-left: 10.6%;
+}
+.chart-item-price{
+	margin-left: 6%;
+	height: 15px;
+	margin-top: 3%;
+}
+.chart-item-amount{
+		margin-top: 3%;
+	margin-left: 6.7%;
+}
+.chart-item-operator{
+	margin-top: 2.7%;
+	margin-left: 8.6%;
+}
+.chart-item-operator:hover{
+	color: #B1191A;
+	cursor: pointer;
+}
+.chart-amount{
+	margin-right: 10px;
+	display: inline-block;
+	font-weight: bold;
+	color: #B1190A;
+}
+.confirm{
+	margin-top: 10px;
+	background-color: #B1191A;
+	color: #fff;
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
 }
