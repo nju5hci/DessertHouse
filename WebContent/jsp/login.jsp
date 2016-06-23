@@ -33,7 +33,24 @@
 			<div class="seperator"></div>
 		<section id="content">
 		  <form action="/DessertHouse/login" method="post">
-			
+			   <%		
+			    System.out.println(request.getParameter("error"));
+				if(request.getParameter("error") != null && request.getParameter("error").equals("0")){
+					
+				%>
+				<p style="color: red;">账户或密码输入不能为空</p>
+				<%
+				}
+				%>
+			<%		
+			    System.out.println(request.getParameter("error"));
+				if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
+					
+				%>
+				<p style="color: red;">您的账号或密码有误</p>
+				<%
+				}
+				%>
 			<div class="login-info-input">
 				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
 			</div>
@@ -47,15 +64,7 @@
 			<div class="login-info-input">
 			    	<input type="submit" value="登录" class="input-submit"></input>
 			    </div>
-			<%		
-			    System.out.println(request.getParameter("error"));
-				if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
-					
-				%>
-				<p style="color: red;">您的账号或密码有误</p>
-				<%
-				}
-				%>
+			 
 		</form><!-- form -->
 		
 	    </section><!-- content -->

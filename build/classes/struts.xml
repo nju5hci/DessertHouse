@@ -16,8 +16,8 @@
 			
 			<result name="manager" type="redirect">/DessertHouse/allowPlan</result>
 			<result name="systemmanager" type="redirect">/DessertHouse/systemActivity</result>
-	
-			<result name="input" type="redirect">/jsp/login.jsp</result>
+	<result name="input" type="redirect">/jsp/login.jsp?error=0</result>
+			<result name="wrong" type="redirect">/jsp/login.jsp?error=1</result>
 
 		</action>
 			<action name="editprofile" class="dessert.action.UserUpdateprofileAction">
@@ -36,9 +36,10 @@
 
 			<result name="success" type="redirect">/DessertHouse/index</result>
 
-			<result name="input" type="redirect">/jsp/register.jsp</result>
+			<result name="input" type="redirect">/jsp/register.jsp?error=0</result>
 			
-			<result name="exist" type="redirect">/jsp/register.jsp</result>
+			<result name="exist" type="redirect">/jsp/register.jsp?error=1</result>
+<result name="diff" type="redirect">/jsp/register.jsp?error=2</result>
 
 		</action>
 			<action name="account" class="dessert.action.AccountAction">

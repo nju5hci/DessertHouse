@@ -15,6 +15,7 @@ public class RegisterAction extends BaseAction{
 	private String success = "success";
 	private String input = "input";
 	private String exist = "exist";
+	private String diff = "diff";
 	@Autowired
 	private MemberService memberService;
 	public MemberService getMemberService() {
@@ -59,7 +60,7 @@ public class RegisterAction extends BaseAction{
 			setTel(request.getParameter("tel"));
 			System.out.println("tel:"+request.getParameter("name")+";"+"password:"+request.getParameter("password"));
 		}else{
-			return input;
+			return diff;
 		}
 		
 		Member member=new Member(name, password,"","",tel,"");

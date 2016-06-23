@@ -31,6 +31,7 @@ public class LoginAction extends BaseAction{
 	private String success_manager = "manager";
 	private String success_systemmanager = "systemmanager";
 	private String input = "input";
+	private String wrong = "wrong";
 	private String ISBOUND = "cardIsBound";
 	
 	public SystemManagerService getSystemManagerService() {
@@ -101,7 +102,7 @@ public class LoginAction extends BaseAction{
 				return success_systemmanager;
 			}else{
 				System.out.println("dssssssn");
-				return input;
+				return wrong;
 			}
 		}catch(Exception e){
 			e.printStackTrace();

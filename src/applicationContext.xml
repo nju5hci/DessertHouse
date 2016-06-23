@@ -23,7 +23,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/dessert" />
 		<property name="username" value="root" />
-		<property name="password" value="Rong432!" />
+		<property name="password" value="66362170" />
 	</bean>
 
 	<!-- 配置sessionFactory -->

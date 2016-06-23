@@ -28,7 +28,28 @@
 <div class="main_tape">
 <div class="reg-form fl">
             <form action="/DessertHouse/register" method="post">
-          
+           <%		
+			    System.out.println(request.getParameter("error"));
+				if(request.getParameter("error") != null && request.getParameter("error").equals("0")){
+					
+				%>
+				<p style="color: red;">输入不能为空</p>
+				<%
+				}
+				%>
+
+                	<%
+                if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
+                %>
+                        <p style="color: red;">您的手机号已经注册</p>
+                <%
+                }
+                if(request.getParameter("error") != null && request.getParameter("error").equals("2")){
+                %>
+                        <p style="color: red;">输入的两次密码不一致</p>
+                <%
+                }
+                %>
                 <input style="display:none" name="hack" />
                 <input type="password" style="display:none" name="hack1" />
 
@@ -74,18 +95,7 @@
                 <div>
                     <button type="submit" class="btn-register">立即注册</button>
                 </div>
-                	<%
-                if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
-                %>
-                        <p style="color: red;">请正确填写注册信息</p>
-                <%
-                }
-                if(request.getParameter("error") != null && request.getParameter("error").equals("2")){
-                %>
-                        <p style="color: red;">您的手机号已经注册</p>
-                <%
-                }
-                %>
+                  
             </form>
         </div>
 
