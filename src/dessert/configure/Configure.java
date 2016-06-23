@@ -40,6 +40,18 @@ public class Configure {
 	//土地的状态
 	public static final int SOIL_LENDED		=	1;
 	public static final int SOIL_UNLENDED=	0;
+	//订单的四个状态
+	/**
+	 * 待下单0；
+	 * 未收货1
+	 * 未评价2
+	 * 评价3
+	 * 
+	 */
+	public static final int ORDER_UNCHECK		=	0;
+	public static final int ORDER_UNRECEIVE		=	1;
+	public static final int ORDER_UNASSESS	=	2;
+	public static final int ORDER_ASSESS	=	3;
 	//计划的四个状态
 	/**
 	 * 0：待审核

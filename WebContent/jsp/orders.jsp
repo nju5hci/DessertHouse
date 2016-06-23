@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+   %>
+   <%@ page import="java.util.List"%>
+     <%@ page import="dessert.model.OrderList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,7 +36,7 @@
    System.out.println(type);
    %>
    <li class="fore1">
-   <a href="orders.jsp" id="allorders" class="txt curr">全部订单</a>  
+   <a href="/DessertHouse/orders" id="allorders" class="txt curr">全部订单</a>  
    </li>
    <li>
    <a href="orders.jsp?s=2" id="ordertoPay" class="txt">待订单</a>
@@ -64,42 +67,52 @@
   <th>交易状态</th>
   <th>操作</th>
   </tr>
+  
   <tbody>
   <tr class="noshow_row">
      <td colspan="6"></td>
    <tr>
+     <% 
+                                String[] orderDate = (String[])request.getServletContext().getAttribute("orderDate");
+                        	double[]totalPrice=(double[])request.getServletContext().getAttribute("totalPrice");
+                        		int []orderId=(int [])request.getServletContext().getAttribute("orderId");
+                        		int []orderState=(int [])request.getServletContext().getAttribute("orderState");
+                    			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
+                        		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
+                        		for(int i = 0;i<num_dessert;i++){
+                	     %>
    <tr class="th-title">
      <td colspan="6">
      <span class="gap"></span>
-     <span class="dealtime" id="dealtime">2016-03-22 08:28:23</span>
-     <span class="number">订单号<a name="orderidlink" id="orderidlink" href="#"></a></span>
+     <span class="dealtime" id="dealtime"><%=orderState[i] %></span>
+     <span class="number">订单号<%=orderId[i] %><a name="orderidlink" id="orderidlink" href="#"></a></span>
      </td>
    </tr>
    <tr class="th-notitle">
       <td>
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
+           <a href="#"><img src=<%=list.get(i).get(0).getDessertPicture() %>  title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#">长裤xxxxxxxx</a>
+            <a href="#"><%=list.get(i).get(0).getDessertName()%> </a>
          </div>
          </div>        
       </td>
       <td>
          <div class="good-price">
-         80.0
+        <%=list.get(i).get(0).getDessertPrice() %> 
          </div>
       </td>
        <td>
          <div class="good-number">
-         X1
+       <%=list.get(i).get(0).getDessertNum() %> 
          </div>
       </td>
         <td rowspan="2">
         <div class="good-pay">
         
-        <span>总额￥227</span> 
+        <span><%=totalPrice[i] %></span> 
              
         <p></p>
         <span>在线支付</span>
@@ -108,7 +121,7 @@
        <td rowspan="2">
         <div class="good-state">
         <div class="w">
-        <span>已完成</span>
+        <span><%=orderState[i] %></span>
         </div>
          <a href="#" >订单详情</a>
         </div>
@@ -123,29 +136,42 @@
         </div>
       </td>
    </tr>
+   
+      <%
+                       for(int j=1;j<list.size();j++){
+                    	   System.out.println(j+"geshuhguis");
+                         %>
     <tr class="th-notitle">
     <td>
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
+           <a href="#"><img src="<%=list.get(i).get(j).getDessertPicture() %> " title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#">长裤xxxxxxxx</a>
+            <a href="#"><%=list.get(i).get(j).getDessertName()%> </a>
          </div>
          </div>        
       </td>
       <td>
          <div class="good-price">
-         80.0
+         <%=list.get(i).get(j).getDessertPrice() %> 
          </div>
       </td>
        <td>
          <div class="good-number">
-         X1
+        <%=list.get(i).get(j).getDessertNum() %> 
          </div>
       </td>
     </tr>
-   
+        
+     <%
+                        		}
+                         %>
+    
+     <%
+                        		}
+                         %>
+                          
   </tbody>
 </table>
 </div>

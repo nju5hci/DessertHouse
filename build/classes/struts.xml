@@ -428,6 +428,12 @@
 
 				
 		</action>
+		<action name="orders" class="dessert.action.OrdersAction">
+
+			<result name="success" type="redirect">/jsp/orders.jsp</result>
+
+				
+		</action>
 	</package>
 
 </struts>

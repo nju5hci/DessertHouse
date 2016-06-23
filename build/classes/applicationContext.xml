@@ -129,6 +129,7 @@
 	</bean>	
 	<bean id="orderService" class="dessert.serviceImpl.OrderServiceImpl">
 		<property name="orderDao" ref="orderDao" ></property>
+		<property name="orderListDao" ref="orderListDao" ></property>
 	</bean>	
 	<bean id="LoginAction" class="dessert.action.LoginAction">
 		<property name="memberService" ref="memberService" ></property>
@@ -384,6 +385,11 @@
 	
 		
 			<property name="memberService" ref="memberService" ></property>
+	</bean>
+	<bean id="OrdersAction" class="dessert.action.OrdersAction">
+	
+		
+			<property name="orderService" ref="orderService" ></property>
 	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean

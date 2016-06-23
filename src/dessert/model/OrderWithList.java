@@ -1,47 +1,27 @@
 package dessert.model;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="order")
-public class Order implements Serializable{
-	@Id
+public class OrderWithList {
 	private int orderId;//订单号
 	private int memberId;//谁下的订单
-	private int totalPrice;//总额
+	private double totalPrice;//总额
 	private int  orderState;//状态
 	private  String orderDate;//日期
-
-	public Order(){
+	private List<OrderList> list;
+	public OrderWithList(){
 		
 	}
-
-
-
-	public Order(int orderId, int memberId, int totalPrice, int orderState, String orderDate) {
+	public OrderWithList(int orderId, int memberId, double totalPrice, int orderState, String orderDate,
+			List<OrderList> list) {
 	
 		this.orderId = orderId;
 		this.memberId = memberId;
 		this.totalPrice = totalPrice;
 		this.orderState = orderState;
 		this.orderDate = orderDate;
-
+		this.list = list;
 	}
-
-
-	public String getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
-
 	public int getOrderId() {
 		return orderId;
 	}
@@ -54,10 +34,10 @@ public class Order implements Serializable{
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
-	public int getTotalPrice() {
+	public double getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public int getOrderState() {
@@ -66,6 +46,19 @@ public class Order implements Serializable{
 	public void setOrderState(int orderState) {
 		this.orderState = orderState;
 	}
-
+	public String getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+	public List<OrderList> getList() {
+		return list;
+	}
+	public void setList(List<OrderList> list) {
+		this.list = list;
+	}
+	
+	
 	
 }

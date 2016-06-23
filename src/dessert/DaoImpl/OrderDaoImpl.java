@@ -12,7 +12,7 @@ import dessert.DAO.OrderDao;
 import dessert.hibernate3.support.YeekuHibernateDaoSupport;
 import dessert.model.Activity;
 import dessert.model.MemberCard;
-import dessert.model.Order;
+import dessert.model.Orders;
 
 public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao{
 	@Autowired
@@ -27,44 +27,44 @@ public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao
 	}
 
 	@Override
-	public boolean addOrder(Order order) {
-		baseDao.save(order);
+	public boolean addOrders(Orders Orders) {
+		baseDao.save(Orders);
 		return true;
 	}
 
 	@Override
-	public boolean updateOrder(Order order) {
-		baseDao.update(order);
+	public boolean updateOrders(Orders Orders) {
+		baseDao.update(Orders);
 		return true;
 	}
 
 	@Override
-	public boolean deleteOrder(Order order) {
-		baseDao.delete(order);
+	public boolean deleteOrders(Orders Orders) {
+		baseDao.delete(Orders);
 		return true;
 	}
 
 	@Override
-	public Order getOrderById(int orderId) {
-		Order order=(Order) baseDao.load(Order.class, orderId);
-		return order;
+	public Orders getOrdersById(int OrdersId) {
+		Orders Orders=(Orders) baseDao.load(Orders.class, OrdersId);
+		return Orders;
 	}
 
 
 
 	@Override
-	public List<Order> getAllOrder() {
-		String hql = "from dessert.model.Order";
+	public List<Orders> getAllOrders() {
+		String hql = "from dessert.model.Orders";
 		Session session = baseDao.getNewSession();
 		return session.createQuery(hql).list();
 	}
 
 	@Override
-	public List<Order> getOrderByMemberId(int memberId) {
-		List<Order> dessertList=new ArrayList<Order>();
-		String hql="from dessert.model.Order where memberId ='"+memberId+"'";
+	public List<Orders> getOrdersByMemberId(int memberId) {
+		List<Orders> dessertList=new ArrayList<Orders>();
+		String hql="from dessert.model.Orders where memberId ='"+memberId+"'";
 		Session session=baseDao.getNewSession();
-		List<Order> desserts=session.createQuery(hql).list();
+		List<Orders> desserts=session.createQuery(hql).list();
 		if(desserts.size()>0){
 			for(int i=0;i<desserts.size();i++){
 				dessertList.add(desserts.get(i));
@@ -76,11 +76,11 @@ public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao
 	}
 
 	@Override
-	public List<Order> getOrderByDateAndMemberId(String date, int memberId) {
-		List<Order> dessertList=new ArrayList<Order>();
-		String hql="from dessert.model.Order where memberId ='"+memberId+"' and orderDate='"+date+"'";
+	public List<Orders> getOrdersByDateAndMemberId(String date, int memberId) {
+		List<Orders> dessertList=new ArrayList<Orders>();
+		String hql="from dessert.model.Orders where memberId ='"+memberId+"' and OrdersDate='"+date+"'";
 		Session session=baseDao.getNewSession();
-		List<Order> desserts=session.createQuery(hql).list();
+		List<Orders> desserts=session.createQuery(hql).list();
 		if(desserts.size()>0){
 			for(int i=0;i<desserts.size();i++){
 				dessertList.add(desserts.get(i));

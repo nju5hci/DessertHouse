@@ -2,25 +2,25 @@ package dessert.DAO;
 
 import java.util.List;
 
-import dessert.model.Order;
+import dessert.model.Orders;
 
 public interface OrderDao {
 	//新增
-			boolean addOrder(Order order);
+			boolean addOrders(Orders Orders);
 			
 			//更新
-			boolean updateOrder(Order order);
+			boolean updateOrders(Orders Orders);
 			
 			//删除
-			boolean deleteOrder(Order order);
+			boolean deleteOrders(Orders Orders);
 			
 			//通过id得到
-			Order getOrderById(int orderId);
+			Orders getOrdersById(int OrdersId);
 			//通过memberId得到
-			List<Order> getOrderByMemberId(int memberId);
+			List<Orders> getOrdersByMemberId(int memberId);
 			//通过日期和memberID得到
-			List<Order> getOrderByDateAndMemberId(String date,int memberId);
+			List<Orders> getOrdersByDateAndMemberId(String date,int memberId);
 			
 			//得到所有活动
-			List<Order> getAllOrder();
+			List<Orders> getAllOrders();
 }
