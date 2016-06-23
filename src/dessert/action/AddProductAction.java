@@ -32,11 +32,11 @@ public class AddProductAction extends BaseAction {
 				request.getParameter("dessertPrice")==""||request.getParameter("dessertStock")==""){    
 			return input;
 		}else{
-			Dessert dessert=new Dessert( Integer.parseInt(request.getParameter("dessertId")),  request.getParameter("dessertName"),
-					Double.parseDouble( request.getParameter("dessertPrice")),  request.getParameter("dessertInfo"),  
-					Integer.parseInt(request.getParameter("dessertStock")), 	request.getParameter("dessertPicAdd"));
-			
-			dessertService.addDessert(dessert);
+//			Dessert dessert=new Dessert( Integer.parseInt(request.getParameter("dessertId")),  request.getParameter("dessertName"),
+//					Double.parseDouble( request.getParameter("dessertPrice")),  request.getParameter("dessertInfo"),  
+//					Integer.parseInt(request.getParameter("dessertStock")), 	request.getParameter("dessertPicAdd"));
+//			
+//			dessertService.addDessert(dessert);
 		return success;
 		}
 	}

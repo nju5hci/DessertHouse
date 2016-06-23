@@ -22,10 +22,13 @@ public class Dessert  implements Serializable{
 	private int dessertStock;//甜品库存
 	
 	private String dessertPicAdd;//甜品照片所在地址
+	private String dessertPicAdd1;//甜品照片所在地址
+	private String dessertPicAdd2;//甜品照片所在地址
 	
 	
-	public Dessert(int dessertId, String dessertName, double dessertPrice,
-			String dessertInfo, int dessertStock, String dessertPicAdd) {
+
+	public Dessert(int dessertId, String dessertName, double dessertPrice, String dessertInfo, int dessertStock,
+			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2) {
 		
 		this.dessertId = dessertId;
 		this.dessertName = dessertName;
@@ -33,6 +36,8 @@ public class Dessert  implements Serializable{
 		this.dessertInfo = dessertInfo;
 		this.dessertStock = dessertStock;
 		this.dessertPicAdd = dessertPicAdd;
+		this.dessertPicAdd1 = dessertPicAdd1;
+		this.dessertPicAdd2 = dessertPicAdd2;
 	}
 	public Dessert(){
 		
@@ -76,6 +81,18 @@ public class Dessert  implements Serializable{
 	}
 	public void setDessertPicAdd(String dessertPicAdd) {
 		this.dessertPicAdd = dessertPicAdd;
+	}
+	public String getDessertPicAdd1() {
+		return dessertPicAdd1;
+	}
+	public void setDessertPicAdd1(String dessertPicAdd1) {
+		this.dessertPicAdd1 = dessertPicAdd1;
+	}
+	public String getDessertPicAdd2() {
+		return dessertPicAdd2;
+	}
+	public void setDessertPicAdd2(String dessertPicAdd2) {
+		this.dessertPicAdd2 = dessertPicAdd2;
 	}
 	
 }
