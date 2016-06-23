@@ -17,7 +17,7 @@
 
 <div class="header1">
 <div class="logo-con w clearfix">
-<a href="index.html" class="logo"><img src="../images/mu3.png" alt="" /></a>
+<a href="index.html" class="logo"><img src="../image/tag.jpg" alt="" /></a>
 <div class="logo-title">欢迎注册</div>
 <div class="have-account">
 已有账号&nbsp<a href="login.jsp">请登录</a>
@@ -26,6 +26,7 @@
 </div>
 <div class="wrapper" style="margin-top:50px;">
 <div class="main_tape">
+<div class="contain">
 <div class="reg-form fl">
             <form action="/DessertHouse/register" method="post">
            <%		
@@ -33,7 +34,7 @@
 				if(request.getParameter("error") != null && request.getParameter("error").equals("0")){
 					
 				%>
-				<p style="color: red;">输入不能为空</p>
+				<p style="color: red;text-align:center">输入不能为空</p>
 				<%
 				}
 				%>
@@ -41,12 +42,12 @@
                 	<%
                 if(request.getParameter("error") != null && request.getParameter("error").equals("1")){
                 %>
-                        <p style="color: red;">您的手机号已经注册</p>
+                        <p style="color: red;text-align:center">您的手机号已经注册</p>
                 <%
                 }
                 if(request.getParameter("error") != null && request.getParameter("error").equals("2")){
                 %>
-                        <p style="color: red;">输入的两次密码不一致</p>
+                        <p style="color: red;text-align:center">输入的两次密码不一致</p>
                 <%
                 }
                 %>
@@ -87,26 +88,45 @@
           
                     <input type="password" name="confirm" id="form-equalTopwd" class="field" placeholder="请再次输入密码"
                            maxlength="20"  />
-                    
+                           </div>
+                 <div class="input-tip">
+                    <span></span>
                 </div>
+                   <div class="form-item">
+                    <label>密 保 问 题</label>
+                    <label style='width:200px'>您父亲的姓名?</label>
+                    
+                           </div>                
+                <div class="input-tip">
+                    <span></span>
+                </div>
+                 <div class="form-item">
+                    <label>答案</label>
+            
+                    <input type="text" name="answer" id="form-equalTopwd" class="field" placeholder="请输入问题的答案"
+                           maxlength="20"  />
+                           </div>  
                 <div class="input-tip">
                     <span></span>
                 </div>
                 <div>
                     <button type="submit" class="btn-register">立即注册</button>
                 </div>
-                  
+                
+                
+                
+              
             </form>
         </div>
 
-
+</div>
 </div>
 </div>
 <div class="footer">
 	<div class="seperator"></div>
 	<div class="footer-info">
 		
-		<p>Copyright@2002-2016 一亩e田版权所有</p>
+		<p>Copyright@2002-2016 半亩田版权所有</p>
 	</div>
 </div>
 </body>

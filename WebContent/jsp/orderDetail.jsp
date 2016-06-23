@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我的一亩-我的订单</title>
+<title>我的半亩-我的订单</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/orderdetail.css">
 <link rel="stylesheet" type="text/css" href="../css/table.css">
@@ -13,7 +13,7 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">一亩e田</div>
+    <div class="title">半亩田</div>
     <div class="float-right">
         <a href="">购物车</a>
         <a href="">我的订单</a>
@@ -227,7 +227,7 @@
 <div class="footer">
 	<div class="seperator"></div>
 	<div class="footer-info">		
-		<p>Copyright@2002-2016 一亩e田版权所有</p>
+		<p>Copyright@2002-2016 半亩田版权所有</p>
 	</div>
 </div>
 </body>
