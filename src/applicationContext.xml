@@ -82,10 +82,22 @@
 	<bean id="soilDao" class="dessert.DaoImpl.SoilDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
-	
+	<bean id="addressDao" class="dessert.DaoImpl.AddressDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="comparePriceDao" class="dessert.DaoImpl.ComparePriceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean id="orderDao" class="dessert.DaoImpl.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+		<bean id="orderListDao" class="dessert.DaoImpl.OrderListDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
 	<bean id="dessertService" class="dessert.serviceImpl.DessertServiceImpl">
 			<property name="dessertDao" ref="dessertDao" ></property>
 			<property name="assessDao" ref="assessDao" ></property>
+			<property name="comparePriceDao" ref="comparePriceDao" ></property>
 	</bean>	
 	<bean id="memberService" class="dessert.serviceImpl.MemberServiceImpl">
 			<property name="memberDao" ref="memberDao" ></property>
@@ -93,6 +105,7 @@
 		<property name="memberCardDao" ref="memberCardDao" ></property>
 		<property name="reserveDao" ref="reserveDao" ></property>
 		<property name="assessDao" ref="assessDao" ></property>
+	<property name="addressDao" ref="addressDao" ></property>
 	</bean>	
 	<bean id="memberCardService" class="dessert.serviceImpl.MemberCardServiceImpl">
 			<property name="memberCardDao" ref="memberCardDao" ></property>
@@ -113,6 +126,9 @@
 	</bean>	
 	<bean id="giftService" class="dessert.serviceImpl.GiftServiceImpl">
 		<property name="giftDao" ref="giftDao" ></property>
+	</bean>	
+	<bean id="orderService" class="dessert.serviceImpl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao" ></property>
 	</bean>	
 	<bean id="LoginAction" class="dessert.action.LoginAction">
 		<property name="memberService" ref="memberService" ></property>
