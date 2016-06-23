@@ -3,6 +3,7 @@ package dessert.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import dessert.model.Address;
 import dessert.model.Assess;
 import dessert.model.Member;
 import dessert.model.Recharge;
@@ -88,4 +89,19 @@ public interface MemberService {
 		
 		//判断有咩有reserveID被用
 		Reserve getReservesByid(int reserveid);
+		
+		
+		//对地址的增删改
+		//新增
+		boolean addAddress(Address address);
+		
+		//更新
+		boolean updateAddress(Address address);
+		
+		//删除
+		boolean deleteAddress(Address address);
+
+		
+		//通过memberid得到
+		List<Address> getAddressByMemberId(int mid);
 }

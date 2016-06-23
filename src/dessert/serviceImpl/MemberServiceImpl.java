@@ -6,12 +6,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import dessert.DAO.AddressDao;
 import dessert.DAO.AssessDao;
 import dessert.DAO.DessertDao;
 import dessert.DAO.MemberCardDao;
 import dessert.DAO.MemberDao;
 import dessert.DAO.ReserveDao;
 import dessert.configure.Configure;
+import dessert.model.Address;
 import dessert.model.Assess;
 import dessert.model.Member;
 import dessert.model.MemberCard;
@@ -27,7 +29,12 @@ public class MemberServiceImpl implements MemberService{
 	private ReserveDao reserveDao;
 	
 	private AssessDao assessDao;
+	private AddressDao addressDao;
 	
+
+	public void setAddressDao(AddressDao addressDao) {
+		this.addressDao = addressDao;
+	}
 
 	public void setAssessDao(AssessDao assessDao) {
 		this.assessDao = assessDao;
@@ -270,6 +277,27 @@ public class MemberServiceImpl implements MemberService{
 		reserve.setState(Configure.RESERVE_DELETE);
 		reserveDao.updateState(reserve);
 		
+	}
+
+	@Override
+	public boolean addAddress(Address address) {
+		return addressDao.addAddress(address);
+		
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+		return addressDao.updateAddress(address);
+	}
+
+	@Override
+	public boolean deleteAddress(Address address) {
+		return addressDao.deleteAddress(address);
+	}
+
+	@Override
+	public List<Address> getAddressByMemberId(int mid) {
+		return addressDao.getAddressByMemberId(mid);
 	}
 
 }

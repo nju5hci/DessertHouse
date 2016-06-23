@@ -3,6 +3,7 @@ package dessert.service;
 import java.util.List;
 
 import dessert.model.Assess;
+import dessert.model.ComparePrice;
 import dessert.model.Dessert;
 
 public interface DessertService {
@@ -26,4 +27,7 @@ public interface DessertService {
 	List<Assess> getAllAssess(int dessertid);
 	
 
+	//得到某一个甜品的所有价格
+	//通过dessertId得到
+	List<ComparePrice> getComparePriceByDessertId(int dessertId);
 }

@@ -3,8 +3,10 @@ package dessert.serviceImpl;
 import java.util.List;
 
 import dessert.DAO.AssessDao;
+import dessert.DAO.ComparePriceDao;
 import dessert.DAO.DessertDao;
 import dessert.model.Assess;
+import dessert.model.ComparePrice;
 import dessert.model.Dessert;
 import dessert.service.DessertService;
 
@@ -13,6 +15,13 @@ public class DessertServiceImpl implements DessertService{
 
 	private AssessDao assessDao;
 	
+	private ComparePriceDao comparePriceDao;
+	
+	
+	public void setComparePriceDao(ComparePriceDao comparePriceDao) {
+		this.comparePriceDao = comparePriceDao;
+	}
+
 	public void setAssessDao(AssessDao assessDao) {
 		this.assessDao = assessDao;
 	}
@@ -59,6 +68,11 @@ public class DessertServiceImpl implements DessertService{
 	@Override
 	public List<Assess> getAllAssess(int dessertid) {
 		return assessDao.getAssessByDessert(dessertid);
+	}
+
+	@Override
+	public List<ComparePrice> getComparePriceByDessertId(int dessertId) {
+		return comparePriceDao.getComparePriceByDessertId(dessertId);
 	}
 
 
