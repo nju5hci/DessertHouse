@@ -129,7 +129,7 @@
         <div class="w">
         <span><%=orderState[i] %></span>
         </div>
-         <a href="#" >订单详情</a>
+         <a href="/DessertHouse/orderDetail?orderid=<%=orderId[i] %>" >订单详情</a>
         </div>
       </td>
        <td rowspan="<%=list.get(i).size()%>">
