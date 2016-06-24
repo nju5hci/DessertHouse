@@ -29,8 +29,8 @@
 <div class="mt">
 <ul class="extra-l">
    <% String type="all";
-   if(request.getParameter("s")!=null){
-	   type=request.getParameter("s");
+   if(request.getParameter("type")!=null){
+	   type=request.getParameter("type");
    }
    System.out.println(type);
    %>
