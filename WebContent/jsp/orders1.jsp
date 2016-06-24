@@ -79,7 +79,7 @@
                                 String[] orderDate = (String[])request.getServletContext().getAttribute("orderDate");
                         	double[]totalPrice=(double[])request.getServletContext().getAttribute("totalPrice");
                         		int []orderId=(int [])request.getServletContext().getAttribute("orderId");
-                        		int []orderState=(int [])request.getServletContext().getAttribute("orderState");
+                        		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
                      		for(int i = 0;i<num_dessert;i++){
@@ -148,7 +148,7 @@
     <!-- 显示其余行 -->
    
    <%
-                       for(int j=1;j<list.size();j++){
+                       for(int j=1;j<list.get(i).size();j++){
                     	   System.out.println(j+"geshuhguis");
                          %>
     <tr class="th-notitle">
