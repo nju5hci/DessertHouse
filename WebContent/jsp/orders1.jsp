@@ -70,9 +70,6 @@
   <th>操作</th>
   </tr>
   <tbody>
-  <tr class="noshow_row">
-     <td colspan="6"></td>
-   <tr>
         <%    if(request.getServletContext().getAttribute("orderDate")==null){
         	System.out.println("目前没有获得所有信息");
         }else{
@@ -148,7 +145,7 @@
     <!-- 显示其余行 -->
    
    <%
-                       for(int j=1;j<list.get(i).size();j++){
+                       for(int j=1;j<list.size();j++){
                     	   System.out.println(j+"geshuhguis");
                          %>
     <tr class="th-notitle">
