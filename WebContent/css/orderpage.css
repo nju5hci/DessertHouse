@@ -68,4 +68,18 @@ div.mod-main .mt .extra-l li em {
     padding-left: 40px;
     margin-left: 20px
 }
-
+.beforeafter{
+	width:150px;
+	height:100%;
+	float:right;
+}
+.beforeafter .before{
+	margin-top:4px;
+	
+	margin-bottom:-50px;
+}
+.beforeafter .before:hover{
+   border:1px solid #e4393c;
+   background-color:white;
+   color:#e4393c;
+}

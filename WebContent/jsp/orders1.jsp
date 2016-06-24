@@ -28,14 +28,21 @@
 <div class="mod-main mod-comm  lefta-box" id="order02">
 <div class="mt">
 <ul class="extra-l">
-   <% String type="all";
+   <% 
+   String type="1";
    if(request.getParameter("type")!=null){
 	   type=request.getParameter("type");
    }
-   System.out.println(type);
+   System.out.println("===="+type);
    %>
-     
-  
+   <% int currentpage=0; 
+      if(request.getParameter("page")!=null){
+    	  currentpage=Integer.parseInt(request.getParameter("page"));    	  
+    	  System.out.println(currentpage);
+      }
+      System.out.println("----"+currentpage);
+   %> 
+ 
    
    <li class="fore1">
    <a href="/DessertHouse/orders" id="allorders" class="txt curr">全部订单</a>  
@@ -70,7 +77,19 @@
   <th>操作</th>
   </tr>
   <tbody>
-        <%    if(request.getServletContext().getAttribute("orderDate")==null){
+     <!-- 上一页下一页按钮 -->
+     <tr class="noshow_row">     
+     <td colspan="6">
+     <div class="beforeafter">
+     <button class='before' id='before'>上一页</button>
+     <button class='before' id='next'>下一页</button>
+     </div>
+     </td>
+     <tr>
+     <!--  -->
+        <%   
+        int maxpage=0;
+        if(request.getServletContext().getAttribute("orderDate")==null){
         	System.out.println("目前没有获得所有信息");
         }else{
                                 String[] orderDate = (String[])request.getServletContext().getAttribute("orderDate");
@@ -79,7 +98,8 @@
                         		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
-                     		for(int i = 0;i<num_dessert;i++){
+                        		maxpage=num_dessert/5;
+                        		for(int i = 0;i<num_dessert;i++){
                 %>
             <!-- 显示空白 -->
     <tr class="noshow_row">
@@ -89,7 +109,7 @@
       <tr class="th-title">
      <td colspan="6">
      <span class="gap"></span>
-     <span class="dealtime" id="dealtime"><%=orderState[i] %></span>
+     <span class="dealtime" id="dealtime"><%=orderDate[i] %></span>
      <span class="number">订单号:<%=orderId[i] %><a name="orderidlink" id="orderidlink" href="#"><%=orderId[i] %></a></span>
      </td>
      </tr>
@@ -134,7 +154,7 @@
       </td>
        <td rowspan="<%=list.get(i).size()%>">
         <div class="good-operate">
-          <%System.out.println(orderState[i]); %>
+          <%  //System.out.println(orderState[i]); %>
         
         <div class="goog-buy">
          <% if(orderState[i].equals("待付款")){%>
@@ -157,7 +177,7 @@
    
    <%
                        for(int j=1;j<list.get(i).size();j++){
-                    	   System.out.println(j+"geshuhguis");
+                    	 //  System.out.println(j+"geshuhguis");
                          %>
     <tr class="th-notitle">
     <td>
@@ -208,13 +228,14 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	var type=<%=type%>;
+	//alert(type);
 	if(type=="2"){
 		//alert($("#ordertoPay").attr("class"));
 		$("#ordertoPay").attr("class","txt curr");
 		$("#allorders").attr("class","txt");
 		$("#ordertoReceive").attr("class","txt");
 		$("#ordertoComment").attr("class","txt");
-		}else  if(type=="all"){
+		}else  if(type=="1"){
 			$("#ordertoPay").attr("class","txt");
 			$("#allorders").attr("class","txt curr");
 			$("#ordertoReceive").attr("class","txt");
@@ -229,7 +250,33 @@ $(document).ready(function() {
 			$("#allorders").attr("class","txt");
 			$("#ordertoReceive").attr("class","txt");
 			$("#ordertoComment").attr("class","txt curr");}
-	
+	var pagenumber=<%=currentpage%>;
+	if(pagenumber==0){
+		alert(pagenumber);
+		document.getElementById("before").disabled=true;
+		
+	}else{
+		document.getElementById("before").disabled=false;
+		}
+	if(pagenumber==<%=maxpage%>){
+		document.getElementById("next").disabled=true;
+		}else{
+		document.getElementById("next").disabled=false;
+		}
+	$("#before").click(function(){
+		alert(currentpage);
+		var number=pagenumber-1;
+		var url="orders1.jsp?type="+type+"&page="+number;
+		alert(url);
+		window.location.href=url;
+		});
+	$("#after").click(function(){
+		alert(currentpage);
+		var number=pagenumber+1;
+		var url="orders1.jsp?type="+type+"&page="+number;
+		alert(url);
+		window.location.href=url;
+});
 	
 });
 </script>

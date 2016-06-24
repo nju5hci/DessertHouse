@@ -153,11 +153,12 @@
 }
 .all_pay .left{
 	float:right;
+	font-size:14px;
 	width:100px;
 }
 .all_pay .right{
 	float:right;
-	
+	font-size:14px;
 	width:100px;
 }
 .all_pay .left p{

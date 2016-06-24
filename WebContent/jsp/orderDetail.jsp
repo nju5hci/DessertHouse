@@ -160,12 +160,12 @@
 <div class="left">
    <p align="center"><%=totalPrice %></p>
    <p align="center"> xxx</p>
-   <p align="center"> xxx</p>
+   <p align="center" style="color:red"> xxx</p>
 </div>
 <div class="right">
    <p>商品总额:</p>
    <p>折&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扣:</p>
-   <p>折后价格:</p>
+   <p style="color:red">应付总额:</p>
 </div>   
 </div>
 </div>
