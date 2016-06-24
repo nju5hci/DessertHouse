@@ -458,6 +458,12 @@
 
 				
 		</action>
+		<action name="confirmOrder" class="dessert.action.ComfirmOrderAction">
+
+			<result name="success" type="redirect">/DessertHouse/orders</result>
+
+				
+		</action>
 
 	</package>
 

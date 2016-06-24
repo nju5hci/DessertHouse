@@ -413,6 +413,11 @@
 		
 			<property name="orderService" ref="orderService" ></property>
 	</bean>
+	<bean id="ComfirmOrderAction" class="dessert.action.ComfirmOrderAction">
+	
+		
+			<property name="orderService" ref="orderService" ></property>
+	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
