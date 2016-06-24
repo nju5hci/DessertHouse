@@ -41,6 +41,7 @@ public class ResetPassAction  extends BaseAction{
 			String  newp1 = (String)request.getParameter("newp1");
 			Member m=memberService.checkInfo(account);
 			if(oldp.equals("")||newp.equals("")||newp1.equals("")){
+				//response.getWriter().
 				return input;
 			}else if(!newp.equals(newp1)){
 				return diff;
