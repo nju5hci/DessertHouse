@@ -300,4 +300,9 @@ public class MemberServiceImpl implements MemberService{
 		return addressDao.getAddressByMemberId(mid);
 	}
 
+	@Override
+	public boolean hasThisId(int id, String phone) {
+		return memberDao.hasThisId(id);
+	}
+
 }

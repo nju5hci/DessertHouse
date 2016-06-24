@@ -52,7 +52,7 @@ public class OrderDetailAction extends BaseAction{
 			String sendTime=orders.getSendTime();//送货施加
 		 String sendWay=orders.getSendWay();//配送方式
 		String payWay=orders.getPayWay();//付款方式
-		
+		double discount=orders.getDiscount();
 		
 			double totalPrice=orders.getTotalPrice();
 			
@@ -90,6 +90,7 @@ public class OrderDetailAction extends BaseAction{
 			sc.setAttribute("sendAddress", sendAddress);
 			sc.setAttribute("sendTime", sendTime);
 			sc.setAttribute("sendWay", sendWay);
+			sc.setAttribute("discount", discount);
 			sc.setAttribute("payWay", payWay);
 			sc.setAttribute("totalPrice", totalPrice);
 			sc.setAttribute("orderState", orderState);

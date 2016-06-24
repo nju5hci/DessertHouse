@@ -93,4 +93,17 @@ public class MemberDaoImpl extends YeekuHibernateDaoSupport implements MemberDao
 		return session.createQuery(hql).list();
 	}
 
+	@Override
+	public boolean hasThisId(int mid) {
+		
+		String hql = "from dessert.model.Member where mid ='"+mid+"'";
+		Session session = baseDao.getNewSession();
+		List<Member> ml = session.createQuery(hql).list();
+		if(ml.size()==0){
+			return false;
+		}else {
+			return true;
+		}
+	}
+
 }

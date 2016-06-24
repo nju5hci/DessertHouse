@@ -21,6 +21,8 @@ public interface MemberService {
 	//通过id得到所有的缴费记录
 	List<Recharge> getRechargeById(int mid);
 
+	//根据id和手机号
+	boolean hasThisId(int id,String phone);
 	
 	//修改注册信息
 	void updateInfo(Member member);

@@ -33,5 +33,7 @@ public interface MemberDao {
 		
 		//得到所有会员
 		List<Member> getAllMembers();
+		//看是否存在这个id
+		boolean hasThisId(int mid);
 		
 }
