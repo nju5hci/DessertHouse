@@ -16,7 +16,7 @@
     <div class="float-right">
         <a href="">购物车</a>
         <a href="">我的订单</a>
-        <a href="personalSet.jsp">设置</a>
+        <a href="/DessertHouse/personalSet">设置</a>
         <a href="">退出</a>
      </div>
 </div>

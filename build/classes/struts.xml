@@ -464,6 +464,12 @@
 
 				
 		</action>
+			<action name="personalSet" class="dessert.action.PersonalSetAction">
+
+			<result name="profile" type="redirect">/jsp/personalSet.jsp</result>
+	<result name="success" type="redirect">/jsp/personalSet.jsp</result>
+				
+		</action>
 
 	</package>
 

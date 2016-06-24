@@ -418,6 +418,11 @@
 		
 			<property name="orderService" ref="orderService" ></property>
 	</bean>
+	<bean id="PersonalSetAction" class="dessert.action.PersonalSetAction">
+	
+		
+			<property name="memberService" ref="memberService" ></property>
+	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
