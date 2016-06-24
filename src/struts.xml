@@ -440,6 +440,19 @@
 
 				
 		</action>
+		<action name="orders3" class="dessert.action.Orders3Action">
+
+			<result name="success" type="redirect">/jsp/orders1.jsp</result>
+
+				
+		</action>
+			<action name="orders4" class="dessert.action.Orders4Action">
+
+			<result name="success" type="redirect">/jsp/orders1.jsp</result>
+
+				
+		</action>
+
 	</package>
 
 </struts>

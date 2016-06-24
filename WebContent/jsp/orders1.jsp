@@ -44,10 +44,10 @@
    <a href="/DessertHouse/orders2" id="ordertoPay" class="txt">待付款</a>
    </li>
    <li>
-   <a href="orders.jsp?s=3"  id="ordertoReceive" class="txt">待收货</a>
+   <a href="/DessertHouse/orders3"  id="ordertoReceive" class="txt">待收货</a>
    </li>  
     <li>
-   <a href="orders.jsp?s=4"  id="ordertoComment" class="txt">待评价</a>
+   <a href="/DessertHouse/orders4"  id="ordertoComment" class="txt">待评价</a>
    </li> 
 </ul>
 </div>

@@ -34,7 +34,7 @@ public class Orders3Action extends BaseAction{
 		public String execute() throws Exception {
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
-			List<OrderWithList> orderWithListrs=orderService.getOrdersByMemberId(mid);
+			List<OrderWithList> orderWithListrs=orderService.getOrdersByMemberIdAndState(mid, Configure.ORDER_UNRECEIVE);
 	/**
 	 * 	private int orderId;//订单号
 	private int memberId;//谁下的订单
