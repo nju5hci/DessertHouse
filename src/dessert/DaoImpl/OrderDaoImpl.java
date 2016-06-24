@@ -91,5 +91,21 @@ public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao
 		return dessertList;
 	}
 
+	@Override
+	public List<Orders> getOrdersByMemberIdAndState(int memberId, int state) {
+		List<Orders> dessertList=new ArrayList<Orders>();
+		String hql="from dessert.model.Orders where memberId ='"+memberId+"' and orderState='"+state+"'";
+		Session session=baseDao.getNewSession();
+		List<Orders> desserts=session.createQuery(hql).list();
+		if(desserts.size()>0){
+			for(int i=0;i<desserts.size();i++){
+				dessertList.add(desserts.get(i));
+			}
+		}else{
+			System.out.println("找不到这个订单");
+		}
+		return dessertList;
+	}
+
 
 }

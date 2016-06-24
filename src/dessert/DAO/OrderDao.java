@@ -18,6 +18,8 @@ public interface OrderDao {
 			Orders getOrdersById(int OrdersId);
 			//通过memberId得到
 			List<Orders> getOrdersByMemberId(int memberId);
+			//通过memberId得到zhuangtai
+			List<Orders> getOrdersByMemberIdAndState(int memberId,int state);
 			//通过日期和memberID得到
 			List<Orders> getOrdersByDateAndMemberId(String date,int memberId);
 			

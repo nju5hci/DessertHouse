@@ -41,7 +41,7 @@
    <a href="/DessertHouse/orders" id="allorders" class="txt curr">全部订单</a>  
    </li>
    <li>
-   <a href="orders.jsp?s=2" id="ordertoPay" class="txt">待付款</a>
+   <a href="/DessertHouse/orders2" id="ordertoPay" class="txt">待付款</a>
    </li>
    <li>
    <a href="orders.jsp?s=3"  id="ordertoReceive" class="txt">待收货</a>
