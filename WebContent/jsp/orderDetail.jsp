@@ -26,8 +26,17 @@
 <p style="font-size:13px">我的一亩>订单中心>订单:</p>
 </div>
 <div class="order_state_process">
-
-<p align="center" style="font-size:12px">订单号:xxxx</p>
+  <% 
+	int  orderID =( Integer)(request.getServletContext().getAttribute("orderID"));
+	 String sendAddress = (String)request.getServletContext().getAttribute("sendAddress");
+		String sendTime= (String)request.getServletContext().getAttribute("sendTime");
+		String sendWay= (String)request.getServletContext().getAttribute("sendWay");
+		String payWay = (String)request.getServletContext().getAttribute("payWay");
+		double totalPrice =(Double)request.getServletContext().getAttribute("totalPrice");
+		int orderState= ( Integer)request.getServletContext().getAttribute("orderState");            
+                	  
+		 %>
+<p align="center" style="font-size:12px">订单号:<%=orderID %></p>
 
 <div class="right">
 
@@ -53,17 +62,17 @@
 <div class="left">
 
 <p class="title">收货人信息</p><br>
-<p class="item">地址:  xxxx</p>
+<p class="item">地址:<%=sendAddress %></p>
 </div>
 <div class="left1">
 <p class="title">配送信息</p><br>
-<p class="item">配送方式:</p>
-<p class="item">送货日期:</p>
+<p class="item">配送方式:<%=sendWay %></p>
+<p class="item">送货日期:<%=sendTime %></p>
 </div>
 <div class="right">
 <p class="title">付款信息</p><br>
-<p class="item">付款方式:</p>
-<p class="item">商品总额:</p>
+<p class="item">付款方式:<%=payWay %></p>
+<p class="item">商品总额:<%=totalPrice %></p>
 </div>
 
 </div>
@@ -88,35 +97,45 @@
   </tr>
   <tr class="th-notitle">
       <td >
+         <% 
+         int []dessertId = (int[])request.getServletContext().getAttribute("dessertId");
+         int []dessertNum = (int[])request.getServletContext().getAttribute("dessertNum");
+         double[] dessertPrice = (double[])request.getServletContext().getAttribute("dessertPrice");
+         double[] desserttotalPrice=(double[])request.getServletContext().getAttribute("desserttotalPrice");
+         String[] dessertPicture = (String[])request.getServletContext().getAttribute("dessertPicture");
+         String[] dessertName=(String[])request.getServletContext().getAttribute("dessertName");
+                        		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
+                        		for(int i = 0;i<num_dessert;i++){
+                	     %>
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
+           <a href="#"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#">长裤xxxxxxxx</a>
+            <a href="#"><%=dessertName[i] %></a>
          </div>
          </div>        
       </td>
       <td>
          <div class="good-price">
-         312222
+        <%=dessertId[i] %>
          </div>
       </td>
        <td>
          <div class="good-number">
-         87
+      <%=dessertPrice[i] %>
          </div>
       </td>
         <td>
         <div class="good-pay">
         
-        <span>X1</span> 
+        <span>      <%=dessertNum[i] %></span> 
        
          </div>
       </td>
        <td >
         <div class="good-state">
-        <span>金额227</span>
+        <span> <%=desserttotalPrice[i] %></span>
         </div>
       </td>
        <td>        
@@ -126,84 +145,12 @@
       </td>
    </tr>
  <!-- - -->
- <tr class="th-notitle">
-      <td >
-         <div class="good">
-         <div class="good-item">
-           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
-         </div>
-         <div class="good-mes">
-            <a href="#">长裤xxxxxxxx</a>
-         </div>
-         </div>        
-      </td>
-      <td>
-         <div class="good-price">
-         312222
-         </div>
-      </td>
-       <td>
-         <div class="good-number">
-         87
-         </div>
-      </td>
-        <td>
-        <div class="good-pay">
-        
-        <span>X1</span> 
-       
-         </div>
-      </td>
-       <td >
-        <div class="good-state">
-        <span>金额227</span>
-        </div>
-      </td>
-       <td>        
-        <div class="goog-buy" style="text-align:center;border:2px solid white;">
-        <a href="#">立即购买</a>
-        </div>
-      </td>
-   </tr>
-   <tr class="th-notitle">
-      <td >
-         <div class="good">
-         <div class="good-item">
-           <a href="#"><img src="#" title="" width="60px" height="60px"></a>
-         </div>
-         <div class="good-mes">
-            <a href="#">长裤xxxxxxxx</a>
-         </div>
-         </div>        
-      </td>
-      <td>
-         <div class="good-price">
-         312222
-         </div>
-      </td>
-       <td>
-         <div class="good-number">
-         87
-         </div>
-      </td>
-        <td>
-        <div class="good-pay">
-        
-        <span>X1</span> 
-       
-         </div>
-      </td>
-       <td >
-        <div class="good-state">
-        <span>金额227</span>
-        </div>
-      </td>
-       <td>        
-        <div class="goog-buy" style="text-align:center;border:2px solid white;">
-        <a href="#">立即购买</a>
-        </div>
-      </td>
-   </tr>
+    <%
+                        		}
+                         %>
+                          
+                      
+			
    <!--  -->
   </table>
   <div class="all_pay">
@@ -213,7 +160,7 @@
    <p align="center"> xxx</p>
 </div>
 <div class="right">
-   <p>商品总额:</p>
+   <p>商品总额:<%=totalPrice %></p>
    <p>折&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扣:</p>
 </div>   
 </div>
