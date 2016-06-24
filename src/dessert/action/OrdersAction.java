@@ -7,7 +7,6 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import dessert.configure.Configure;
 import dessert.model.Dessert;
 import dessert.model.OrderList;
 import dessert.model.OrderWithList;
@@ -50,14 +49,14 @@ public class OrdersAction extends BaseAction{
 		int []orderId=new int[orderWithListrs.size()];
 		
 			double[] totalPrice=new double[orderWithListrs.size()];
-			String[] orderState=new String[orderWithListrs.size()];
+			int[] orderState=new int[orderWithListrs.size()];
 		
 			String[] orderDate=new String[orderWithListrs.size()];
 			List<List<OrderList>> list=new ArrayList<>();
 			
 			for(int i=0;i<orderWithListrs.size();i++){
 				orderId[i]=orderWithListrs.get(i).getOrderId();
-						orderState[i]=change(orderWithListrs.get(i).getOrderState());
+						orderState[i]=orderWithListrs.get(i).getOrderState();
 						totalPrice[i]=orderWithListrs.get(i).getTotalPrice();
 						orderDate[i]=orderWithListrs.get(i).getOrderDate();
 		list.add(orderWithListrs.get(i).getList());
@@ -73,18 +72,5 @@ public class OrdersAction extends BaseAction{
 			
 			return success;
 		}
-private String change(int i){
-	/**
-	 * 待下单0；
-	 * 未收货1
-	 * 未评价2
-	 * 评价3
-	 * 
-	 */
-	if(i==Configure.ORDER_UNCHECK) return "待付款";
-	else if(i==Configure.ORDER_UNRECEIVE) return "未收货";
-	else if(i==Configure.ORDER_UNASSESS) return "未评价";
-	else if(i==Configure.ORDER_ASSESS) return "已评价";
-	else return "";
-}
+
 }

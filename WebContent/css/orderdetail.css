@@ -75,7 +75,7 @@
 	margin-top: 10px;
 	width: 100%;
 	height: 300px;
-	border-top: 3px solid #8cac7a;
+	border-top: 3px solid #B1191A;
 	background-color:#f3f4f2;
 	
 }
@@ -98,14 +98,14 @@
 	margin-top: 20px;
 	width: 100%;
 	min-height:300px;
-	border-top: 3px solid #8cac7a;
+	border-top: 3px solid #B1191A;
 	background-color:#f3f4f2;
 }
 .list_class{
 	margin-top: 20px;
 	width: 100%;
 	min-height:500px;
-	border-top: 3px solid #8cac7a;
+	border-top: 3px solid #B1191A;
 	background-color:#f3f4f2;
 }
 .order_class .left{

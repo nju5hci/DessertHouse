@@ -391,11 +391,6 @@
 		
 			<property name="orderService" ref="orderService" ></property>
 	</bean>
-	<bean id="Orders2Action" class="dessert.action.Orders2Action">
-	
-		
-			<property name="orderService" ref="orderService" ></property>
-	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />

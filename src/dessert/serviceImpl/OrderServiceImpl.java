@@ -93,20 +93,6 @@ public class OrderServiceImpl implements OrderService{
 		return orderListDao.getOrderListByOrderId(orderId);
 	}
 
-	@Override
-	public List<OrderWithList> getOrdersByMemberIdAndState(int memberId, int state) {
-		List<Orders> orders=orderDao.getOrdersByMemberIdAndState(memberId, state);
-		List<OrderWithList>  result=new ArrayList<OrderWithList>();
-		for(int i=0;i<orders.size();i++){
-			OrderWithList orderWithList=new OrderWithList(orders.get(i).getOrderId(),
-					orders.get(i).getMemberId(), orders.get(i).getTotalPrice(),
-					orders.get(i).getOrderState(), orders.get(i).getOrderDate(),
-					getOrdersListByOrdersId(orders.get(i).getOrderId()));
-			result.add(orderWithList);
-		}
-		return result;
-	}
-
 
 
 }
