@@ -33,14 +33,14 @@
    if(request.getParameter("type")!=null){
 	   type=request.getParameter("type");
    }
-   System.out.println("===="+type);
+  // System.out.println("===="+type);
    %>
    <% int currentpage=0; 
       if(request.getParameter("page")!=null){
     	  currentpage=Integer.parseInt(request.getParameter("page"));    	  
-    	  System.out.println(currentpage);
+    	//  System.out.println(currentpage);
       }
-      System.out.println("----"+currentpage);
+     // System.out.println("----"+currentpage);
    %> 
  
    
@@ -98,16 +98,19 @@
                         		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
-                        		maxpage=num_dessert/5+1;
+                        		maxpage=num_dessert/4;
                         		int beginnumber=0;
                         		int endnumber=0;
                         		int pagesize=4;
+                        		System.out.println(num_dessert+"大小:");
                         		if(num_dessert<=pagesize){
                         			beginnumber=0;
                         			endnumber=num_dessert;
                         		}else if(num_dessert>pagesize){
+                        			System.out.println("have next page");
                         			beginnumber=currentpage*4;
-                        		    if((beginnumber+4)<num_dessert){
+                        			
+                        		    if((beginnumber+4)>num_dessert){
                         		    	endnumber=num_dessert;
                         		    }else{
                         		    	endnumber=beginnumber+4;
@@ -243,7 +246,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	var type=<%=type%>;
-	//alert(type);
+	
 	if(type=="2"){
 		//alert($("#ordertoPay").attr("class"));
 		$("#ordertoPay").attr("class","txt curr");
@@ -278,25 +281,27 @@ $(document).ready(function() {
 		}
 	if(pagenumber==<%=maxpage%>){
 		document.getElementById("next").disabled=true;
-		$("#after").removeClass("after");
+		$("#next").removeClass("before");
 		}else{
 		document.getElementById("next").disabled=false;
-		$("#after").addClass("after");
+		$("#next").addClass("before");
 		}
-	$("#before").click(function(){
-		alert(currentpage);
-		var number=pagenumber-1;
-		var url="orders1.jsp?type="+type+"&page="+number;
-		alert(url);
-		window.location.href=url;
-		});
-	$("#after").click(function(){
-		alert(currentpage);
+
+
+	$("#next").click(function(){
+	
 		var number=pagenumber+1;
 		var url="orders1.jsp?type="+type+"&page="+number;
-		alert(url);
+	
 		window.location.href=url;
-});
+   });
+	$("#before").click(function(){
+	
+		var number=pagenumber-1;
+		var url="orders1.jsp?type="+type+"&page="+number;
+	
+		window.location.href=url;
+  });
 	
 });
 </script>
