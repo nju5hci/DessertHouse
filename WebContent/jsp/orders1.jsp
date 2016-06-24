@@ -134,7 +134,15 @@
       </td>
        <td rowspan="<%=list.get(i).size()%>">
         <div class="good-operate">
-        <span><a href="#">评价</a></span>
+        <% if(orderState[i].equals("待付款")){%>
+        <span><a href="#">付款</a></span>
+        <%}else if(orderState[i].equals("待收货")){ %>
+         <span><a href="#">确认收货</a></span>
+         <%}else if(orderState[i].equals("待评价")){ %>
+           <span><a href="#">评价</a></span>
+           <%}else if(orderState[i].equals("已评价")){ %>
+            <span>已完成</span>
+           <%} %>
         <br>
         <div class="goog-buy">
         <a href="#">立即购买</a>
