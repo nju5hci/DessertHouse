@@ -20,15 +20,17 @@ public class Orders implements Serializable{
 	private String sendTime;//送货施加
 	private String sendWay;//配送方式
 	private String payWay;//付款方式
+	private double discount;//折扣
 	
 
 	public Orders(){
 		
 	}
 
-	
+
+
 	public Orders(int orderId, int memberId, double totalPrice, int orderState, String orderDate, String sendAddress,
-			String sendTime, String sendWay, String payWay) {
+			String sendTime, String sendWay, String payWay, double discount) {
 	
 		this.orderId = orderId;
 		this.memberId = memberId;
@@ -39,7 +41,21 @@ public class Orders implements Serializable{
 		this.sendTime = sendTime;
 		this.sendWay = sendWay;
 		this.payWay = payWay;
+		this.discount = discount;
 	}
+
+
+
+	public double getDiscount() {
+		return discount;
+	}
+
+
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
 
 
 	public String getSendAddress() {

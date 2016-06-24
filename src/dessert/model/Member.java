@@ -23,6 +23,7 @@ public class Member  implements Serializable{
 	private String birthday;//生日
 	private String phone;//电话
 	private String bankid;//银行卡号，用于假装支付
+	private String answer;//验证问题
 	public Member(){
 		
 	}
@@ -30,15 +31,23 @@ public class Member  implements Serializable{
 		this.mid=mid;
 		this.password=password;
 	}
+
+	public Member( String username, String password, String email, String birthday, String phone, String bankid,
+			String answer) {
 	
-	public Member(String username, String password, String email,
-			String birthday, String phone, String bankid) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.birthday = birthday;
 		this.phone = phone;
 		this.bankid = bankid;
+		this.answer = answer;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 	public int getMid() {
 		return mid;

@@ -12,6 +12,7 @@ public class RegisterAction extends BaseAction{
 	private String name;
 	private String tel;
 	private String password;
+	private String answer;
 	private String success = "success";
 	private String input = "input";
 	private String exist = "exist";
@@ -33,6 +34,14 @@ public class RegisterAction extends BaseAction{
 		return tel;
 	}
 
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
@@ -49,7 +58,8 @@ public class RegisterAction extends BaseAction{
 	
 	@Override
 	public String execute() throws Exception {
-		if(request.getParameter("name")==""||request.getParameter("password")==""||request.getParameter("confirm")==""||request.getParameter("tel")==""){
+		if(request.getParameter("name")==""||request.getParameter("password")==""||request.getParameter("confirm")==""
+				||request.getParameter("tel")==""||request.getParameter("answer")==""){
 			System.out.println("tel:"+request.getParameter("name")+";"+"password:"+request.getParameter("password"));
 			
 			return input;
@@ -58,12 +68,13 @@ public class RegisterAction extends BaseAction{
 			setName(request.getParameter("name"));
 			setPassword(request.getParameter("password"));
 			setTel(request.getParameter("tel"));
+			setAnswer(request.getParameter("answer"));
 			System.out.println("tel:"+request.getParameter("name")+";"+"password:"+request.getParameter("password"));
 		}else{
 			return diff;
 		}
 		
-		Member member=new Member(name, password,"","",tel,"");
+		Member member=new Member(name, password,"","",tel,"",answer);
 		System.out.println("tel:"+member.getPhone()+";"+"password:"+member.getPassword());
 		Member m=memberService.registerMember(member);
 		ServletContext sc = request.getServletContext();
