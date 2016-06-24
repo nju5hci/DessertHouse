@@ -36,10 +36,11 @@
    <p>银行卡号:</p>
    </div>
    <div class="right" id="right">
-    <p id="name"> 用户名:</p>
- <p id="pass"> 密  码:</p>
-   <p id="tele">手机号:</p>
-   <p id="acc">银行卡号:</p>
+   <p id="memberid">会员id:<%=(String)request.getServletContext().getAttribute("account_name")%></p>
+    <p id="name"> 用户名:<%=request.getServletContext().getAttribute("membername")%></p>
+     <p id="pass"> 密  码:*******</p>
+   <p id="tele">手机号:<%=request.getServletContext().getAttribute("phone")%></p>
+   <p id="acc">银行卡号:<%=request.getServletContext().getAttribute("bankid")%></p>
    </div>
    <div class="bottom" id="bottom">
    <div class="input" id="input">

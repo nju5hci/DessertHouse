@@ -35,7 +35,7 @@
 </div>
 
 
-<div class="main_tape" style="margin-left:0;">
+<div class="main_tape" style="margin-left:20%;">
 
 <div class="state_show">
   <div class="process p1" id="process">  
@@ -197,7 +197,7 @@ $(document).ready(function(){
 
 				$("#process").attr("class","process p4");
 
-				$("#input_area").html("<div class='p5'></div>");
+				$("#input_area").html("<div class='p5'> </div>");
 
 
 				var name=$("#password").val();
