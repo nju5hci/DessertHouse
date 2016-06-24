@@ -470,6 +470,11 @@
 	<result name="success" type="redirect">/jsp/personalSet.jsp</result>
 				
 		</action>
+		<action name="resetPass" class="dessert.action.ResetPassAction">
+
+	<result name="success" type="redirect">/jsp/personalSet.jsp</result>
+				
+		</action>
 
 	</package>
 

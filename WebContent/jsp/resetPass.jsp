@@ -61,7 +61,7 @@ $(document).ready(function(){
 		var newp=$("#newp").val();
 		var newp1=$("#newp1").val();
 		$.ajax({
-			url:'....',
+			url:'/DessertHouse/resetPass',
 			data:{
 				oldp:oldp,
 				newp:newp,
