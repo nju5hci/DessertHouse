@@ -8,15 +8,11 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import dessert.configure.Configure;
-import dessert.model.Dessert;
 import dessert.model.OrderList;
 import dessert.model.OrderWithList;
-import dessert.model.Reserve;
-import dessert.service.DessertService;
-import dessert.service.MemberService;
 import dessert.service.OrderService;
 
-public class OrdersAction extends BaseAction{
+public class Orders2Action  extends BaseAction{
 	 
 		private String success = "success";
 		
@@ -38,7 +34,7 @@ public class OrdersAction extends BaseAction{
 		public String execute() throws Exception {
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
-			List<OrderWithList> orderWithListrs=orderService.getOrdersByMemberId(mid);
+			List<OrderWithList> orderWithListrs=orderService.getOrdersByMemberIdAndState(mid, Configure.ORDER_UNCHECK);
 	/**
 	 * 	private int orderId;//订单号
 	private int memberId;//谁下的订单

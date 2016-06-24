@@ -8,15 +8,11 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import dessert.configure.Configure;
-import dessert.model.Dessert;
 import dessert.model.OrderList;
 import dessert.model.OrderWithList;
-import dessert.model.Reserve;
-import dessert.service.DessertService;
-import dessert.service.MemberService;
 import dessert.service.OrderService;
 
-public class OrdersAction extends BaseAction{
+public class Orders3Action extends BaseAction{
 	 
 		private String success = "success";
 		

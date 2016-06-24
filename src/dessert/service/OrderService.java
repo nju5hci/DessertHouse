@@ -21,6 +21,8 @@ public interface OrderService {
 	Orders getOrdersById(int OrdersId);
 	//通过memberId得到
 	List<OrderWithList> getOrdersByMemberId(int memberId);
+	//通过memberId得到和状态
+	List<OrderWithList> getOrdersByMemberIdAndState(int memberId,int state);
 	
 	//通过日期和memberID得到
 	List<OrderWithList> getOrdersByDateAndMemberId(String date,int memberId);
