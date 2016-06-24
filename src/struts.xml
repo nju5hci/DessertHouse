@@ -436,19 +436,19 @@
 		</action>
 		<action name="orders2" class="dessert.action.Orders2Action">
 
-			<result name="success" type="redirect">/jsp/orders1.jsp</result>
+			<result name="success" type="redirect">/jsp/orders1.jsp?type=2</result>
 
 				
 		</action>
 		<action name="orders3" class="dessert.action.Orders3Action">
 
-			<result name="success" type="redirect">/jsp/orders1.jsp</result>
+			<result name="success" type="redirect">/jsp/orders1.jsp?type=3</result>
 
 				
 		</action>
 			<action name="orders4" class="dessert.action.Orders4Action">
 
-			<result name="success" type="redirect">/jsp/orders1.jsp</result>
+			<result name="success" type="redirect">/jsp/orders1.jsp?type=4</result>
 
 				
 		</action>
