@@ -33,7 +33,23 @@
 			<div class="seperator"></div>
 		<section id="content">
 		  <form action="/DessertHouse/login" method="post">
-		   <%		
+		  
+			
+			
+			<div class="login-info-input">
+				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
+			</div>
+			<div class="login-info-input">
+				<input type="password" placeholder="请输入密码" required="" id="password" name="password" />
+			</div>
+			 <div class="login-info-input">
+			        <a href="passwordGet.jsp" class="alink" style="float:left" >忘记密码</a>
+			    	<a href="register.jsp" class="alink" style="float:right">免费注册</a>
+			    </div>
+			<div class="login-info-input">
+			    	<input type="submit" value="登录" class="input-submit"></input>
+			    </div>
+			 <%		
 			    System.out.println(request.getParameter("error"));
 				if(request.getParameter("error") != null && request.getParameter("error").equals("0")){
 					
@@ -51,22 +67,6 @@
 				<%
 				}
 				%>
-			
-			
-			<div class="login-info-input">
-				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
-			</div>
-			<div class="login-info-input">
-				<input type="password" placeholder="请输入密码" required="" id="password" name="password" />
-			</div>
-			 <div class="login-info-input">
-			        <a href="passwordGet.jsp" class="alink" style="float:left" >忘记密码</a>
-			    	<a href="register.jsp" class="alink" style="float:right">免费注册</a>
-			    </div>
-			<div class="login-info-input">
-			    	<input type="submit" value="登录" class="input-submit"></input>
-			    </div>
-			
 		</form><!-- form -->
 		
 	    </section><!-- content -->

@@ -30,17 +30,18 @@
  </div>
  <div class="info">
     <div class="left" id="left">
+    <p>会员编号:</p>
  <p> 用户名:</p>
  <p> 密  码:</p>
    <p>手机号:</p>
    <p>银行卡号:</p>
    </div>
    <div class="right" id="right">
-   <p id="memberid">会员id:<%=(String)request.getServletContext().getAttribute("account_name")%></p>
-    <p id="name"> 用户名:<%=request.getServletContext().getAttribute("membername")%></p>
-     <p id="pass"> 密  码:*******</p>
-   <p id="tele">手机号:<%=request.getServletContext().getAttribute("phone")%></p>
-   <p id="acc">银行卡号:<%=request.getServletContext().getAttribute("bankid")%></p>
+   <p id="memberid"><%=(String)request.getServletContext().getAttribute("account_name")%></p>
+    <p id="name"> <%=request.getServletContext().getAttribute("membername")%></p>
+     <p id="pass"> *******</p>
+   <p id="tele"><%=request.getServletContext().getAttribute("phone")%></p>
+   <p id="acc"><%=request.getServletContext().getAttribute("bankid")%></p>
    </div>
    <div class="bottom" id="bottom">
    <div class="input" id="input">

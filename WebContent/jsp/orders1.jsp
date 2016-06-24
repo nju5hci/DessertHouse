@@ -20,8 +20,8 @@
     <div class="float-right">
         <a href="">购物车</a>
         <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+        <a href="/DessertHouse/personalSet">设置</a>
+        <a href="/DessertHouse/personalSet">退出</a>
     </div>
 </div>
 <div class="choose_panel" style="margin-top:-30px;">
@@ -135,16 +135,18 @@
        <td rowspan="<%=list.get(i).size()%>">
         <div class="good-operate">
           <%System.out.println(orderState[i]); %>
-        <br>
+        
         <div class="goog-buy">
          <% if(orderState[i].equals("待付款")){%>
-        <span> 付款</span>
+        <span> <a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">付款</a></span>
         <%}else if(orderState[i].equals("未收货")){ %>
          <span><a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
          <%}else if(orderState[i].equals("未评价")){ %>
            <span><a href="#">评价</a></span>
            <%}else if(orderState[i].equals("已评价")){ %>
-            <span>再次购买</span>
+            <div class="no_background">
+            <span>已完成</span>
+            </div>
            <%} %>
        
         </div>

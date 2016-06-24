@@ -62,17 +62,17 @@
 <div class="left">
 
 <p class="title">收货人信息</p><br>
-<p class="item">地址:<%=sendAddress %></p>
+<p class="item">地址:&nbsp;&nbsp;<%=sendAddress %></p>
 </div>
 <div class="left1">
 <p class="title">配送信息</p><br>
-<p class="item">配送方式:<%=sendWay %></p>
-<p class="item">送货日期:<%=sendTime %></p>
+<p class="item">配送方式:&nbsp;&nbsp;<%=sendWay %></p>
+<p class="item">送货日期:&nbsp;&nbsp;<%=sendTime %></p>
 </div>
 <div class="right">
 <p class="title">付款信息</p><br>
-<p class="item">付款方式:<%=payWay %></p>
-<p class="item">商品总额:<%=totalPrice %></p>
+<p class="item">付款方式:&nbsp;&nbsp;<%=payWay %></p>
+<p class="item">商品总额:&nbsp;&nbsp;<%=totalPrice %></p>
 </div>
 
 </div>
@@ -95,9 +95,7 @@
   <th>金额</th>  
   <th>操作</th>
   </tr>
-  <tr class="th-notitle">
-      <td >
-         <% 
+   <% 
          int []dessertId = (int[])request.getServletContext().getAttribute("dessertId");
          int []dessertNum = (int[])request.getServletContext().getAttribute("dessertNum");
          double[] dessertPrice = (double[])request.getServletContext().getAttribute("dessertPrice");
@@ -107,6 +105,10 @@
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
                         		for(int i = 0;i<num_dessert;i++){
                 	     %>
+  <tr class="th-notitle">
+      
+        
+          <td >
          <div class="good">
          <div class="good-item">
            <a href="#"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
@@ -140,7 +142,7 @@
       </td>
        <td>        
         <div class="goog-buy" style="text-align:center;border:2px solid white;">
-        <a href="#">立即购买</a>
+        <a href="#">再次购买</a>
         </div>
       </td>
    </tr>
@@ -156,12 +158,14 @@
   <div class="all_pay">
 
 <div class="left">
-   <p align="center">xxxx</p>
+   <p align="center"><%=totalPrice %></p>
+   <p align="center"> xxx</p>
    <p align="center"> xxx</p>
 </div>
 <div class="right">
-   <p>商品总额:<%=totalPrice %></p>
+   <p>商品总额:</p>
    <p>折&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扣:</p>
+   <p>折后价格:</p>
 </div>   
 </div>
 </div>
@@ -175,4 +179,24 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+	var type=<%=orderState%>;
+	if(type=="0"){
+		
+		$("#process_show").attr("class","show_state type2");
+		
+		}else  if(type=="1"){
+			$("#process_show").attr("class","show_state type3");		
+		}else if(type=="2"){
+			$("#process_show").attr("class","show_state type4");
+	  }
+		else if(type=="3"){
+			$("#process_show").attr("class","show_state type1");
+		}
+	
+	
+});
+</script>
+
 </html>
