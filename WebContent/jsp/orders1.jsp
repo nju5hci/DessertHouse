@@ -98,8 +98,23 @@
                         		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
-                        		maxpage=num_dessert/5;
-                        		for(int i = 0;i<num_dessert;i++){
+                        		maxpage=num_dessert/5+1;
+                        		int beginnumber=0;
+                        		int endnumber=0;
+                        		int pagesize=4;
+                        		if(num_dessert<=pagesize){
+                        			beginnumber=0;
+                        			endnumber=num_dessert;
+                        		}else if(num_dessert>pagesize){
+                        			beginnumber=currentpage*4;
+                        		    if((beginnumber+4)<num_dessert){
+                        		    	endnumber=num_dessert;
+                        		    }else{
+                        		    	endnumber=beginnumber+4;
+                        		    }
+                        		}
+                        		
+                        		for(int i = beginnumber;i<endnumber;i++){
                 %>
             <!-- 显示空白 -->
     <tr class="noshow_row">
@@ -252,16 +267,21 @@ $(document).ready(function() {
 			$("#ordertoComment").attr("class","txt curr");}
 	var pagenumber=<%=currentpage%>;
 	if(pagenumber==0){
-		alert(pagenumber);
+	//	alert(pagenumber);
 		document.getElementById("before").disabled=true;
+		$("#before").removeClass("before");
 		
 	}else{
 		document.getElementById("before").disabled=false;
+		$("#before").addClass("before");
+		
 		}
 	if(pagenumber==<%=maxpage%>){
 		document.getElementById("next").disabled=true;
+		$("#after").removeClass("after");
 		}else{
 		document.getElementById("next").disabled=false;
+		$("#after").addClass("after");
 		}
 	$("#before").click(function(){
 		alert(currentpage);

@@ -37,7 +37,7 @@
 			
 			
 			<div class="login-info-input">
-				<input type="text" placeholder="请输入手机号" required="" id="username"  name="account" />
+				<input type="text" placeholder="请输入会员卡号" required="" id="username"  name="account" />
 			</div>
 			<div class="login-info-input">
 				<input type="password" placeholder="请输入密码" required="" id="password" name="password" />
