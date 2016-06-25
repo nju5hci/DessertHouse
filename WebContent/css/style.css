@@ -93,13 +93,13 @@ div#skipPages{
 }
 
 /**设置页面中的输入框的基本样式**/
-input{
+input,select{
 	border:1px solid #D2D9DC;
 	height: 25px;
 	padding:0 5px;
 	outline: none;
 }
-input:FOCUS{
+input:FOCUS,select:FOCUS{
 	border: 1px solid #C81623;
 }
 
@@ -791,9 +791,75 @@ span#title-6{
 }
 
 
-.wapper-send-address{
-	width: 50%;
+.hide{
+	display: none;
+}
+.wapper-send-info{
+    margin-top: 30px;
+	height: 370px;
+	margin-bottom: 30px;
+}
+.wapper-send-address,.wapper-send-time{
+	padding: 20px;
+	width: 45.8%;
+	display: inline-block;
 }
 .wapper-send-address select{
 	width: 70px;
+}
+.wapper-add-address{
+	margin: 10px 0;
+	padding: 5px;
+}
+.wapper-send-title,.wapper-send-operator{
+	margin: 0 5px 3px 5px;
+}
+.wapper-send-operator:hover{
+	color: #B1191A;
+	cursor: pointer;
+}
+.wapper-address-list{
+	margin-top: 5px;
+}
+.wapper-address-item{
+	height: 50px;
+	width: 95%;
+	padding: 10px;
+}
+.wapper-address-item:hover,.wapper-address-item-active{
+	background-color: #B1191A;
+	border-radius: 3px;
+	color: #fff;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+}
+.wapper-address-person,.wapper-address-tel{
+	display: inline-block;
+	margin-right: 5px;
+}
+.wapper-add-address .input-submit{
+	width: 60px;
+	height: 22px;
+	margin-left: 5px;
+	font-size: 14px;
+	line-height: 20px;
+	display: inline-block;
+	text-align: center;
+}
+.add-address-tel input{
+	width: 100px;
+}
+
+.add-address-person,.add-address-tel{
+	display: inline-block;
+    margin-right: 5px;
+}
+
+.label{
+	font-size: 15px;
+	width: 70px;
+	display: inline-block;
+}
+.wapper-add-address .seperator{
+	margin:5px 0;
 }
