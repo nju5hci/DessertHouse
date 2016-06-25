@@ -559,10 +559,10 @@ input:FOCUS,select:FOCUS{
 .commodity-detail-photo .bx-wrapper{
 	height: 318px;
 }
-.bx-wrapper .bx-viewport {
+.commodity-detail-photo .bx-wrapper .bx-viewport {
 	height: 308px !important;
 }
-.bx-clone img{
+.commodity-detail-photo .bx-wrapper .bx-viewport .bx-slider li img{
 	height: 301px;
 }
 .commodity-detail{
