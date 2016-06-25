@@ -110,16 +110,36 @@
         </div>
         <div class="wapper-detail-content" id="comment">
             <div class="comment-list">
+            <%
+            String[] words_assess = (String[])request.getServletContext().getAttribute("words_assess");
+			
+			if(words_assess != null){
+				
+			  int[] memberId_assess = (int[])request.getServletContext().getAttribute("memberId_assess");
+				
+			   String[] time_assess = (String[])request.getServletContext().getAttribute("time_assess");
+			   int assessNum2 = (Integer)request.getServletContext().getAttribute("assessNum2");
+			   for(int i = 0;i<assessNum2;i++){
+			   %>
                 <div class="comment-item">
                     <div class="float-left">
-                        <div class="comment-content">这瓜一点也不甜</div>
-                        <div class="comment-time">2016-6-1 14:23</div>
+                        <div class="comment-content"><%=words_assess[i] %></div>
+                        <div class="comment-time"><%=time_assess[i] %></div>
                     </div>
                     <div class="float-right">
-                        <div class="comment-user">cxy</div>
+                        <div class="comment-user"><%=memberId_assess[i] %></div>
                     </div>
                 </div>
-              
+              	<% 
+			 
+				
+			%>
+					<%
+			   }%>
+	
+			<% 	}
+			%>
+		
                
             </div>
         </div>

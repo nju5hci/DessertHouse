@@ -69,7 +69,7 @@ public class CommodityAction extends BaseAction {
 			sc.setAttribute("words_assess", words_assess);
 			sc.setAttribute("time_assess", time_assess);
 			sc.setAttribute("memberId_assess", memberId_assess);
-			sc.setAttribute("assessNum", assess.size());
+			sc.setAttribute("assessNum2", assess.size());
 			return success;
 		}else{
 			return nodessert;
