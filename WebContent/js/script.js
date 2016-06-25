@@ -30,3 +30,41 @@ function altRowColor(table){
 		$(this).addClass("selectrowcolor");
 	});
 }
+
+
+function initCheckBox(){
+	$(".js-check-all").on('click',function(){
+		var items=$(".js-check");
+		if($(this).is(':checked')){
+			$(this).prop('checked',true);
+			for(var i=0;i<items.length;i++){
+				$(items[i]).prop('checked',true);
+			}
+		}else{
+			$(this).prop('checked', false);
+			for(var i=0; i<items.length; i++){
+				$(items[i]).prop('checked', false);
+			}
+		}
+	});
+		$('.checkbox').click(function(){
+		var checkAllBox = $('.js-check-all');
+		var item=$(this).children(".js-check");
+		if($(item).is(':checked')){
+			$(item).prop('checked',true);
+			if($('.js-check:checked').length == $('.js-check').length){
+				$(checkAllBox).prop('checked', true);
+			}
+		}else{
+			if($('.js-check:checked').length == 0){
+				$(checkAllBox).prop('checked',false);
+			}
+			$(item).prop('checked',false);
+		}
+		if($('.js-check:checked').length == $('.js-check').length){
+			$(checkAllBox).prop('checked', true);
+		}else{
+			$(checkAllBox).prop('checked',false);
+		}
+	});
+}
