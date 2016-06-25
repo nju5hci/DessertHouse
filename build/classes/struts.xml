@@ -12,7 +12,7 @@
 		
 		<action name="login" class="dessert.action.LoginAction">
 
-			<result name="member" type="redirect">/DessertHouse/index</result>
+			<result name="member" type="redirect">/DessertHouse/index2</result>
 			
 			<result name="manager" type="redirect">/DessertHouse/allowPlan</result>
 			<result name="systemmanager" type="redirect">/DessertHouse/systemActivity</result>
@@ -491,6 +491,11 @@
 		<action name="type" class="dessert.action.TypeAction">
 
 	<result name="success" type="redirect">/jsp/type.jsp</result>
+				
+		</action>
+		<action name="index2" class="dessert.action.Index2Action">
+
+	<result name="success" type="redirect">/jsp/index.jsp</result>
 				
 		</action>
 		<!--  -->

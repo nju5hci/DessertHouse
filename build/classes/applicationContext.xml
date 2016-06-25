@@ -433,6 +433,11 @@
 		
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
+	<bean id="Index2Action" class="dessert.action.Index2Action">
+	
+		
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />

@@ -60,7 +60,7 @@ public class TypeAction extends BaseAction{
 		case 3:
 			return "s";//海鲜
 		case 4:
-			return "m";//奶
+			return "n";//奶
 		case 5:
 			return "e";//蛋
 		case 6:
