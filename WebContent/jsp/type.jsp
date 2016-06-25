@@ -79,10 +79,11 @@
                         		String[] name_dessert = (String[])request.getServletContext().getAttribute("name_dessert");
                         		int []id_dessert=(int [])request.getServletContext().getAttribute("id_dessert");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num_dessert");
+                        	int num=num_dessert;
                         		if(num_dessert>4){
-                        			num_dessert=4;
+                        			 num=4;
                         		}
-                        		for(int i = 0;i<num_dessert;i++){
+                        		for(int i = 0;i<num;i++){
                 	     %>
     		    <div class="type-commodity box">
                 <img src="<%=address_dessert[i] %> " class="commodity-photo">
