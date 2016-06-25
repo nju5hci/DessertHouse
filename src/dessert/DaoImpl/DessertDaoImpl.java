@@ -53,7 +53,7 @@ public class DessertDaoImpl  extends YeekuHibernateDaoSupport implements Dessert
 	@Override
 	public List<Dessert> getDessertByName(String dessertName) {
 		List<Dessert> dessertList=new ArrayList<Dessert>();
-		String hql="from dessert.model.Dessert where dessertName='"+dessertName+"'";
+		String hql="from dessert.model.Dessert where dessertName like '%"+dessertName+"%'";
 		Session session=baseDao.getNewSession();
 		List<Dessert> desserts=session.createQuery(hql).list();
 		if(desserts.size()>0){
@@ -83,14 +83,20 @@ public class DessertDaoImpl  extends YeekuHibernateDaoSupport implements Dessert
 	@Override
 	public List<Dessert> getDessertBySearchName(String dessertName) {
 		List<Dessert> dessertList=new ArrayList<Dessert>();
-		String hql="from dessert.model.Dessert where dessertName like '%"+dessertName+"%'";
+		String hql="from dessert.model.Dessert where dessertInfo like '%"+dessertName+"%'";
+		System.out.println(hql);
 		Session session=baseDao.getNewSession();
 		List<Dessert> desserts=session.createQuery(hql).list();
-		if(desserts.size()>0){
+		if(desserts.size()>8){
+			for(int i=0;i<8;i++){
+				dessertList.add(desserts.get(i));
+			}
+		}else if(desserts.size()>0){
 			for(int i=0;i<desserts.size();i++){
 				dessertList.add(desserts.get(i));
 			}
-		}else{
+		}
+		else{
 			System.out.println("找不到这个甜品");
 		}
 		return dessertList;

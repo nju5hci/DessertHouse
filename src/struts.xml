@@ -488,6 +488,11 @@
 		 <action name="updateInfo" class="dessert.action.UpdateInfoAction">
 				
 		</action>
+		<action name="type" class="dessert.action.TypeAction">
+
+	<result name="success" type="redirect">/jsp/type.jsp</result>
+				
+		</action>
 		<!--  -->
 
 	</package>

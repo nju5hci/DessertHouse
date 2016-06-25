@@ -25,11 +25,13 @@ public class Dessert  implements Serializable{
 	private String dessertPicAdd1;//甜品照片所在地址
 	private String dessertPicAdd2;//甜品照片所在地址
 	
+	private boolean isShowed;//被显示在页面上了就是true,没有显示的是false
 	
 
+	
 	public Dessert(int dessertId, String dessertName, double dessertPrice, String dessertInfo, int dessertStock,
-			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2) {
-		
+			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2, boolean isShowed) {
+	
 		this.dessertId = dessertId;
 		this.dessertName = dessertName;
 		this.dessertPrice = dessertPrice;
@@ -38,9 +40,18 @@ public class Dessert  implements Serializable{
 		this.dessertPicAdd = dessertPicAdd;
 		this.dessertPicAdd1 = dessertPicAdd1;
 		this.dessertPicAdd2 = dessertPicAdd2;
+		this.isShowed = isShowed;
 	}
 	public Dessert(){
 		
+	}
+	
+	
+	public boolean isShowed() {
+		return isShowed;
+	}
+	public void setShowed(boolean isShowed) {
+		this.isShowed = isShowed;
 	}
 	public Dessert(int dessertId){
 		this.dessertId=dessertId;

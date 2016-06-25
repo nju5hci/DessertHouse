@@ -11,7 +11,8 @@ public interface DessertService {
 	Dessert getDessertById(int dessertId);
 	//搜索
 		List<Dessert> getDessertBySearch(String searchString);
-		
+		//搜索
+		List<Dessert> getDessertByName(String searchString);	
 	
 	//新增甜品
 	boolean addDessert(Dessert dessert);

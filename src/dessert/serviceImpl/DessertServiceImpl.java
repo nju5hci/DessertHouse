@@ -75,6 +75,11 @@ public class DessertServiceImpl implements DessertService{
 		return comparePriceDao.getComparePriceByDessertId(dessertId);
 	}
 
+	@Override
+	public List<Dessert> getDessertByName(String searchString) {
+		return dessertDao.getDessertByName(searchString);
+	}
+
 
 
 
