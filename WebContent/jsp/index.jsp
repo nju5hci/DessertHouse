@@ -102,7 +102,9 @@
                         		for(int i = 0;i<num_dessert;i++){
                 	     %>
             <div class="type-commodity box">
+            <a href="/DessertHouse/commodity?dessertid=<%=id_dessert[i] %>">
                 <img src="<%=address_dessert[i] %> " class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_dessert[i] %></div>
                 <div class="float-left commodity-price"><%=money_dessert[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>

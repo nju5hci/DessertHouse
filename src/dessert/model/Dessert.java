@@ -26,7 +26,9 @@ public class Dessert  implements Serializable{
 	private String dessertPicAdd2;//甜品照片所在地址
 	
 	private int isShowed;//被显示在页面上了就是true,没有显示的是false
-	
+	private int monthSale;//月销量
+	private int totalSale;//总销量
+	private int assessNum;//评价数
 
 	
 	public Dessert(int dessertId, String dessertName, double dessertPrice, String dessertInfo, int dessertStock,
@@ -47,6 +49,30 @@ public class Dessert  implements Serializable{
 	}
 	
 	
+	public int getIsShowed() {
+		return isShowed;
+	}
+	public void setIsShowed(int isShowed) {
+		this.isShowed = isShowed;
+	}
+	public int getMonthSale() {
+		return monthSale;
+	}
+	public void setMonthSale(int monthSale) {
+		this.monthSale = monthSale;
+	}
+	public int getTotalSale() {
+		return totalSale;
+	}
+	public void setTotalSale(int totalSale) {
+		this.totalSale = totalSale;
+	}
+	public int getAssessNum() {
+		return assessNum;
+	}
+	public void setAssessNum(int assessNum) {
+		this.assessNum = assessNum;
+	}
 	public int isShowed() {
 		return isShowed;
 	}

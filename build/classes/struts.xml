@@ -498,6 +498,11 @@
 	<result name="success" type="redirect">/jsp/index.jsp</result>
 				
 		</action>
+		<action name="commodity" class="dessert.action.CommodityAction">
+
+	<result name="success" type="redirect">/jsp/commodity.jsp</result>
+				
+		</action>
 		<!--  -->
 
 	</package>
