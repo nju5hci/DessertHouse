@@ -30,19 +30,25 @@
  </div>
  <div class="info">
     <div class="left" id="left">
-   <p >旧密码:</p><p>新密码:</p><p >确认新密码:</p>
+   <p style="height:26px">旧密码:</p ><p style="height:26px"p>新密码:</p><p style="height:26px">确认新密码:</p>
    </div>
-   <div class="right" id="right">
-    <p><input type='password' class="text-input"  id="oldp" /></p>
+   <div class="right" id="right" style="margin-top:25px">
+    <p ><input type='password' class="text-input"  id="oldp" /></p>
    <p><input type='password' class="text-input" id='newp' /></p>
   <p><input type='password' class="text-input" id='newp1' /></p>
    </div>
-   <div class="bottom" id="bottom">
+   <div class="bottom"  id="bottom">
+   
   <div class='input'>
+
   <input type='button' class='input-submit' value='确定' style='width:130px;margin-left:120px;margin-top:20px;float:left' id='confirm'/>
+ 
   </div>
-  <p id="update_result" style="margin-left:120px;color:red;display:none">修改失败</p>
+     
 					  
+   </div>
+   <div class="show_result" >
+     <p style="float:left;margin-left:-90px;margin-top:60px" id="update_result"></p>
    </div>
    </div>
  </div>
@@ -60,23 +66,24 @@ $(document).ready(function(){
 		var oldp=$("#oldp").val();
 		var newp=$("#newp").val();
 		var newp1=$("#newp1").val();
+	//	window.location.href='/DessertHouse/test';
 		$.ajax({
 			url:'/DessertHouse/resetPass',
+			async:false,
 			data:{
 				oldp:oldp,
 				newp:newp,
 				newp1:newp1
 				},
+		    dataType:"text",
 			type:'post',
 			success:function(data){
-				console.log("---"+data);
-				if(data.msg=="success"){
-					alert("修改成功");
-					window.location.href="personalSet.jsp";
-				}else{
-					$("#update_result").css("display","block");					
-		        // view(data.msg);  
-				  }
+				if(data=="success\n"){
+
+					window.location.href="/DessertHouse/personalSet";
+					}else{		
+				$("#update_result").html(data);
+			}
 			}
 			
 		});

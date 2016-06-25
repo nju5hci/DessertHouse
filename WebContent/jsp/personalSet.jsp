@@ -29,17 +29,17 @@
   个人信息
  </div>
  <div class="info">
-    <div class="left" id="left">
-    <p>会员编号:</p>
+    <div class="left"id="left">
+    <p  >会员编号:</p>
  <p> 用户名:</p>
  <p> 密  码:</p>
    <p>手机号:</p>
    <p>银行卡号:</p>
    </div>
    <div class="right" id="right">
-   <p id="memberid"><%=(String)request.getServletContext().getAttribute("account_name")%></p>
+   <p id="memberid"><%=request.getServletContext().getAttribute("memberId")%></p>
     <p id="name"> <%=request.getServletContext().getAttribute("membername")%></p>
-     <p id="pass"> *******</p>
+     <p id="pass">  <%=request.getServletContext().getAttribute("password")%></p>
    <p id="tele"><%=request.getServletContext().getAttribute("phone")%></p>
    <p id="acc"><%=request.getServletContext().getAttribute("bankid")%></p>
    </div>
@@ -49,7 +49,9 @@
    <input type="button" class="input-submit" id="updateP" value="修改密码" style="width:20%;margin-left:30px;float:left"/>
    </div>
    </div>
-   <p id="update_result" style="margin-left:120px;color:red;display:none">修改失败</p>
+   <div class="show_result">
+     <p style="float:left;margin-left:-90px;margin-top:40px" id="update_result"></p>
+   </div>
    </div>
  </div>
 </div>
@@ -72,43 +74,42 @@ $(document).ready(function(){
 		var tele=$("#tele").html();
 		var acc=$("#acc").html();
 		
-		var mystring="<input type='text' class='text-input' name='account' id='account' placeholder='"+acc+"''>";
+		//var mystring="<input type='text' class='text-input' name='account' id='account' placeholder='"+acc+"''>";
 
 		$("#acc").html("<input type='text' class='text-input' name='account' id='account' placeholder='"+acc+"''>");
-		$("#tele").html("<input type='text' class='text-input' name='tele' id='tele' placeholder='"+tele+"''>");
+		$("#tele").html("<input type='text' class='text-input' style='margin-top:-4px' name='phone' id='phone' placeholder='"+tele+"''>");
 		$("#updateP").css("display","none");
-		$("#input").html("<input type='button' class='input-submit' id='save' value='确定' style='width:20%;margin-left:140px;float:left'/>");
+		$("#input").html("<input type='button' class='input-submit' id='save' value='确定' onclick='updateInfo()'style='width:20%;margin-left:140px;float:left'/>");
 		
 		});
-	$("#save").click(function(){
-		alert(name);
-		var tele=$("#tele").html;
-		var acc=$("#acc").html;
-		$.ajax({
-			url:'....',
-			data:{
-				name:name,
-				tele:tele,
-				acc:acc
-				
-				},
-			type:'post',
-			success:function(data){
-				console.log("---"+data);
-				if(data.msg=="success"){
-					window.location.href="personalSet.jsp";
-				}else{
-					
-					$("#update_result").css("display","block");		
-		        // view(data.msg);  
-				  }
-			}
-			
-		});
-		});
+	
 		
 	
 });
+function updateInfo(){
+	//alert("name");
+	var bankaccount=$("#account").val();
+
+	var tele=$("#phone").val();
+	$.ajax({
+		url:'/DessertHouse/updateInfo',
+		
+		data:{
+			bank:bankaccount,
+			tele:tele			
+			},
+		type:'post',
+		success:function(data){
+			if(data=="success\n"){
+				window.location.href="/DessertHouse/personalSet";
+			}else{
+				$("#update_result").html(data);
+				$("#update_result").css("display","block");		
+	  
+			  }
+		}
+});
+}
 </script>
 </body>
 </html>

@@ -33,7 +33,6 @@
 		String sendWay= (String)request.getServletContext().getAttribute("sendWay");
 		String payWay = (String)request.getServletContext().getAttribute("payWay");
 		double totalPrice =(Double)request.getServletContext().getAttribute("totalPrice");
-		double discount =(Double)request.getServletContext().getAttribute("discount");
 		int orderState= ( Integer)request.getServletContext().getAttribute("orderState");            
                 	  
 		 %>
@@ -160,8 +159,8 @@
 
 <div class="left">
    <p align="center"><%=totalPrice %></p>
-   <p align="center"><%=discount %></p>
-   <p align="center" style="color:red"><%=discount*totalPrice %></p>
+   <p align="center"> xxx</p>
+   <p align="center" style="color:red"> xxx</p>
 </div>
 <div class="right">
    <p>商品总额:</p>

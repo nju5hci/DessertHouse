@@ -470,11 +470,25 @@
 	<result name="success" type="redirect">/jsp/personalSet.jsp</result>
 				
 		</action>
+		<!-- 新增 -->
 		<action name="resetPass" class="dessert.action.ResetPassAction">
 
 	<result name="success" type="redirect">/jsp/personalSet.jsp</result>
 				
 		</action>
+   <action name="getExist" class="dessert.action.GetExistAction">
+				
+		</action>
+		 <action name="questVerity" class="dessert.action.QuestVerityAction">
+				
+		</action>
+		 <action name="newPass" class="dessert.action.NewPassAction">
+				
+		</action>
+		 <action name="updateInfo" class="dessert.action.UpdateInfoAction">
+				
+		</action>
+		<!--  -->
 
 	</package>
 
