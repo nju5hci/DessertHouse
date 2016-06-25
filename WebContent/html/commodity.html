@@ -5,6 +5,7 @@
     <meta charset="utf8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
+        <script src="../js/script.js"></script>
         <!-- bxSlider Javascript file -->
 <script src="../plugins/bxslider/jquery.bxslider.js"></script>
 <!-- bxSlider CSS file -->
@@ -36,14 +37,14 @@
     <div class="wapper-detail-middle">
         <div class="commodity-detail-photo float-left">
         <ul class="bxslider">
-            <li><img src="../img/1.jpg" /></li>
+            <li><img src="../images/vegetables/tudou1.png" /></li>
             <li><img src="../img/2.jpg" /></li>
             <li><img src="../img/3.jpg" /></li>
             <li><img src="../img/4.jpg" /></li>
         </ul>
         </div>
         <div class="commodity-detail float-right">
-        <div class="commodity-detail-title">[水果]江苏特小凤西瓜1个950g以上/个 黄壤西瓜</div>
+        <div class="commodity-detail-title" id="1">[水果]江苏特小凤西瓜1个950g以上/个 黄壤西瓜</div>
         <div class="commodity-detail-item">
             <span class="commodity-detail-label">价格：</span>
             <span class="commodity-detail-price">￥18</span>
@@ -82,16 +83,16 @@
     <div class="red-seperator"></div>
     <div class="wapper-detail-bottom">
         <div class="wapper-detail-bottom-header">
-            <span class="detail-header-option detail-header-option-now float-left">商品详情</span>
-            <span class="detail-header-option float-left">商品评价</span>
-            <span class="detail-header-option float-left">价格趋势</span>
+            <span class="detail-header-option detail-header-option-now float-left" id="commodity-detail">商品详情</span>
+            <span class="detail-header-option float-left" id="commodity-comment">商品评价</span>
+            <span class="detail-header-option float-left" id="commodity-trend">价格趋势</span>
         </div>
         <div class="clear-fix"></div>
-        <div class="wapper-detail-content" style="display: none;" id="detail">
+        <div class="wapper-detail-content" id="detail">
             <img src="../img/info.jpg">
             <img src="../img/info2.jpg">
         </div>
-        <div class="wapper-detail-content" id="comment">
+        <div class="wapper-detail-content" style="display: none;" id="comment">
             <div class="comment-list">
                 <div class="comment-item">
                     <div class="float-left">
@@ -131,6 +132,7 @@
                 </div>
             </div>
         </div>
+        <div class="wapper-detail-content" style=" display: none;"id="trend"></div>
     </div>
 
 </div>
@@ -145,6 +147,7 @@
 <script>
 $(document).ready(function(){
   jQuery(".bxslider").bxSlider();
+  commodityAltOptions();
 });
 </script>
 </html>

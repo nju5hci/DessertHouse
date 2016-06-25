@@ -69,6 +69,15 @@ function initCheckBox(){
 	});
 }
 
+function chartDeleteCommodity(){
+	$(".chart-item-operator").click(function(){
+		var confirm=window.confirm("确定从购物车中删除该商品？");
+		if(confirm){
+			$(this).parent().slideUp();
+		}
+	});
+}
+
 function altAddAddressPanel(){
 	var panel=$(".wapper-add-address");
 	if(panel.hasClass("hide")){
@@ -110,5 +119,47 @@ function commodityDelete(){
 }
 
 function confirmAddAddress(){
-	
+
+}
+
+function commodityAltOptions(){
+	$(".detail-header-option").click(function(){
+		$(".detail-header-option-now").removeClass("detail-header-option-now");
+		$(this).addClass("detail-header-option-now");
+		$(".wapper-detail-content").css("display","none");
+		switch($(this).attr('id')){
+			case 'commodity-detail':$("#detail").css("display","");break;
+			case 'commodity-comment':$("#comment").css("display","");break;
+			case 'commodity-trend':$("#trend").css("display","");break;
+		}
+	});
+}
+
+function toaster(message, type, time) {
+
+    $("#toaster-container").empty();
+    var html = '';
+
+    if (type == "success") {
+        html += '<div class="toaster"><p class="toaster-content success">' +
+            '<i class="icon fa fa-check-circle-o"></i>' + message + '</p></div>';
+    } else {
+        html += '<div class="toaster"><p class="toaster-content error">' +
+            '<i class="icon fa fa-close"></i>' + message + '</p></div>';
+    }
+    $("#toaster-container").append(html);
+
+    var toaster = $("#toaster-container").children().eq(0);
+    toaster.slideDown();
+    toaster.width(toaster.children().eq(0).width()+4);
+
+    if(time === undefined) {
+        setTimeout(function () {
+            toaster.slideUp();
+        }, 2000);
+    } else {
+        setTimeout(function () {
+            toaster.slideUp();
+        }, time);
+    }
 }

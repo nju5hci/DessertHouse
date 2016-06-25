@@ -512,6 +512,16 @@ input:FOCUS,select:FOCUS{
 .commodity-detail-photo{
 	width: 45%;
 	margin-top: 10px;
+	height: 378px;
+}
+.commodity-detail-photo .bx-wrapper{
+	height: 318px;
+}
+.bx-wrapper .bx-viewport {
+	height: 308px !important;
+}
+.bx-clone img{
+	height: 301px;
 }
 .commodity-detail{
 	width: 50%;
