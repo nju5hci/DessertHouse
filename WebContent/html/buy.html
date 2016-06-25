@@ -53,19 +53,52 @@
     <div class="seperator"></div>
     </div>
     <div class="wapper-send-info">
-        <div class="wapper-send-address float-left">
+        <div class="wapper-send-address float-left ">
             <div class="wapper-send-title float-left">选择收货地址</div>
-            <div class="wapper-send-operator float-right">管理收货地址</div>
+            <div class="wapper-send-operator float-right" onclick="altAddAddressPanel();">管理收货地址</div>
+
             <div class="clear-fix"></div>
-            <div class="wapper-add-address">
+            <div class="seperator"></div>
+            <div class="wapper-add-address hide box">
+                <span class="label">地 址:</span>
                 <select id="province" name="province" onchange="LocalList.mf_processStateList()" style="display: inline;"></select>
                 <select id="city" name="city" onchange="LocalList.mf_processCityList()" style="display: inline;"></select>
                 <select id="area" name="area" style="display: inline;"></select>
+                <div class="seperator"></div>
+                <div class="add-address-person">
+                    <span class="label">收货人：</span>
+                    <input class="input-small" id="input-person-name"></input>
+                </div>
+                <div class="add-address-tel">
+                    <span class="label">手机号码:</span>
+                    <input class="input-small" id="input-tel"></input>
+                </div>
+                <span class="input-submit">确认添加</span>
+            </div>
+            <div class="wapper-address-list">
+                <div class="wapper-address-item">
+                    <div class="wapper-address-info float-left">
+                        <div class="wapper-address-str">江苏省南京市南京大学鼓楼校区</div>
+                        <div class="wapper-address-person">郭玥</div>
+                        <div class="wapper-address-tel">15850786005</div>
+                    </div>
+                    <div class="wapper-address-operator float-right"></div>
+                </div>
+                <div class="wapper-address-item">
+                    <div class="wapper-address-info float-left">
+                        <div class="wapper-address-str">江苏省南京市南京大学鼓楼校区</div>
+                        <div class="wapper-address-person">郭玥</div>
+                        <div class="wapper-address-tel">15850786005</div>
+                    </div>
+                    <div class="wapper-address-operator float-right"></div>
+                </div>
             </div>
         </div>
         <div class="vertical-seperator"></div>
-        <div class="wapper-send-time float-right">
+        <div class="wapper-send-time float-right ">
             <div class="wapper-send-title">选择收货时间</div>
+            <div class="clear-fix"></div>
+            <div class="seperator"></div>
             <div class="send-time-input"></div>
             <div class="send-time-list">
                 <ul class="time-list">
@@ -98,10 +131,11 @@
             <div class="float-left chart-item-info">
             	<img src="../img/big1.jpg" class="chart-item-photo">
             	<a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
+                <input class="commodity-id" type="hidden" id="1" value="1"></input>
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-            	<input class="input-small" value="1"></input>
+            	<input class="input-small" value="1" id="input-1"></input>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
@@ -115,10 +149,11 @@
             <div class="float-left chart-item-info">
                 <img src="../img/big1.jpg" class="chart-item-photo">
                 <a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
+                <input class="commodity-id" type="hidden" id="2" value="2"></input>
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1"></input>
+                <input class="input-small" value="1"  id="input-2"></input>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
@@ -132,10 +167,11 @@
             <div class="float-left chart-item-info">
                 <img src="../img/big1.jpg" class="chart-item-photo">
                 <a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
+                <input class="commodity-id" type="hidden" id="3" value="3"></input>
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1"></input>
+                <input class="input-small" value="1" id="input-3"></input>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
@@ -145,7 +181,7 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：￥32</div>
-    		<span class="confirm">结算</span>
+    		<span class="confirm">提交订单</span>
     	</div>
     </div>
 </div>
@@ -158,6 +194,8 @@
 </div>
 <script type="text/javascript">
     initCheckBox();
+    addressItemClicked();
+    commodityDelete();
 </script>
 <script type="text/javascript">
 

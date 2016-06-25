@@ -68,3 +68,47 @@ function initCheckBox(){
 		}
 	});
 }
+
+function altAddAddressPanel(){
+	var panel=$(".wapper-add-address");
+	if(panel.hasClass("hide")){
+		panel.removeClass("hide");
+		$(".wapper-send-operator").html("收起");
+		$(".wapper-address-operator").html("删除");
+		$(".wapper-address-operator").css("cursor","pointer");
+		$(".wapper-address-operator").click(function(){addressDelete(this);});
+	}else{
+		panel.addClass("hide");
+		$(".wapper-send-operator").html("管理收货地址");
+		$(".wapper-address-operator").html("");
+	}
+}
+
+function addressItemClicked(){
+	$(".wapper-address-item").click(function(){
+		$(".wapper-address-item").removeClass("wapper-address-item-active");
+		$(this).addClass("wapper-address-item-active");
+	});
+}
+
+function addressDelete(obj){
+	if($(obj).html()=='删除'){
+		var confirm=window.confirm("确认要删除该收货地址吗");
+		if(confirm){
+			$(obj).parent().slideUp();
+		}
+	}
+}
+
+function commodityDelete(){
+	$(".chart-item-operator").click(function(){
+		var confirm=window.confirm("确认要删除本商品吗");
+		if(confirm){
+			$(this).parent().slideUp();
+		}
+	});
+}
+
+function confirmAddAddress(){
+	
+}
