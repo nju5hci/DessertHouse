@@ -136,19 +136,22 @@ function addAddress(){
 		var person=$("#input-person-name").val();
 		var tel=$("#input-tel").val();
 		var detail=$(".detailed-address").val();
-		var address='';
-		if (person=='') {toaster("收货人不完整！","error");return;}
-		if (tel=='') {toaster("收货人电话不完整！","error");return;}
-		if (detail=='') {toaster("详细地址不完整！","error");return;}
+		var address_province=$("#province").find("option:selected").text();
+		var address_city=$("#city").find("option:selected").text();
+		var address=$("#area").find("option:selected").text();
+		if(address_province=='---'||address_city=='---'||address=='---'){toaster("新地址信息不完整！","error");return;}
+		if (person=='') {toaster("新地址信息不完整！","error");return;}
+		if (tel=='') {toaster("新地址信息不完整！","error");return;}
+		if (detail=='') {toaster("新地址信息不完整！","error");return;}
 				var str='<div class="wapper-address-item" onclick="addressItemClicked();"> '+               
                     '<div class="wapper-address-info float-left">'+
-                    '<div class="wapper-address-str">'+address+detail+'</div>'+
+                    '<div class="wapper-address-str">'+address_province+address_city+address+detail+'</div>'+
                     '<div class="wapper-address-person">'+person+'</div>'+
                     '<div class="wapper-address-tel">'+tel+'</div>'+
                     '</div>'+
-                    '<div class="wapper-time-operator float-right" onclick="timeDelete();">删除</div>'+
+                    '<div class="wapper-address-operator float-right" onclick="timeDelete();">删除</div>'+
                     '</div>';               
-				$(".wapper-address-list").after(str);
+				$(".wapper-address-list").children().eq(0).before(str);
 	});
 }
 
@@ -194,7 +197,7 @@ function addTime(){
                     '<div class="clear-fix"></div>'+
                     '<div class="seperator"></div>'+
                     '</div>';               
-				$(".send-time-list").after(str);
+				$(".send-time-list").children().eq(0).before(str);
 			}else{
 				toaster("请选择时间段","error");
 			}
