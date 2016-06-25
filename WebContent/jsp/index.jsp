@@ -119,8 +119,8 @@
     </div>
     <div class="type-item" id="fruit">
         <div class="type-title">
-            <span class="float-left" href="/DessertHouse/type?typeId=1">水果</span>
-            <a class="float-right">查看更多>></a>
+            <span class="float-left" >水果</span>
+            <a class="float-right" href="/DessertHouse/type?typeId=1">查看更多>></a>
             <div class="clear-fix"></div>
         </div>
         <div class="red-seperator"></div>
@@ -136,7 +136,9 @@
                         		for(int i = 0;i<num_fruit;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_fruit[i] %>">
                 <img src="<%=address_fruit[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_fruit[i] %></div>
                 <div class="float-left commodity-price"><%=money_fruit[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -168,7 +170,10 @@
                         		for(int i = 0;i<num_meat;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_meat[i] %>">
                 <img src="<%=address_meat[i] %>" class="commodity-photo">
+                </a>
+                
                 <div class="commodity-name"><%=name_meat[i] %></div>
                 <div class="float-left commodity-price"><%=money_meat[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -202,7 +207,10 @@
                         		for(int i = 0;i<num_seafood;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_seafood[i] %>">
                 <img src="<%=address_seafood[i] %>" class="commodity-photo">
+                </a>
+                
                 <div class="commodity-name"><%=name_seafood[i] %></div>
                 <div class="float-left commodity-price"><%=money_seafood[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -235,7 +243,9 @@
                         		for(int i = 0;i<num_milk;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_milk[i] %>">
                 <img src="<%=address_milk[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_milk[i] %></div>
                 <div class="float-left commodity-price"><%=money_milk[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -268,7 +278,9 @@
                         		for(int i = 0;i<num_egg;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_egg[i] %>">
                 <img src="<%=address_egg[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_egg[i] %></div>
                 <div class="float-left commodity-price"><%=money_egg[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -300,7 +312,9 @@
                         		for(int i = 0;i<num_sd;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_sd[i] %>">
                 <img src="<%=address_sd[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_sd[i] %></div>
                 <div class="float-left commodity-price"><%=money_sd[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -332,7 +346,9 @@
                         		for(int i = 0;i<num_tw;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_tw[i] %>">
                 <img src="<%=address_tw[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_tw[i] %></div>
                 <div class="float-left commodity-price"><%=money_tw[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
@@ -364,7 +380,9 @@
                         		for(int i = 0;i<num_alcohol;i++){
                 	     %>
             <div class="type-commodity box" id="">
+              <a href="/DessertHouse/commodity?dessertid=<%=id_alcohol[i] %>">
                 <img src="<%=address_alcohol[i] %>" class="commodity-photo">
+                </a>
                 <div class="commodity-name"><%=name_alcohol[i] %></div>
                 <div class="float-left commodity-price"><%=money_alcohol[i] %></div>
                 <div class="float-right add-to-chart">加入购物车</div>
