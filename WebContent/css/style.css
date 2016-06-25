@@ -504,6 +504,48 @@ input:FOCUS,select:FOCUS{
 }
 
 /**---------------------------------------------------**/
+
+.toaster {
+    position: fixed;
+    top: 90px;
+    margin: 0 auto;
+    padding: 16px 21px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(187, 179, 168, 0.5);
+    text-align: center;
+    display: none;
+}
+
+.toaster-content {
+    font-size: 20px;
+    margin: 0;
+    display: inline-block;
+}
+
+.toaster-content.success {
+    color: #a7c9ae;
+}
+
+.toaster-content.error {
+    color: #B1191A;
+}
+
+.toaster-content.warning {
+    color: #977b6c;
+}
+
+.toaster-content > .icon {
+    margin-right: 9px;
+    font-size: 1.5em;
+    position: relative;
+    top: 3px;
+}
+
+/**---------------------------------------------------**/
 .wapper-detail-middle{
 	width: 100%;
 	height: 450px;
@@ -542,6 +584,9 @@ input:FOCUS,select:FOCUS{
 .commodity-detail-label{
 	font-size: 13px;
 	margin-right: 5px;
+}
+.commodity-number-selector input{
+	text-align: center;
 }
 .commodity-detail-price{
 	font-size: 20px;
@@ -713,6 +758,9 @@ span#title-6{
 	margin-top: 5px;
 	margin-left: 5px;
 }
+.chart-item-num input{
+	text-align: center;
+}
 .chart-item-name{
 	width: 60%;
 	margin-left: 8%;
@@ -821,15 +869,28 @@ span#title-6{
 	margin: 10px 0;
 	padding: 5px;
 }
-.wapper-send-title,.wapper-send-operator{
+.wapper-send-title,.wapper-send-operator,.wapper-time-operator{
 	margin: 0 5px 3px 5px;
 }
-.wapper-send-operator:hover{
+.wapper-send-operator:hover,.wapper-time-operator:hover{
 	color: #B1191A;
 	cursor: pointer;
 }
-.wapper-address-list{
+.wapper-address-list,.send-time-list{
 	margin-top: 5px;
+}
+.send-time-input{
+	height: 20px;
+	padding: 10px;
+	width: 95%;
+	line-height: 20px;
+	border-bottom: 1px solid rgba(151, 151, 151, 0.6);
+}
+.time-item{
+	height: 30px;
+	padding: 10px;
+	width: 95%;
+	line-height: 30px;
 }
 .wapper-address-item{
 	height: 50px;
@@ -843,11 +904,11 @@ span#title-6{
 	border-top: 1px solid #FFF;
 	border-bottom: 1px solid #FFF;
 }
-.wapper-address-person,.wapper-address-tel{
+.wapper-address-person,.wapper-address-tel,.wapper-time-period,.wapper-time-date{
 	display: inline-block;
 	margin-right: 5px;
 }
-.wapper-add-address .input-submit{
+.wapper-add-address .input-submit,.send-time-input .input-submit{
 	width: 60px;
 	height: 22px;
 	margin-left: 5px;
@@ -864,7 +925,14 @@ span#title-6{
 	display: inline-block;
     margin-right: 5px;
 }
-
+.send-time-input .label{
+	font-size: 15px;
+	width: 45px;
+	display: inline-block;
+}
+.send-time-input input,.send-time-input select{
+	margin-right: 20px;
+}
 .label{
 	font-size: 15px;
 	width: 70px;
@@ -872,4 +940,8 @@ span#title-6{
 }
 .wapper-add-address .seperator{
 	margin:5px 0;
+}
+#element_id{
+	width: 70px;
+	height: 20px;
 }

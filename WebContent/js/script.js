@@ -100,6 +100,19 @@ function addressItemClicked(){
 	});
 }
 
+function timeItemClicked(){
+	$(".time-item").click(function(){
+		$(".wapper-address-item").removeClass("wapper-address-item-active");
+		$(this).addClass("wapper-address-item-active");
+	});
+}
+
+function timeDelete(){
+	$(".wapper-time-operator").click(function(){
+	    $(this).parent().slideUp();
+	});
+}
+
 function addressDelete(obj){
 	if($(obj).html()=='删除'){
 		var confirm=window.confirm("确认要删除该收货地址吗");
@@ -122,6 +135,13 @@ function confirmAddAddress(){
 
 }
 
+function confirmAddToChart(){
+	$(".commodity-detail .input-submit").click(function(){
+		toaster("成功添加到购物车","success");
+		// toaster("","error");
+	});
+}
+
 function commodityAltOptions(){
 	$(".detail-header-option").click(function(){
 		$(".detail-header-option-now").removeClass("detail-header-option-now");
@@ -131,6 +151,38 @@ function commodityAltOptions(){
 			case 'commodity-detail':$("#detail").css("display","");break;
 			case 'commodity-comment':$("#comment").css("display","");break;
 			case 'commodity-trend':$("#trend").css("display","");break;
+		}
+	});
+}
+
+function addTime(){
+	$("#add-time").click(function(){
+		var date=$("#element_id").val();
+		var period=$("#time-period").val();
+		var str='';
+		if(date!=''){
+			if(period!='-1'){
+				switch(period){
+					case '0':str='6:00-9:00';break;
+					case '1':str='9:00-12:00';break;
+					case '2':str='12:00-15:00';break;
+					case '3':str='15:00-18:00';break;
+				}
+				var str='<div class="time-item"> '+               
+                    '<div class="wapper-time-info float-left">'+
+                    '<div class="wapper-time-date">'+date+'</div>'+
+                    '<div class="wapper-time-period">09:00-12:00</div>'+
+                    '</div>'+
+                    '<div class="wapper-time-operator float-right" onclick="timeDelete();">删除</div>'+
+                    '<div class="clear-fix"></div>'+
+                    '<div class="seperator"></div>'+
+                    '</div>';               
+				$(".send-time-list").after(str);
+			}else{
+				toaster("请选择时间段","error");
+			}
+		}else{
+			toaster("请选择日期","error");
 		}
 	});
 }
