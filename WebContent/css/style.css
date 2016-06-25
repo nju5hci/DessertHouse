@@ -854,7 +854,7 @@ span#title-6{
 }
 .wapper-send-info{
     margin-top: 30px;
-	height: 370px;
+	height: 400px;
 	margin-bottom: 30px;
 }
 .wapper-send-address,.wapper-send-time{
@@ -934,14 +934,21 @@ span#title-6{
 	margin-right: 20px;
 }
 .label{
-	font-size: 15px;
-	width: 70px;
+	font-size: 14px;
+	width: 60px;
 	display: inline-block;
 }
 .wapper-add-address .seperator{
 	margin:5px 0;
 }
+.wapper-add-address select{
+	width: 60px;
+}
 #element_id{
 	width: 70px;
+	height: 20px;
+}
+.detailed-address{
+	width: 90px;
 	height: 20px;
 }

@@ -65,6 +65,8 @@
                 <select id="province" name="province" onchange="LocalList.mf_processStateList()" style="display: inline;"></select>
                 <select id="city" name="city" onchange="LocalList.mf_processCityList()" style="display: inline;"></select>
                 <select id="area" name="area" style="display: inline;"></select>
+                <span class="label">详细地址:</span>
+                <input class="detailed-address"></input>
                 <div class="seperator"></div>
                 <div class="add-address-person">
                     <span class="label">收货人：</span>
@@ -230,6 +232,7 @@
     timeDelete();
     commodityDelete();
     addTime();
+    addAddress();
 $('#element_id').cxCalendar();
 
 </script>
