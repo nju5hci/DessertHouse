@@ -25,12 +25,12 @@ public class Dessert  implements Serializable{
 	private String dessertPicAdd1;//甜品照片所在地址
 	private String dessertPicAdd2;//甜品照片所在地址
 	
-	private boolean isShowed;//被显示在页面上了就是true,没有显示的是false
+	private int isShowed;//被显示在页面上了就是true,没有显示的是false
 	
 
 	
 	public Dessert(int dessertId, String dessertName, double dessertPrice, String dessertInfo, int dessertStock,
-			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2, boolean isShowed) {
+			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2, int isShowed) {
 	
 		this.dessertId = dessertId;
 		this.dessertName = dessertName;
@@ -47,10 +47,10 @@ public class Dessert  implements Serializable{
 	}
 	
 	
-	public boolean isShowed() {
+	public int isShowed() {
 		return isShowed;
 	}
-	public void setShowed(boolean isShowed) {
+	public void setShowed(int isShowed) {
 		this.isShowed = isShowed;
 	}
 	public Dessert(int dessertId){

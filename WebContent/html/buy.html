@@ -165,10 +165,10 @@ var options = {
     country: 'province',        // “省”下拉列表的名称
     state: 'city',              // “市”下拉列表的名称
     city: 'area',               // “区”下拉列表的名称
-    current: '33|01|03',        // 当前默认值，用管道符“|”分割
+    current: '0|0|0',        // 当前默认值，用管道符“|”分割
     language: 'zh_cn',          // 数据文件的语言
     path_to_xml: '../plugins/china-city-select-master/data/china/', // 数据文件的目录
-    read_only: true            // 数据是否只读，若设置为true，则无需设置 country 和 state
+    read_only: false            // 数据是否只读，若设置为true，则无需设置 country 和 state
 };
 
 LocalList.mf_init(options);

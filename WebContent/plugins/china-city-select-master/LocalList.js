@@ -77,7 +77,7 @@ var XmlHttp = {
 		lo_xmlhttp.send(null);
 	},
 	mf_sendrequest_sync : function(lo_xmlhttp, ld_url) {
-		lo_xmlhttp.open("GET", ld_url, true);
+		lo_xmlhttp.open("GET", ld_url, false);
 		lo_xmlhttp.send(null);
 	},
 	mf_postrequest : function(lo_xmlhttp, ld_url, lf_process, ld_data) {
