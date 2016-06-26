@@ -71,15 +71,6 @@ function initCheckBox(){
 	});
 }
 
-function chartDeleteCommodity(){
-	$(".chart-item-operator").click(function(){
-		var confirm=window.confirm("确定从购物车中删除该商品？");
-		if(confirm){
-			$(this).parent().slideUp();
-		}
-	});
-}
-
 function altAddAddressPanel(){
 	var panel=$(".wapper-add-address");
 	if(panel.hasClass("hide")){
@@ -141,7 +132,7 @@ function addAddress(){
 		var address_province=$("#province").find("option:selected").text();
 		var address_city=$("#city").find("option:selected").text();
 		var address=$("#area").find("option:selected").text();
-		if(address_province=='---'||address=='---'){toaster("新地址信息不完整！","error");return;}
+		if(address_province=='---'||address_city=='---'||address=='---'){toaster("新地址信息不完整！","error");return;}
 		if (person=='') {toaster("新地址信息不完整！","error");return;}
 		if (tel=='') {toaster("新地址信息不完整！","error");return;}
 		if (detail=='') {toaster("新地址信息不完整！","error");return;}
@@ -274,4 +265,32 @@ function rounding(num,n){
 		return 0;
 	}
 	return parseFloat(num).toFixed(n);
+}
+
+function commodity_addtochart(){
+	$(".add-to-chart").click(function(){
+		toaster("已添加到购物车","success");
+	});
+}
+
+function deletePopup(){
+	$(".chart-item-operator").click(function(){
+		var str=''+
+		'<div class="delete-popup box">'+
+		'<span class="label">确认删除？</span></br>'+
+		'<span class="input-submit" style="display:inline-block">确认</span>'+
+		'</div>';
+		$(this).after(str);
+		$(".delete-popup").css("left",$(this).offset().left-30);
+		$(".delete-popup").css("top",$(this).offset().top+30);
+		$(".delete-popup .input-submit").click(function(){
+			$(this).parent().parent().slideUp();
+		});
+		$(document).mouseup(function (e) {
+            var _con = $(".delete-popup");   // 设置目标区域
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+                _con.remove();
+            }
+        });
+	});
 }
