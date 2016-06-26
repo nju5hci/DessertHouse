@@ -107,6 +107,21 @@ public class OrderServiceImpl implements OrderService{
 		return result;
 	}
 
+	@Override
+	public OrderList getOrderListById(int orderListId) {
+		return orderListDao.getOrderListById(orderListId);
+	}
+
+	@Override
+	public boolean hasThisOrderId(int ordersId) {
+		return orderDao.hasThisID(ordersId);
+	}
+
+	@Override
+	public boolean hasThisOrderListId(int ordersListId) {
+		return orderListDao.hasThisID(ordersListId);
+	}
+
 
 
 }

@@ -447,12 +447,12 @@
 	</bean>
 		<bean id="AddToChartAction" class="dessert.action.AddToChartAction">
 	<property name="memberService" ref="memberService" ></property>
-		
+			<property name="orderService" ref="orderService" ></property>
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
 		<bean id="AddToChart2Action" class="dessert.action.AddToChart2Action">
 	<property name="memberService" ref="memberService" ></property>
-		
+			<property name="orderService" ref="orderService" ></property>
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
 	<bean id="ChartAction" class="dessert.action.ChartAction">

@@ -13,6 +13,7 @@ import dessert.model.Member;
 import dessert.model.OrderList;
 import dessert.service.DessertService;
 import dessert.service.MemberService;
+import dessert.service.OrderService;
 
 public class AddToChartAction extends BaseAction {
 
@@ -21,7 +22,15 @@ public class AddToChartAction extends BaseAction {
 	@Autowired
 	private DessertService dessertService;
 	private MemberService memberService;
+	private OrderService orderService;
 	
+	
+	public OrderService getOrderService() {
+		return orderService;
+	}
+	public void setOrderService(OrderService orderService) {
+		this.orderService = orderService;
+	}
 	public MemberService getMemberService() {
 		return memberService;
 	}
@@ -47,7 +56,7 @@ public class AddToChartAction extends BaseAction {
 		do{
 			Random r = new Random(); 
 			orderListId = r.nextInt(99999999);
-		}while(orderListId>10000000);
+		}while(orderListId>10000000&&orderService.hasThisOrderListId(orderListId)==false);
 	   OrderList orderList=new OrderList(orderListId, mid, dessertid, num, dessert.getDessertName(), dessert.getDessertPrice(), 
 			   dessert.getDessertPrice()*num, dessert.getDessertPicAdd());
 	   System.out.println(num+"dsdafgreyu");

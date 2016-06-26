@@ -19,6 +19,10 @@ public interface OrderService {
 	
 	//通过id得到
 	Orders getOrdersById(int OrdersId);
+	OrderList getOrderListById(int orderListId);
+	//has
+	boolean hasThisOrderId(int ordersId);
+	boolean hasThisOrderListId(int ordersListId);
 	//通过memberId得到
 	List<OrderWithList> getOrdersByMemberId(int memberId);
 	//通过memberId得到和状态

@@ -62,7 +62,8 @@
                 	     %>
     	<div class="wapper-chart-item">
     		<div class="float-left checkbox">
-                <input class="js-check" type="checkbox">
+    		
+                <input class="js-check" type="checkbox" value="<%=dessertId[i] %>">
                 <label class="checkbox-img"></label>
             </div>
             <div class="float-left chart-item-info">

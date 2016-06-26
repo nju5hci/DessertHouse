@@ -11,6 +11,7 @@ import dessert.DAO.BaseDao;
 import dessert.DAO.OrderDao;
 import dessert.hibernate3.support.YeekuHibernateDaoSupport;
 import dessert.model.Activity;
+import dessert.model.Member;
 import dessert.model.MemberCard;
 import dessert.model.Orders;
 
@@ -105,6 +106,18 @@ public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao
 			System.out.println("找不到这个订单");
 		}
 		return dessertList;
+	}
+
+	@Override
+	public boolean hasThisID(int ordersId) {
+		String hql = "from dessert.model.Orders where orderId ='"+ordersId+"'";
+		Session session = baseDao.getNewSession();
+		List<Orders> ml = session.createQuery(hql).list();
+		if(ml.size()==0){
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 

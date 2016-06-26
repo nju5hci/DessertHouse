@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import dessert.DAO.BaseDao;
 import dessert.DAO.OrderListDao;
 import dessert.hibernate3.support.YeekuHibernateDaoSupport;
+import dessert.model.Member;
 import dessert.model.OrderList;
 
 public class OrderListDaoImpl extends YeekuHibernateDaoSupport  implements OrderListDao{
@@ -77,6 +78,18 @@ public class OrderListDaoImpl extends YeekuHibernateDaoSupport  implements Order
 			System.out.println("找不到这个订单");
 		}
 		return dessertList;
+	}
+
+	@Override
+	public boolean hasThisID(int ordersListId) {
+		String hql = "from dessert.model.OrderList where orderListId ='"+ordersListId+"'";
+		Session session = baseDao.getNewSession();
+		List<OrderList> ml = session.createQuery(hql).list();
+		if(ml.size()==0){
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 

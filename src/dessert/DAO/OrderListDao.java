@@ -23,4 +23,6 @@ public interface OrderListDao {
 	
 	//通过菜的id得到
 	List<OrderList> getOrderListByOrderDessertId(int dessertId);
+	//
+	boolean hasThisID(int ordersListId);
 }

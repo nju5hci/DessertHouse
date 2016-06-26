@@ -25,4 +25,7 @@ public interface OrderDao {
 			
 			//得到所有活动
 			List<Orders> getAllOrders();
+			//
+			boolean hasThisID(int ordersId);
+			
 }
