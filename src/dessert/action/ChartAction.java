@@ -46,6 +46,7 @@ public class ChartAction extends BaseAction{
 	private double totalPrice;//菜的总额，即单价乘以数量
 	private String dessertPicture;//菜的地址这里显示一张图片就好
 	 */
+			int []orderListId=new int[orderLists.size()];
 		int []dessertId=new int[orderLists.size()];
 		int []dessertNum=new int[orderLists.size()];
 		String[] dessertName=new String[orderLists.size()];
@@ -54,6 +55,7 @@ public class ChartAction extends BaseAction{
 			String[] dessertPicture=new String[orderLists.size()];
 		
 			for(int i=0;i<orderLists.size();i++){
+				orderListId[i]=orderLists.get(i).getOrderListId();
 				dessertId[i]=orderLists.get(i).getDessertId();
 				dessertNum[i]=orderLists.get(i).getDessertNum();
 				dessertName[i]=orderLists.get(i).getDessertName();
@@ -67,6 +69,7 @@ public class ChartAction extends BaseAction{
 			
 			sc.setAttribute("num", orderLists.size());
 			sc.setAttribute("dessertId", dessertId);
+			sc.setAttribute("orderListId", orderListId);
 			sc.setAttribute("dessertNum", dessertNum);
 			sc.setAttribute("dessertName", dessertName);
 			sc.setAttribute("dessertPrice", dessertPrice);

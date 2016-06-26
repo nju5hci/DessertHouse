@@ -9,6 +9,8 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sun.javafx.image.IntPixelAccessor;
+
 import dessert.configure.Configure;
 import dessert.model.MemberCard;
 import dessert.model.OrderList;
@@ -52,6 +54,8 @@ public class ConfirmOrderAction extends BaseAction{
 		public String execute() throws Exception {
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
+		//	int[]  orderList = (int[])(request.getParameter("orderList"));
+			int  num = Integer.parseInt(request.getParameter("num"));
 			List<OrderList> orderLists=orderService.getOrdersListByOrdersId(mid);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 			

@@ -19,7 +19,8 @@
         <a href="">退出</a>
     </div>
 </div>
-<div class="wapper">
+<div class="wapper">    
+ <form action="/DessertHouse/confirmOrder"  method="post" id="contactform">
 	<div class="wapper-header">
     <!--跳转到首页-->
     <a href="" class="title">一亩田</a>
@@ -55,15 +56,17 @@
                         		double[] totalPrice = (double[])request.getServletContext().getAttribute("totalPrice");
                           		int []dessertNum=(int [])request.getServletContext().getAttribute("dessertNum");
                         		int []dessertId=(int [])request.getServletContext().getAttribute("dessertId");
+                        		int []orderListId=(int [])request.getServletContext().getAttribute("orderListId");
                         		int num = (Integer)request.getServletContext().getAttribute("num");
 
                         		for(int i = 0;i<num;i++){
                         		
                 	     %>
+                	     
     	<div class="wapper-chart-item">
     		<div class="float-left checkbox">
     		
-                <input class="js-check" type="checkbox" value="<%=dessertId[i] %>">
+                <input class="js-check" type="checkbox" name="orderList" value="<%=orderListId[i] %>">
                 <label class="checkbox-img"></label>
             </div>
             <div class="float-left chart-item-info">
@@ -72,9 +75,10 @@
             </div>
             <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-num">
-            	<input class="input-small" value="1"></input>
+            	<input class="input-small" value="1" name="num" ></input>
             </div>
-            <div class="float-left chart-item-amount"><%=totalPrice[i] %></div>
+            <script>var num=$("input['name='num'']").val();</script>
+            <div class="float-left chart-item-amount"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-operator">删除</div>
             <div class="clear-fix"></div>
     	</div>
@@ -89,12 +93,14 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
-    	      <a  href="/DessertHouse/confirmOrder">
-    		<span class="confirm">结算</span>
+    	  <input class="confirm" type="submit" value="结算"  >
+
     		</a>
     	</div>
         <div class="clear-fix"></div>
     </div>
+    </form>
+    
 </div>
 <div class="footer">
     <div class="seperator"></div>
