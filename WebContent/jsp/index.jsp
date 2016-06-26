@@ -107,7 +107,7 @@
                 </a>
                 <div class="commodity-name"><%=name_dessert[i] %></div>
                 <div class="float-left commodity-price"><%=money_dessert[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_dessert[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -141,7 +141,7 @@
                 </a>
                 <div class="commodity-name"><%=name_fruit[i] %></div>
                 <div class="float-left commodity-price"><%=money_fruit[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                 <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_fruit[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -176,7 +176,7 @@
                 
                 <div class="commodity-name"><%=name_meat[i] %></div>
                 <div class="float-left commodity-price"><%=money_meat[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+              <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_meat[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -213,7 +213,7 @@
                 
                 <div class="commodity-name"><%=name_seafood[i] %></div>
                 <div class="float-left commodity-price"><%=money_seafood[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_seafood[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -248,7 +248,7 @@
                 </a>
                 <div class="commodity-name"><%=name_milk[i] %></div>
                 <div class="float-left commodity-price"><%=money_milk[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_milk[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -283,7 +283,7 @@
                 </a>
                 <div class="commodity-name"><%=name_egg[i] %></div>
                 <div class="float-left commodity-price"><%=money_egg[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+               <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_egg[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -317,7 +317,7 @@
                 </a>
                 <div class="commodity-name"><%=name_sd[i] %></div>
                 <div class="float-left commodity-price"><%=money_sd[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+               <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_sd[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -351,7 +351,7 @@
                 </a>
                 <div class="commodity-name"><%=name_tw[i] %></div>
                 <div class="float-left commodity-price"><%=money_tw[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+              <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_tw[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         
@@ -385,7 +385,7 @@
                 </a>
                 <div class="commodity-name"><%=name_alcohol[i] %></div>
                 <div class="float-left commodity-price"><%=money_alcohol[i] %></div>
-                <div class="float-right add-to-chart">加入购物车</div>
+               <a class="float-right add-to-chart" href="/DessertHouse/addToChart2?dessertid=<%=id_alcohol[i] %>">加入购物车</a>
                 <div class="clear-fix"></div>
             </div>
         

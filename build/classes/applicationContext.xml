@@ -450,6 +450,11 @@
 		
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
+		<bean id="AddToChart2Action" class="dessert.action.AddToChart2Action">
+	<property name="memberService" ref="memberService" ></property>
+		
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
