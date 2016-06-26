@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="wapper">    
- <form action="/DessertHouse/confirmOrder"  method="post" id="contactform">
+
 	<div class="wapper-header">
     <!--跳转到首页-->
     <a href="" class="title">一亩田</a>
@@ -47,6 +47,8 @@
     	<span id="title-6">操作</span>
     </div>
     <div class="seperator"></div>
+    
+     <form action="/DessertHouse/confirmOrder"  method="post" >
     <div class="wapper-chart-list">
        <% 
                                 String[] dessertName = (String[])request.getServletContext().getAttribute("dessertName");
@@ -77,7 +79,7 @@
             </div>
             <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1" ></input>
+                <input class="input-small" value="1" name="number" ></input>
             </div>
          
                  <div class="float-left chart-item-amount"><%=totalPrice[i] %></div>
@@ -95,9 +97,9 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
+    	  <%request.getServletContext().setAttribute("total", total);%>
     	  <input class="confirm" type="submit" value="结算"  >
 
-    		</a>
     	</div>
         <div class="clear-fix"></div>
     </div>

@@ -54,9 +54,25 @@ public class ConfirmOrderAction extends BaseAction{
 		public String execute() throws Exception {
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
-		//	int[]  orderList = (int[])(request.getParameter("orderList"));
-			int  num = Integer.parseInt(request.getParameter("num"));
-			List<OrderList> orderLists=orderService.getOrdersListByOrdersId(mid);
+			String[]  orderList = 	(request.getParameterValues("orderList"));
+			
+			
+			int []orderListId=new int[orderList.length];
+			for(int i=0;i<orderList.length;i++){
+				orderListId[i]=Integer.parseInt(orderList[i]);
+		
+			}
+			String[]  numbers = 	(request.getParameterValues("number"));
+			int[]nums=new int[numbers.length];
+			double total=0.0;
+			for(int i=0;i<numbers.length;i++){
+				nums[i]=Integer.parseInt(numbers[i]);
+				OrderList orderList2=	orderService.getOrderListById(orderListId[i]);
+				orderList2.setDessertNum(nums[i]);
+				orderService.updateOrdersList(orderList2);
+				total=total+nums[i]*orderList2.getDessertPrice();
+			}
+			//List<OrderList> orderLists=orderService.getOrdersListByOrdersId(mid);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 			
 			String time = df.format(new Date());// new Date()为获取当前系统时间
@@ -71,23 +87,20 @@ public class ConfirmOrderAction extends BaseAction{
 			}else if(level==3){
 				discount=Configure.THREE_DISCOUNT;
 			}
-			double totalPrice=0.0;
-			for(int i=0;i<orderLists.size();i++){
-				totalPrice=totalPrice+orderLists.get(i).getTotalPrice();
-				
-			}
-			int orderListId = 0;
+			//double totalPrice=Double.parseDouble(request.getParameter("total"));
+			
+			int orderId = 0;
 			do{
 				Random r = new Random(); 
-				orderListId = r.nextInt(99999999);
-			}while(orderListId>10000000);
-			for(int i=0;i<orderLists.size();i++){
-				//确认下单后就把原本是orderid会员号的，改为这个大订单的
-				orderLists.get(i).setOrderId(orderListId);
-				orderService.updateOrdersList(orderLists.get(i));
+				orderId = r.nextInt(99999999);
+			}while(orderId>10000000);
+			for(int i=0;i<orderList.length;i++){
 				
+			OrderList orderList2=	orderService.getOrderListById(orderListId[i]);
+			orderList2.setOrderId(-mid);
+			orderService.updateOrdersList(orderList2);
 			}
-			Orders orders=new Orders(orderListId, mid, totalPrice, Configure.ORDER_UNCHECK,
+			Orders orders=new Orders(orderId, mid, total, Configure.ORDER_UNCHECK,
 					time, "", "", "", "", discount);
 
 		orderService.addOrders(orders);
