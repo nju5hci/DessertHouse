@@ -513,6 +513,11 @@
 	<result name="success" type="redirect">/jsp/index.jsp</result>
 				
 		</action>
+		<action name="chart" class="dessert.action.ChartAction">
+		
+	<result name="success" type="redirect">/jsp/chart.jsp</result>
+				
+		</action>
 		<!--  -->
 
 	</package>
