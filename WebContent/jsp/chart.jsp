@@ -8,6 +8,7 @@
    <link rel="stylesheet" type="text/css" href="../css/style.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
         <script src="../js/script.js"></script>
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -63,7 +64,8 @@
                         		
                 	     %>
                 	     
-    	<div class="wapper-chart-item">
+    	
+    	 <div class="wapper-chart-item" ng-app="" ng-init="price=29.9;n=1">
     		<div class="float-left checkbox">
     		
                 <input class="js-check" type="checkbox" name="orderList" value="<%=orderListId[i] %>">
@@ -75,10 +77,10 @@
             </div>
             <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-num">
-            	<input class="input-small" value="1" name="num" ></input>
+                <input class="input-small" value="1" ng-model="n"></input>
             </div>
-            <script>var num=$("input['name='num'']").val();</script>
-            <div class="float-left chart-item-amount"><%=dessertPrice[i] %></div>
+         
+                 <div class="float-left chart-item-amount">{{price*n|number:2}}</div>
             <div class="float-left chart-item-operator">删除</div>
             <div class="clear-fix"></div>
     	</div>
