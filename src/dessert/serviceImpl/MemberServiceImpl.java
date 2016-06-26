@@ -11,12 +11,16 @@ import dessert.DAO.AssessDao;
 import dessert.DAO.DessertDao;
 import dessert.DAO.MemberCardDao;
 import dessert.DAO.MemberDao;
+import dessert.DAO.OrderDao;
+import dessert.DAO.OrderListDao;
 import dessert.DAO.ReserveDao;
 import dessert.configure.Configure;
 import dessert.model.Address;
 import dessert.model.Assess;
 import dessert.model.Member;
 import dessert.model.MemberCard;
+import dessert.model.OrderList;
+import dessert.model.Orders;
 import dessert.model.Recharge;
 import dessert.model.Reserve;
 
@@ -31,6 +35,16 @@ public class MemberServiceImpl implements MemberService{
 	private AssessDao assessDao;
 	private AddressDao addressDao;
 	
+private OrderDao orderDao;
+private OrderListDao orderListDao;
+
+	public void setOrderDao(OrderDao orderDao) {
+	this.orderDao = orderDao;
+}
+
+public void setOrderListDao(OrderListDao orderListDao) {
+	this.orderListDao = orderListDao;
+}
 
 	public void setAddressDao(AddressDao addressDao) {
 		this.addressDao = addressDao;
@@ -303,6 +317,16 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public boolean hasThisId(int id, String phone) {
 		return memberDao.hasThisId(id);
+	}
+
+	@Override
+	public boolean addOrderList(OrderList orderList) {
+		return orderListDao.addOrderList(orderList);
+	}
+
+	@Override
+	public boolean addOrders(Orders orders) {
+		return orderDao.addOrders(orders);
 	}
 
 }

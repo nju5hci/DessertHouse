@@ -503,6 +503,11 @@
 	<result name="success" type="redirect">/jsp/commodity.jsp</result>
 				
 		</action>
+		<action name="addToChart" class="dessert.action.AddToChartAction">
+		
+	<result name="success" type="redirect">/jsp/commodity.jsp</result>
+				
+		</action>
 		<!--  -->
 
 	</package>

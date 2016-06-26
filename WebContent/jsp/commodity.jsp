@@ -85,12 +85,17 @@
                 <span class="commodity-detail-number" id="all-comment"><%=assessNum %></span>
             </div>
         </div>
+           <form action="/DessertHouse/addToChart?dessertid=<%=dessertid %>" method="post">
         <div class="commodity-number-selector">
-            <span class="commodity-detail-label">数量:</span>
-            <input type="text" value="1" class="input-small"></input>
+     	
+            <span class="commodity-detail-label" >数量:</span>
+            <input type="text" value="1" class="input-small" name="num"></input>
             <span class="commodity-detail-label" id="commodity-amount">库存数量：<%=dessertStock %></span>
         </div>
-        <div class="input-submit">加入购物车</div>
+        	
+      <!--  <div class="input-submit">加入购物车</div> --> 
+          <input class="input-submit" type="submit" value="加入购物车"  >
+        </form>
         </div>
 
         <div class="clear-fix"></div>

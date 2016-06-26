@@ -3,9 +3,13 @@ package dessert.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.criteria.Order;
+
 import dessert.model.Address;
 import dessert.model.Assess;
 import dessert.model.Member;
+import dessert.model.OrderList;
+import dessert.model.Orders;
 import dessert.model.Recharge;
 import dessert.model.Reserve;
 
@@ -106,4 +110,11 @@ public interface MemberService {
 		
 		//通过memberid得到
 		List<Address> getAddressByMemberId(int mid);
+		
+		//新增一个orderlist
+		boolean addOrderList(OrderList orderList);
+		
+		//下单
+		boolean addOrders(Orders orders);
+		
 }

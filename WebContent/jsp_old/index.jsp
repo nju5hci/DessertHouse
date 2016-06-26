@@ -120,7 +120,7 @@
 							<p><span class="rupees"><%=money_dessert[i] %></span></p>
 					    </div>
 					       		<div class="add-cart">								
-								<form action="/DessertHouse/preview" method="post">	
+								<form action="/DessertHouse/addToChart?dessertid=<%=id_dessert[i] %>" method="post">	
 					       		<input class='a'  type="text" name="dessertid" value= <%=id_dessert[i] %>>
 							<div class="submit">
 							<input type="submit" value="去预定" >

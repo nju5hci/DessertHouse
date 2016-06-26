@@ -106,6 +106,8 @@
 		<property name="reserveDao" ref="reserveDao" ></property>
 		<property name="assessDao" ref="assessDao" ></property>
 	<property name="addressDao" ref="addressDao" ></property>
+		<property name="orderDao" ref="orderDao" ></property>
+		<property name="orderListDao" ref="orderListDao" ></property>
 	</bean>	
 	<bean id="memberCardService" class="dessert.serviceImpl.MemberCardServiceImpl">
 			<property name="memberCardDao" ref="memberCardDao" ></property>
@@ -440,6 +442,11 @@
 	</bean>
 	<bean id="CommodityAction" class="dessert.action.CommodityAction">
 	
+		
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
+		<bean id="AddToChartAction" class="dessert.action.AddToChartAction">
+	<property name="memberService" ref="memberService" ></property>
 		
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
