@@ -141,7 +141,7 @@ function addAddress(){
 		var address_province=$("#province").find("option:selected").text();
 		var address_city=$("#city").find("option:selected").text();
 		var address=$("#area").find("option:selected").text();
-		if(address_province=='---'||address_city=='---'||address=='---'){toaster("新地址信息不完整！","error");return;}
+		if(address_province=='---'||address=='---'){toaster("新地址信息不完整！","error");return;}
 		if (person=='') {toaster("新地址信息不完整！","error");return;}
 		if (tel=='') {toaster("新地址信息不完整！","error");return;}
 		if (detail=='') {toaster("新地址信息不完整！","error");return;}

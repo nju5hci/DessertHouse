@@ -520,7 +520,12 @@
 		</action>
 			<action name="confirmOrder" class="dessert.action.ConfirmOrderAction">
 		
-	<result name="success" type="redirect">/jsp/chart.jsp</result>
+	<result name="success" type="redirect">/DessertHouse/buy</result>
+				
+		</action>
+		<action name="buy" class="dessert.action.BuyAction">
+		
+	<result name="success" type="redirect">/jsp/buy.jsp</result>
 				
 		</action>
 		<!--  -->

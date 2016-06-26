@@ -97,7 +97,7 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
-    	  <%request.getServletContext().setAttribute("total", total);%>
+    	
     	  <input class="confirm" type="submit" value="结算"  >
 
     	</div>

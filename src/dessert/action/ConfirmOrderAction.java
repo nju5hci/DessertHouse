@@ -63,9 +63,9 @@ public class ConfirmOrderAction extends BaseAction{
 		
 			}
 			String[]  numbers = 	(request.getParameterValues("number"));
-			int[]nums=new int[numbers.length];
+			int[]nums=new int[orderList.length];
 			double total=0.0;
-			for(int i=0;i<numbers.length;i++){
+			for(int i=0;i<orderList.length;i++){
 				nums[i]=Integer.parseInt(numbers[i]);
 				OrderList orderList2=	orderService.getOrderListById(orderListId[i]);
 				orderList2.setDessertNum(nums[i]);

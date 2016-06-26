@@ -157,30 +157,51 @@
     </div>
     <div class="seperator"></div>
     <div class="wapper-chart-list">
+         <% 
+                                String[] dessertName = (String[])request.getServletContext().getAttribute("dessertName");
+            		double total=0;
+            		if(dessertName!=null){
+                        		String[] dessertPicture = (String[])request.getServletContext().getAttribute("dessertPicture");
+                        		double[] dessertPrice = (double[])request.getServletContext().getAttribute("dessertPrice");
+                        		double[] totalPrice = (double[])request.getServletContext().getAttribute("totalPrice");
+                          		int []dessertNum=(int [])request.getServletContext().getAttribute("dessertNum");
+                        		int []dessertId=(int [])request.getServletContext().getAttribute("dessertId");
+                        		int []orderListId=(int [])request.getServletContext().getAttribute("orderListId");
+                        		int num = (Integer)request.getServletContext().getAttribute("num");
+
+                        		for(int i = 0;i<num;i++){
+                        		
+                	     %>
+                	     
+    	
     	<div class="wapper-chart-item">
     		<div class="float-left checkbox">
-                <input class="js-check" type="checkbox">
+                <input class="js-check" name="orderList" type="checkbox">
                 <label class="checkbox-img"></label>
             </div>
             <div class="float-left chart-item-info">
-            	<img src="../img/big1.jpg" class="chart-item-photo">
-            	<a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
+            	<img src="<%=dessertPicture[i] %>" class="chart-item-photo">
+            	<a href="" class="chart-item-name"><%=dessertName[i] %></a>
                 <input class="commodity-id" type="hidden" id="1" value="1"></input>
             </div>
-            <div class="float-left chart-item-price">29.9</div>
+            <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-num">
-            	<input class="input-small" value="1" id="input-1"></input>
+            	<input class="input-small" value="1" id="input-1" name="number"></input>
             </div>
-            <div class="float-left chart-item-amount">59.8</div>
+            <div class="float-left chart-item-amount"><%=totalPrice[i] %></div>
             <div class="float-left chart-item-operator">删除</div>
 
     	</div>
-    
+      <%
+     	total=total+totalPrice[i];
+                        		}
+    	     }
+                         %>
    
     </div>
     <div class="wapper-chart-bottom">
     	<div class="float-right">
-    	    <div class="chart-amount">总金额：￥32</div>
+    	    <div class="chart-amount">总金额：<%=total %></div>
     		<span class="confirm">提交订单</span>
     	</div>
         <div class="clear-fix"></div>
