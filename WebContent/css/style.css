@@ -776,10 +776,12 @@ span#title-6{
 	margin-left: 6%;
 	height: 15px;
 	margin-top: 3%;
+	width: 30px;
 }
 .chart-item-amount{
 		margin-top: 3%;
 	margin-left: 7%;
+	width: 30px;
 }
 .chart-item-operator{
 	margin-top: 2.7%;

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
         <script src="../js/script.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -62,7 +63,7 @@
             <div class="clear-fix"></div>
     	</div>
         
-        <div class="wapper-chart-item">
+        <div class="wapper-chart-item" ng-app="" ng-init="price=29.9;num=1">
             <div class="float-left checkbox">
                 <input class="js-check" type="checkbox" id="2">
                 <label class="checkbox-img"></label>
@@ -73,9 +74,9 @@
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1"></input>
+                <input class="input-small" value="1" ng-model="num"></input>
             </div>
-            <div class="float-left chart-item-amount">59.8</div>
+            <div class="float-left chart-item-amount">{{price*num|number:2}}</div>
             <div class="float-left chart-item-operator">删除</div>
             <div class="clear-fix"></div>
         </div>

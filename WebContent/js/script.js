@@ -244,3 +244,12 @@ function getCheckedItems(){
 	}
 	return array;
 }
+
+function changeAmount(){
+	$(".chart-item-num input").change(function(){
+		var price_str=$(this).parent().prev().html();
+		var price=Number(price_str);
+		var amount=price*Number($(this).val());
+		$(this).parent().next().html(amount);
+	});
+}
