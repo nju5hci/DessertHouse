@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>一亩田-商品详情</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+   <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../font-awesome-4.5.0/css/font-awesome.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
+        <script src="../js/script.js"></script>
         <!-- bxSlider Javascript file -->
 <script src="../plugins/bxslider/jquery.bxslider.js"></script>
 <!-- bxSlider CSS file -->
@@ -49,7 +51,10 @@
 					    	 int monthSale = (int)request.getServletContext().getAttribute("monthSale");
 					    	 int totalSale = (int)request.getServletContext().getAttribute("totalSale");
 					    	 int assessNum = (int)request.getServletContext().getAttribute("assessNum");
-						    	
+					    	 String dessertInfoPicAdd=(String)request.getServletContext().getAttribute("dessertInfoPicAdd");
+						    	String dessertInfoPicAdd1=(String)request.getServletContext().getAttribute("dessertInfoPicAdd1");
+						    	String dessertInfoPicAdd2=(String)request.getServletContext().getAttribute("dessertInfoPicAdd2");
+						    	String dessertInfoPicAdd3=(String)request.getServletContext().getAttribute("dessertInfoPicAdd3");
 						%>
         <div class="commodity-detail-photo float-left">
         <ul class="bxslider">
@@ -104,16 +109,19 @@
     <div class="red-seperator"></div>
     <div class="wapper-detail-bottom">
         <div class="wapper-detail-bottom-header">
-            <span class="detail-header-option detail-header-option-now float-left">商品详情</span>
-            <span class="detail-header-option float-left">商品评价</span>
-            <span class="detail-header-option float-left">价格趋势</span>
+          <span class="detail-header-option detail-header-option-now float-left" id="commodity-detail">商品详情</span>
+            <span class="detail-header-option float-left" id="commodity-comment">商品评价</span>
+            <span class="detail-header-option float-left" id="commodity-trend">价格趋势</span>
         </div>
         <div class="clear-fix"></div>
-        <div class="wapper-detail-content" style="display: none;" id="detail">
-            <img src="../img/info.jpg">
-            <img src="../img/info2.jpg">
+       <div class="wapper-detail-content" id="detail">
+            <img src="<%=dessertInfoPicAdd %>">
+          <img src="<%=dessertInfoPicAdd1 %>">
+             <img src="<%=dessertInfoPicAdd2 %>">
+                <img src="<%=dessertInfoPicAdd3 %>">
+                
         </div>
-        <div class="wapper-detail-content" id="comment">
+  <div class="wapper-detail-content" style="display: none;" id="comment">
             <div class="comment-list">
             <%
             String[] words_assess = (String[])request.getServletContext().getAttribute("words_assess");
@@ -148,6 +156,7 @@
                
             </div>
         </div>
+           <div class="wapper-detail-content" style=" display: none;"id="trend"></div>
     </div>
 
 </div>
@@ -161,7 +170,9 @@
 </body>
 <script>
 $(document).ready(function(){
-  jQuery(".bxslider").bxSlider();
-});
+	  jQuery(".bxslider").bxSlider();
+	  commodityAltOptions();
+	  confirmAddToChart();
+	});
 </script>
 </html>

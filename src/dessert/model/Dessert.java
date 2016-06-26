@@ -30,7 +30,10 @@ public class Dessert  implements Serializable{
 	private int totalSale;//总销量
 	private int assessNum;//评价数
 
-	
+	private String dessertInfoPicAdd;//甜品照片所在地址
+	private String dessertInfoPicAdd1;//甜品照片所在地址
+	private String dessertInfoPicAdd2;//甜品照片所在地址
+	private String dessertInfoPicAdd3;//甜品照片所在地址
 	public Dessert(int dessertId, String dessertName, double dessertPrice, String dessertInfo, int dessertStock,
 			String dessertPicAdd, String dessertPicAdd1, String dessertPicAdd2, int isShowed) {
 	
@@ -130,6 +133,30 @@ public class Dessert  implements Serializable{
 	}
 	public void setDessertPicAdd2(String dessertPicAdd2) {
 		this.dessertPicAdd2 = dessertPicAdd2;
+	}
+	public String getDessertInfoPicAdd() {
+		return dessertInfoPicAdd;
+	}
+	public void setDessertInfoPicAdd(String dessertInfoPicAdd) {
+		this.dessertInfoPicAdd = dessertInfoPicAdd;
+	}
+	public String getDessertInfoPicAdd1() {
+		return dessertInfoPicAdd1;
+	}
+	public void setDessertInfoPicAdd1(String dessertInfoPicAdd1) {
+		this.dessertInfoPicAdd1 = dessertInfoPicAdd1;
+	}
+	public String getDessertInfoPicAdd2() {
+		return dessertInfoPicAdd2;
+	}
+	public void setDessertInfoPicAdd2(String dessertInfoPicAdd2) {
+		this.dessertInfoPicAdd2 = dessertInfoPicAdd2;
+	}
+	public String getDessertInfoPicAdd3() {
+		return dessertInfoPicAdd3;
+	}
+	public void setDessertInfoPicAdd3(String dessertInfoPicAdd3) {
+		this.dessertInfoPicAdd3 = dessertInfoPicAdd3;
 	}
 	
 }

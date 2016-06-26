@@ -54,6 +54,10 @@ public class CommodityAction extends BaseAction {
 			sc.setAttribute("monthSale", dessert.getMonthSale());
 			sc.setAttribute("totalSale", dessert.getTotalSale());
 			sc.setAttribute("assessNum", dessert.getAssessNum());
+			sc.setAttribute("dessertInfoPicAdd", dessert.getDessertInfoPicAdd());
+			sc.setAttribute("dessertInfoPicAdd1", dessert.getDessertInfoPicAdd1());
+			sc.setAttribute("dessertInfoPicAdd2", dessert.getDessertInfoPicAdd2());
+			sc.setAttribute("dessertInfoPicAdd3", dessert.getDessertInfoPicAdd3());
 			List<Assess> assess=dessertService.getAllAssess(dessertid);
 			String[] words_assess= new String[assess.size()];
 			int[] memberId_assess = new int[assess.size()];
