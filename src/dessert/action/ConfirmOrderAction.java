@@ -100,7 +100,8 @@ public class ConfirmOrderAction extends BaseAction{
 			orderList2.setOrderId(-mid);
 			orderService.updateOrdersList(orderList2);
 			}
-			Orders orders=new Orders(orderId, mid, total, Configure.ORDER_UNCHECK,
+			
+			Orders orders=new Orders(orderId, mid, total, Configure.ORDER_UNXIA,
 					time, "", "", "", "", discount);
 
 		orderService.addOrders(orders);

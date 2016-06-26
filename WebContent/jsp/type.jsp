@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>一亩田-水果</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/script.js"></script>
         <script src="../js/jquery-2.2.3.min.js"></script>
         <link rel="stylesheet" href="../font-awesome-4.5.0/css/font-awesome.css">
 </head>
@@ -156,5 +157,9 @@
         <p>2016.6.15</p>
     </div>
 </div>
+<div id="toaster-container"></div>
+<script type="text/javascript">
+    commodity_addtochart();
+</script>
 </body>
 </html>

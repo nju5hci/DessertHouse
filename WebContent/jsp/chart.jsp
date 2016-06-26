@@ -88,7 +88,7 @@
     	</div>
         
          <%
-     	total=total+totalPrice[i];
+     	
                         		}
     	     }
                          %>
@@ -114,9 +114,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    initCheckBox();
-    chartDeleteCommodity();
-    changeAmount();
+initCheckBox();
+deletePopup();
+changeAmount();
 </script>
 </body>
 </html>

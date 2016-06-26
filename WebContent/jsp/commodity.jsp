@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>一亩田-商品详情</title>
-   <link rel="stylesheet" type="text/css" href="../css/style.css">
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.5.0/css/font-awesome.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
         <script src="../js/script.js"></script>
@@ -167,6 +167,7 @@
         <p>2016.6.15</p>
     </div>
 </div>
+<div id="toaster-container"></div>
 </body>
 <script>
 $(document).ready(function(){

@@ -5,13 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>一亩田-首页</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../font-awesome-4.5.0/css/font-awesome.css">
+    <script type="text/javascript" src="../js/script.js"></script>
         <script src="../js/jquery-2.2.3.min.js"></script>
 <!-- bxSlider Javascript file -->
 <script src="../plugins/bxslider/jquery.bxslider.js"></script>
 <!-- bxSlider CSS file -->
 <link href="../plugins/bxslider/jquery.bxslider.css" rel="stylesheet" />
-
 </head>
 <body>
 <div class="header">
@@ -405,11 +406,12 @@
         <p>2016.6.15</p>
     </div>
 </div>
-
+<div id="toaster-container"></div>
 </body>
 <script>
 $(document).ready(function(){
-  jQuery(".bxslider").bxSlider();
-});
+	  jQuery(".bxslider").bxSlider();
+	  commodity_addtochart();
+	});
 </script>
 </html>
