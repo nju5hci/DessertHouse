@@ -246,10 +246,11 @@ function getCheckedItems(){
 }
 
 function changeAmount(){
-	$(".chart-item-num input").change(function(){
+	$(".chart-item-num input").on('input',function(e){
 		var price_str=$(this).parent().prev().html();
 		var price=Number(price_str);
-		var amount=price*Number($(this).val());
+		var amount=price*10000*Number($(this).val())/10000;
 		$(this).parent().next().html(amount);
 	});
 }
+
