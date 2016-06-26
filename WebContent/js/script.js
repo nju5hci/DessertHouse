@@ -46,6 +46,7 @@ function initCheckBox(){
 				$(items[i]).prop('checked', false);
 			}
 		}
+		calculateAmount();
 	});
 		$('.checkbox').click(function(){
 		var checkAllBox = $('.js-check-all');
@@ -66,6 +67,7 @@ function initCheckBox(){
 		}else{
 			$(checkAllBox).prop('checked',false);
 		}
+		calculateAmount();
 	});
 }
 
@@ -251,6 +253,25 @@ function changeAmount(){
 		var price=Number(price_str);
 		var amount=price*10000*Number($(this).val())/10000;
 		$(this).parent().next().html(amount);
+		calculateAmount();
 	});
 }
 
+
+function calculateAmount(){
+	var inputs=$(".js-check:checked");
+	var items=$(inputs).parent().parent();
+	var amount=0;
+	for (var i = items.length - 1; i >= 0; i--) {
+		amount+=Number($(items[i]).children().eq(4).html());
+	}
+	amount=rounding(amount,2);
+	$(".chart-amount").html("总金额：￥"+amount);
+}
+
+function rounding(num,n){
+	if(isNaN(num)){//判断是否是数字
+		return 0;
+	}
+	return parseFloat(num).toFixed(n);
+}
