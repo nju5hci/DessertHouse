@@ -460,6 +460,11 @@
 		
 		
 	</bean>
+	<bean id="ConfirmOrderAction" class="dessert.action.ConfirmOrderAction">
+	<property name="orderService" ref="orderService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
+		
+	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />

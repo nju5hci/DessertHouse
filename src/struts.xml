@@ -518,6 +518,11 @@
 	<result name="success" type="redirect">/jsp/chart.jsp</result>
 				
 		</action>
+			<action name="confirmOrder" class="dessert.action.ConfirmOrderAction">
+		
+	<result name="success" type="redirect">/jsp/chart.jsp</result>
+				
+		</action>
 		<!--  -->
 
 	</package>
