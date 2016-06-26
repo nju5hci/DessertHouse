@@ -235,3 +235,12 @@ function toaster(message, type, time) {
         }, time);
     }
 }
+
+function getCheckedItems(){
+	var items=$(".js-check:checked");
+	var array=new Array();
+	for(var i=0;i<items.length;i++){
+		array.push(Number($(items[i]).attr('id')));
+	}
+	return array;
+}
