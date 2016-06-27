@@ -12,6 +12,7 @@
         <script type="text/javascript" src="../plugins/china-city-select-master/LocalList.js"></script>
 </head>
 <body>
+
 <div class="header">
     <div class="title">半亩田首页</div>
     <div class="float-right">
@@ -141,6 +142,16 @@
     </div>
     <div class="clear-fix"></div>
     <div class="red-seperator"></div>
+    <div class="wapper-chart-pay">
+        <div class="wapper-pay-title">支付方式</div>
+        <div class="wapper-pay-list">
+            <span class="wapper-pay-item box wapper-pay-item-active">货到付款</span>
+            <span class="wapper-pay-item box">微信支付</span>
+            <span class="wapper-pay-item box">支付宝支付</span>
+            <span class="wapper-pay-item box ">银行卡支付</span>
+        </div>
+    </div>
+    <div class="red-seperator"></div>
     <div class="wapper-chart-title">
         <div class="float-left checkbox">
             <input class="js-check-all" type="checkbox" id="check-all">
@@ -230,9 +241,11 @@
     initCheckBox();
     addressItemClicked();
     timeDelete();
-    commodityDelete();
     addTime();
     addAddress();
+    deletePopup();
+    changeAmount();
+    payItemClicked();
 $('#element_id').cxCalendar();
 
 </script>

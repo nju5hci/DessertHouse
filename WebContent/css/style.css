@@ -977,3 +977,29 @@ span#title-6{
 	width: 70px;
 	height: 25px;
 }
+
+.wapper-chart-pay{
+	height: 120px;
+	width: 98%;
+	padding: 10px;
+}
+.wapper-pay-title,.wapper-send-title{
+	font-weight: bold;
+	font-size: 16px;
+}
+.wapper-pay-list{
+	margin-top: 20px;
+}
+.wapper-pay-item{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 30px;
+}
+.wapper-pay-item:hover,.wapper-pay-item-active{
+	background-color: #B1191A;
+	color: #fff;
+	cursor: pointer;
+}

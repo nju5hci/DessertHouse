@@ -294,3 +294,9 @@ function deletePopup(){
         });
 	});
 }
+function payItemClicked(){
+	$(".wapper-pay-item").click(function(){
+		$(".wapper-pay-item-active").removeClass("wapper-pay-item-active");
+		$(this).addClass("wapper-pay-item-active");
+	});
+}
