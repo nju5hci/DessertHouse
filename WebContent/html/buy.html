@@ -12,7 +12,6 @@
         <script type="text/javascript" src="../plugins/china-city-select-master/LocalList.js"></script>
 </head>
 <body>
-
 <div class="header">
     <div class="title">半亩田首页</div>
     <div class="float-right">
@@ -153,24 +152,15 @@
     </div>
     <div class="red-seperator"></div>
     <div class="wapper-chart-title">
-        <div class="float-left checkbox">
-            <input class="js-check-all" type="checkbox" id="check-all">
-            <label class="checkbox-img" for="check-all"></label>
-        </div>
-    	<span id="title-1">全选</span>
-    	<span id="title-2">商品信息</span>
-    	<span id="title-3">单价（元）</span>
-    	<span id="title-4">数量</span>
-    	<span id="title-5">金额</span>
-    	<span id="title-6">操作</span>
+    	<span id="title-7">商品信息</span>
+    	<span id="title-8">单价（元）</span>
+    	<span id="title-9">数量</span>
+    	<span id="title-10">金额</span>
+    	<span id="title-11">操作</span>
     </div>
     <div class="seperator"></div>
     <div class="wapper-chart-list">
     	<div class="wapper-chart-item">
-    		<div class="float-left checkbox">
-                <input class="js-check" type="checkbox">
-                <label class="checkbox-img"></label>
-            </div>
             <div class="float-left chart-item-info">
             	<img src="../img/big1.jpg" class="chart-item-photo">
             	<a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
@@ -178,17 +168,13 @@
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-            	<input class="input-small" value="1" id="input-1"></input>
+            	<span class="label">1</span>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
 
     	</div>
         <div class="wapper-chart-item">
-            <div class="float-left checkbox">
-                <input class="js-check" type="checkbox">
-                <label class="checkbox-img"></label>
-            </div>
             <div class="float-left chart-item-info">
                 <img src="../img/big1.jpg" class="chart-item-photo">
                 <a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
@@ -196,17 +182,13 @@
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1"  id="input-2"></input>
+                 <span class="label">1</span>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
 
         </div>
         <div class="wapper-chart-item">
-            <div class="float-left checkbox">
-                <input class="js-check" type="checkbox">
-                <label class="checkbox-img"></label>
-            </div>
             <div class="float-left chart-item-info">
                 <img src="../img/big1.jpg" class="chart-item-photo">
                 <a href="" class="chart-item-name">【天猫超市】江苏特小凤西瓜1个950g以上/个 黄壤西瓜 新鲜水果</a>
@@ -214,7 +196,7 @@
             </div>
             <div class="float-left chart-item-price">29.9</div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1" id="input-3"></input>
+                <span class="label">1</span>
             </div>
             <div class="float-left chart-item-amount">59.8</div>
             <div class="float-left chart-item-operator">删除</div>
@@ -238,13 +220,11 @@
 </div>
 <div id="toaster-container"></div>
 <script type="text/javascript">
-    initCheckBox();
     addressItemClicked();
     timeDelete();
     addTime();
     addAddress();
     deletePopup();
-    changeAmount();
     payItemClicked();
 $('#element_id').cxCalendar();
 

@@ -737,6 +737,21 @@ span#title-5{
 span#title-6{
 	margin-left: 8%;
 }
+span#title-7{
+	margin-left: 3.5%;
+}
+span#title-8{
+	margin-left: 39.5%;
+}
+span#title-9{
+	margin-left: 8.9%;
+}
+span#title-10{
+	margin-left: 8%;
+}
+span#title-11{
+	margin-left: 8%;
+}
 .wapper-chart-list{}
 .wapper-chart-item{
 	padding: 15px;
@@ -761,6 +776,9 @@ span#title-6{
 	margin-left: 5px;
 }
 .chart-item-num input{
+	text-align: center;
+}
+.chart-item-num .label{
 	text-align: center;
 }
 .chart-item-name{
