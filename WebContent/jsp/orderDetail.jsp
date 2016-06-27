@@ -112,10 +112,10 @@
           <td >
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
+           <a href="/DessertHouse/commodity?dessertid=<%=dessertId[i] %>"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#"><%=dessertName[i] %></a>
+            <a href="/DessertHouse/commodity?dessertid=<%=dessertId[i] %>"><%=dessertName[i] %></a>
          </div>
          </div>        
       </td>
@@ -143,7 +143,7 @@
       </td>
        <td>        
         <div class="goog-buy" style="text-align:center;border:2px solid white;">
-        <a href="#">再次购买</a>
+        <a href="/DessertHouse/commodity?dessertid=<%=dessertId[i] %>">再次购买</a>
         </div>
       </td>
    </tr>

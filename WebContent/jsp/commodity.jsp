@@ -15,58 +15,7 @@
 <link href="../plugins/bxslider/jquery.bxslider.css" rel="stylesheet" />
 	<script type="text/javascript" src="../js/highcharts/highcharts.js"></script> 
 	<script type="text/javascript" src="../js/highcharts/exporting.js"></script> 
-	<script type="text/javascript">
-	$(function () {
-	    $('#container').highcharts({
-	        chart: {
-	            type: 'column'
-	        },
-	        title: {
-	            text: '价格趋势图'
-	        },
-	        xAxis: {
-	            categories: [
-	                '上月',
-	                '上周',
-	                '五天前',
-	                '三天前',
-	                '昨天',
-	                '今天'
-	            ]
-	        },
-	        yAxis: {
-	            min: 0,
-	            title: {
-	                text: '金额'
-	            }
-	        },
-	        tooltip: {
-	            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-	            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-	                '<td style="padding:0"><b>{point.y:.1f}元</b></td></tr>',
-	            footerFormat: '</table>',
-	            shared: true,
-	            useHTML: true
-	        },
-	        plotOptions: {
-	            column: {
-	                pointPadding: 0.2,
-	                borderWidth: 0
-	            }
-	        },
-	        series: [ <% 
-	                   
-	          		double []price=(double [])request.getServletContext().getAttribute("price");
-	      
-	           %>{
-	            name: 'Male',
-	            data: [<%=price[0]%>,<%=price[1]%>, <%=price[2]%>, <%=price[3]%>,<%=price[4]%>,<%=price[5]%>]
 
-	        }]
-	    });
-	});				
-	</script>
-	
 	<script type="text/javascript">
 	$(function () {
 	    $('#container').highcharts({
@@ -104,7 +53,17 @@
 	        series: [
 	        	<% 
 	        	String dessertName=(String)request.getServletContext().getAttribute("dessertName");  
-          	
+	        	double []price=(double [])request.getServletContext().getAttribute("price");
+	        	  if(price.length==0){
+	        		  	price=new double[6];
+	        		    	price[0]=9.0;
+	        		    	price[1]=8.0;
+	        		    	price[2]=9.0;
+	        		    	price[3]=7.0;
+	        		    	price[4]=9.0;
+	        		    	price[5]=10.0;
+	        		    	
+	        		    }
            %>{
             name: '<%=dessertName%>',
             data: [<%=price[0]%>,<%=price[1]%>, <%=price[2]%>, <%=price[3]%>,<%=price[4]%>,<%=price[5]%>]

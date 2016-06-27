@@ -141,10 +141,10 @@
       <td>
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src=<%=list.get(i).get(0).getDessertPicture() %>  title="" width="60px" height="60px"></a>
+           <a href="/DessertHouse/commodity?dessertid=<%=list.get(i).get(0).getDessertId() %>"><img src=<%=list.get(i).get(0).getDessertPicture() %>  title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#"><%=list.get(i).get(0).getDessertName()%> </a>
+            <a href="/DessertHouse/commodity?dessertid=<%=list.get(i).get(0).getDessertId() %>"><%=list.get(i).get(0).getDessertName()%> </a>
          </div>
          </div>        
       </td>
@@ -206,10 +206,10 @@
     <td>
          <div class="good">
          <div class="good-item">
-           <a href="#"><img src="<%=list.get(i).get(j).getDessertPicture() %> " title="" width="60px" height="60px"></a>
+           <a href="/DessertHouse/commodity?dessertid=<%=list.get(i).get(j).getDessertId() %>"><img src="<%=list.get(i).get(j).getDessertPicture() %> " title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#"><%=list.get(i).get(j).getDessertName()%> </a>
+            <a href="/DessertHouse/commodity?dessertid=<%=list.get(i).get(j).getDessertId() %>"><%=list.get(i).get(j).getDessertName()%> </a>
          </div>
          </div>        
       </td>
