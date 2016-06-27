@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我的半亩-我的订单</title>
+<title>半亩田-订单详情</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/orderdetail.css">
 <link rel="stylesheet" type="text/css" href="../css/table.css">
@@ -13,12 +13,12 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">半亩田</div>
+ <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+        <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="container" style="margin-top:-30px">
@@ -33,6 +33,7 @@
 		String sendWay= (String)request.getServletContext().getAttribute("sendWay");
 		String payWay = (String)request.getServletContext().getAttribute("payWay");
 		double totalPrice =(Double)request.getServletContext().getAttribute("totalPrice");
+		double discount =(Double)request.getServletContext().getAttribute("discount");
 		int orderState= ( Integer)request.getServletContext().getAttribute("orderState");            
                 	  
 		 %>
@@ -159,8 +160,8 @@
 
 <div class="left">
    <p align="center"><%=totalPrice %></p>
-   <p align="center"> xxx</p>
-   <p align="center" style="color:red"> xxx</p>
+   <p align="center"><%=discount %></p>
+   <p align="center" style="color:red"> <%=totalPrice*discount %></p>
 </div>
 <div class="right">
    <p>商品总额:</p>

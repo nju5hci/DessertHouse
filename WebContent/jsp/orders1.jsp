@@ -11,17 +11,17 @@
 <link rel="stylesheet" type="text/css" href="../css/orderpage.css">
 <link rel="stylesheet" type="text/css" href="../css/stepflex.css">
 <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script> 
-<title>我的订单</title>
+<title>半亩田-我的订单</title>
 </head>
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">半亩田</div>
+  <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="/DessertHouse/personalSet">设置</a>
-        <a href="/DessertHouse/personalSet">退出</a>
+        <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="choose_panel" style="margin-top:-30px;">

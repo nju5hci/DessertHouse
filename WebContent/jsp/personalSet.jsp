@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我的一亩-我的订单</title>
+<title>半亩田-个人信息</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/personinfo.css">
 <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script> 
@@ -12,12 +12,12 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title"><a href="../html/index.html">一亩e田</a></div>
+   <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="/DessertHouse/personalSet">设置</a>
-        <a href="">退出</a>
+         <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
      </div>
 </div>
 <div class="container">

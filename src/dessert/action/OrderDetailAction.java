@@ -1,5 +1,6 @@
 package dessert.action;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +79,8 @@ public class OrderDetailAction extends BaseAction{
 				
 			
 			}
+			  BigDecimal b = new BigDecimal(totalPrice);
+			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			sc.setAttribute("num", orderLists.size());
 			sc.setAttribute("dessertId", dessertId);
 			sc.setAttribute("dessertNum", dessertNum);
@@ -92,7 +95,7 @@ public class OrderDetailAction extends BaseAction{
 			sc.setAttribute("sendWay", sendWay);
 			sc.setAttribute("discount", discount);
 			sc.setAttribute("payWay", payWay);
-			sc.setAttribute("totalPrice", totalPrice);
+			sc.setAttribute("totalPrice", f1);
 			sc.setAttribute("orderState", orderState);
 			return success;
 		}
