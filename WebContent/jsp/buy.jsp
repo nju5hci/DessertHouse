@@ -15,18 +15,19 @@
 </head>
 <body>
 <div class="header">
-    <div class="title">半亩田首页</div>
+  <a href="/DessertHouse/index2" class="title">半亩田首页</a>
+ 
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+       <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="wapper">
 	<div class="wapper-header">
     <!--跳转到首页-->
-    <a href="" class="title">半亩田</a>
+    <a href="/DessertHouse/index2" class="title">半亩田</a>
         <div id="A_Stepbar" class="flowstep float-right">
             <ol class="flowstep-5">
                 <li class="step-first">

@@ -27,7 +27,7 @@
 <div class="wapper">
 <div class="wapper-header">
     <!--跳转到首页-->
-    <a href="" class="title">半亩田</a>
+    <a href="/DessertHouse/index2" class="title">半亩田</a>
     <div class="float-right">
         <form action="/DessertHouse/search" method="get">
           <input class="input-long" name="word" type="text" placeholder="请输入要搜索的关键词"></input>  

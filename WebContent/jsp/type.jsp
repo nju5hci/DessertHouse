@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>一亩田-水果</title>
+<title>半亩田-分类</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../js/script.js"></script>
         <script src="../js/jquery-2.2.3.min.js"></script>
@@ -12,21 +12,22 @@
 </head>
 <body>
 <div class="header">
-    <div class="title">一亩田首页</div>
+  <a href="/DessertHouse/index2" class="title">半亩田首页</a>
+ 
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+     <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="wapper">
 	<div class="wapper-header">
     <!--跳转到首页-->
-    <a href="" class="title">一亩田</a>
+    <a href="/DessertHouse/index2" class="title">半亩田</a>
     <div class="float-right">
-        <form method="get">
-          <input class="input-long" type="text" placeholder="请输入要搜索的关键词"></input>  
+        <form  action="/DessertHouse/search" method="get">
+          <input class="input-long"name="word" type="text" placeholder="请输入要搜索的关键词"></input>  
           <input class="input-submit" type="submit" value="搜索"></input>
         </form>
     </div>
@@ -87,7 +88,11 @@
                         		for(int i = 0;i<num;i++){
                 	     %>
     		    <div class="type-commodity box">
+    		    
+    		     <a href="/DessertHouse/commodity?dessertid=<%=id_dessert[i] %>">
                 <img src="<%=address_dessert[i] %> " class="commodity-photo">
+                </a>
+            
                 <div class="commodity-name"><%=name_dessert[i] %> </div>
                 <div class="float-left commodity-price"><%=money_dessert[i] %> </div>
                 <div class="float-right add-to-chart">加入购物车</div>
