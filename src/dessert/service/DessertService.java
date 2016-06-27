@@ -31,4 +31,5 @@ public interface DessertService {
 	//得到某一个甜品的所有价格
 	//通过dessertId得到
 	List<ComparePrice> getComparePriceByDessertId(int dessertId);
+
 }

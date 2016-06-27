@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.math.BigDecimal" %>
+    <%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -161,6 +163,7 @@
          <% 
                                 String[] dessertName = (String[])request.getServletContext().getAttribute("dessertName");
             		double total=(Double)request.getServletContext().getAttribute("total");
+            		double discount=(Double)request.getServletContext().getAttribute("discount");
             		if(dessertName!=null){
                         		String[] dessertPicture = (String[])request.getServletContext().getAttribute("dessertPicture");
                         		double[] dessertPrice = (double[])request.getServletContext().getAttribute("dessertPrice");
@@ -203,6 +206,13 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
+    	    
+    	     <div class="chart-amount">折扣：<%=discount %></div>
+    	     <%double total2= total*discount;
+    	     BigDecimal b = new BigDecimal(total2);
+			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    	     %>
+    	      <div id="total"class="chart-amount">折后金额：<%=f1%></div>
     	    <a href="/DessertHouse/confirmOrder2">
     		<span class="confirm">提交订单</span>
     		</a>
@@ -225,6 +235,7 @@
     commodityDelete();
     addTime();
     addAddress();
+  
 $('#element_id').cxCalendar();
 
 </script>

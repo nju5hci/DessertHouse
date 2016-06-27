@@ -82,6 +82,7 @@
                         		int []id_dessert=(int [])request.getServletContext().getAttribute("id_dessert");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num_dessert");
                         	int num=num_dessert;
+                        	
                         		if(num_dessert>4){
                         			 num=4;
                         		}
@@ -112,6 +113,8 @@
                          %>
     	       <%
                         		}else{
+                        		
+                        			
                         		    for(int i = 4;i<num_dessert;i++){
                          %>
     	 

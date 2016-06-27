@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="comparePrice")
 public class ComparePrice implements Serializable{
 	@Id
-	
+	private int comparePriceId;//菜的id
 	private int dessertId;//菜的id
 	
 	private String  dessertName;//菜的名字

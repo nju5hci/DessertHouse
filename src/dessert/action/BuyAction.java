@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sun.org.apache.xerces.internal.util.DraconianErrorHandler;
 
+import dessert.configure.Configure;
+import dessert.model.MemberCard;
 import dessert.model.OrderList;
+import dessert.service.MemberCardService;
 import dessert.service.OrderService;
 
 public class BuyAction extends BaseAction{
@@ -20,7 +23,18 @@ public class BuyAction extends BaseAction{
 		@Autowired
 		private OrderService orderService;
 		
-	
+		private MemberCardService memberCardService;
+		
+		
+		public MemberCardService getMemberCardService() {
+			return memberCardService;
+		}
+
+
+		public void setMemberCardService(MemberCardService memberCardService) {
+			this.memberCardService = memberCardService;
+		}
+
 		public OrderService getOrderService() {
 			return orderService;
 		}
@@ -67,7 +81,17 @@ public class BuyAction extends BaseAction{
 			
 
 		}
-			
+			MemberCard memberCard=memberCardService.getCardById(mid);
+			int level=memberCard.getLevel();
+		double discount=1.0;
+			//根据不同的等级来打折
+			if(level==1){
+				discount=Configure.ONE_DISCOUNT;
+			}else if(level==2){
+				discount=Configure.TWO_DISCOUNT;
+			}else if(level==3){
+				discount=Configure.THREE_DISCOUNT;
+			}
 			  BigDecimal b = new BigDecimal(total);
 			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			   System.out.println("21463798665"+f1);
@@ -79,6 +103,7 @@ public class BuyAction extends BaseAction{
 			sc.setAttribute("dessertPrice", dessertPrice);
 			sc.setAttribute("totalPrice", totalPrice);
 			sc.setAttribute("total", f1);
+			sc.setAttribute("discount", discount);
 			sc.setAttribute("dessertPicture", dessertPicture);
 			
 			return success;

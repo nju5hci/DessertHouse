@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import dessert.model.Assess;
+import dessert.model.ComparePrice;
 import dessert.model.Dessert;
 import dessert.service.DessertService;
 
@@ -43,6 +44,14 @@ public class CommodityAction extends BaseAction {
  */
 		int dessertid=Integer.parseInt(request.getParameter("dessertid"));
 		Dessert dessert=dessertService.getDessertById(dessertid);
+		List<ComparePrice> comparePrices=dessertService.getComparePriceByDessertId(dessertid);
+		int size=comparePrices.size();
+		if(size>6) size=6;
+		double[] price= new double[comparePrices.size()];
+		for(int i=0;i<size;i++){
+			price[i]=comparePrices.get(i).getDessertPrice();
+		}
+		
 		if(dessert!=null){
 			sc.setAttribute("dessertid", dessertid);
 			sc.setAttribute("dessertName", dessert.getDessertName());
@@ -70,6 +79,7 @@ public class CommodityAction extends BaseAction {
 				
 
 		}
+			sc.setAttribute("price", price);
 			sc.setAttribute("words_assess", words_assess);
 			sc.setAttribute("time_assess", time_assess);
 			sc.setAttribute("memberId_assess", memberId_assess);
