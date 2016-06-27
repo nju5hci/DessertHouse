@@ -510,12 +510,11 @@
 		</action>
 		<action name="addToChart" class="dessert.action.AddToChartAction">
 		
-	<result name="success" type="redirect">/jsp/commodity.jsp</result>
 				
 		</action>
 		<action name="addToChart2" class="dessert.action.AddToChart2Action">
 		
-	<result name="success" type="redirect">/jsp/index.jsp</result>
+
 				
 		</action>
 		<action name="chart" class="dessert.action.ChartAction">

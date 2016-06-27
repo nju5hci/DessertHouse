@@ -1,5 +1,6 @@
 package dessert.action;
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
 
@@ -61,7 +62,10 @@ public class AddToChartAction extends BaseAction {
 			   dessert.getDessertPrice()*num, dessert.getDessertPicAdd());
 	   System.out.println(num+"dsdafgreyu");
 	   memberService.addOrderList(orderList);
-	   return success;
+	   response.setContentType("text/html;charset=UTF-8");
+       PrintWriter writer=response.getWriter();
+       writer.println("success");
+	   return null;
 		
 	}
 }

@@ -1,5 +1,6 @@
 package dessert.action;
 
+import java.io.PrintWriter;
 import java.util.Random;
 
 import javax.servlet.ServletContext;
@@ -58,7 +59,11 @@ public class AddToChart2Action  extends BaseAction {
 			   dessert.getDessertPrice(), dessert.getDessertPicAdd());
 
 	   memberService.addOrderList(orderList);
-	   return success;
+	    response.setContentType("text/html;charset=UTF-8");
+       PrintWriter writer=response.getWriter();
+       writer.println("success");
+	   return null;
+
 		
 	}
 }

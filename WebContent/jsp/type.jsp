@@ -96,7 +96,7 @@
             
                 <div class="commodity-name"><%=name_dessert[i] %> </div>
                 <div class="float-left commodity-price"><%=money_dessert[i] %> </div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                <div class="float-right add-to-chart"id="<%=id_dessert[i] %>">加入购物车</div>
                 <div class="clear-fix"></div>
             </div>
          
@@ -123,7 +123,7 @@
                 <img src="<%=address_dessert[i] %>" class="commodity-photo">
                 <div class="commodity-name"><%=name_dessert[i] %></div>
                 <div class="float-left commodity-price"><%=money_dessert[i] %> </div>
-                <div class="float-right add-to-chart">加入购物车</div>
+                <div class="float-right add-to-chart"id="<%=id_dessert[i] %>">加入购物车</div>
                 <div class="clear-fix"></div>
             </div>
            <%
@@ -167,7 +167,8 @@
 </div>
 <div id="toaster-container"></div>
 <script type="text/javascript">
-    commodity_addtochart();
+add_to_chart();
+    
 </script>
 </body>
 </html>

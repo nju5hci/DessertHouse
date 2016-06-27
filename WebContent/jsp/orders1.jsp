@@ -185,7 +185,7 @@
         <%}else if(orderState[i].equals("未收货")){ %>
          <span><a href="/DessertHouse/comfirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
          <%}else if(orderState[i].equals("未评价")){ %>
-           <span><a href="#">评价</a></span>
+           <span><a href="/DessertHouse/comment?orderid=<%=orderId[i] %>">评价</a></span>
            <%}else if(orderState[i].equals("已评价")){ %>
             <div class="no_background">
             <span>已完成</span>

@@ -149,7 +149,7 @@
                 <span class="commodity-detail-number" id="all-comment"><%=assessNum %></span>
             </div>
         </div>
-           <form action="/DessertHouse/addToChart?dessertid=<%=dessertid %>" method="post">
+         
         <div class="commodity-number-selector">
      	
             <span class="commodity-detail-label" >数量:</span>
@@ -158,8 +158,8 @@
         </div>
         	
       <!--  <div class="input-submit">加入购物车</div> --> 
-          <input class="input-submit" type="submit" value="加入购物车"  >
-        </form>
+          <input class="input-submit" type="submit" id=<%=dessertid %> value="加入购物车"  >
+ 
         </div>
 
         <div class="clear-fix"></div>
@@ -242,7 +242,43 @@
 $(document).ready(function(){
 	  jQuery(".bxslider").bxSlider();
 	  commodityAltOptions();
-	  confirmAddToChart();
+	  add_to_chart();
 	});
+ function add_to_chart(){
+	$(".input-submit").click(function(){
+		var id=$(this).attr("id");
+		var num=$(".input-small").val();
+	//	window.location.href="/DessertHouse/addToChart2?dessertid="+id;
+//		alert(id);
+
+
+	 $.ajax({
+
+			url:'/DessertHouse/addToChart',
+
+			data:{
+
+				dessertid:id,
+				num:num
+			},
+       
+			type:'post',
+
+			success:function(data){
+
+			if(data=="success\n"){
+				toaster("已添加到购物车","success");
+
+			}else{
+			
+			  }
+
+			}
+
+	     
+     });
+	}); 
+}
+
 </script>
 </html>

@@ -216,7 +216,7 @@ function toaster(message, type, time) {
 
     var toaster = $("#toaster-container").children().eq(0);
     toaster.slideDown();
-    toaster.width(toaster.children().eq(0).width()+4);
+    toaster.width(toaster.children().eq(0).width()+10);
 
     if(time === undefined) {
         setTimeout(function () {
@@ -267,12 +267,6 @@ function rounding(num,n){
 	return parseFloat(num).toFixed(n);
 }
 
-function commodity_addtochart(){
-	$(".add-to-chart").click(function(){
-		toaster("已添加到购物车","success");
-	});
-}
-
 function deletePopup(){
 	$(".chart-item-operator").click(function(){
 		var str=''+
@@ -298,5 +292,39 @@ function payItemClicked(){
 	$(".wapper-pay-item").click(function(){
 		$(".wapper-pay-item-active").removeClass("wapper-pay-item-active");
 		$(this).addClass("wapper-pay-item-active");
+	});
+}
+
+function add_to_chart(){
+	$(".add-to-chart").click(function(){
+		var id=$(this).attr("id");
+	//	window.location.href="/DessertHouse/addToChart2?dessertid="+id;
+//		alert(id);
+
+
+	 $.ajax({
+
+			url:'/DessertHouse/addToChart2',
+
+			data:{
+
+				dessertid:id
+			},
+       
+			type:'post',
+
+			success:function(data){
+
+			if(data=="success\n"){
+				toaster("已添加到购物车","success");
+
+			}else{
+			
+			  }
+
+			}
+
+	     
+     });
 	});
 }
