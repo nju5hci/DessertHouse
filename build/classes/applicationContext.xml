@@ -435,6 +435,11 @@
 		
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
+	<bean id="SearchAction" class="dessert.action.SearchAction">
+	
+		
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
 	<bean id="Index2Action" class="dessert.action.Index2Action">
 	
 		

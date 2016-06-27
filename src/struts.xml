@@ -493,6 +493,11 @@
 	<result name="success" type="redirect">/jsp/type.jsp</result>
 				
 		</action>
+			<action name="search" class="dessert.action.SearchAction">
+
+	<result name="success" type="redirect">/jsp/type.jsp</result>
+				
+		</action>
 		<action name="index2" class="dessert.action.Index2Action">
 
 	<result name="success" type="redirect">/jsp/index.jsp</result>

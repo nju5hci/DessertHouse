@@ -54,6 +54,7 @@ public class DessertDaoImpl  extends YeekuHibernateDaoSupport implements Dessert
 	public List<Dessert> getDessertByName(String dessertName) {
 		List<Dessert> dessertList=new ArrayList<Dessert>();
 		String hql="from dessert.model.Dessert where dessertName like '%"+dessertName+"%'";
+		System.out.println(hql);
 		Session session=baseDao.getNewSession();
 		List<Dessert> desserts=session.createQuery(hql).list();
 		if(desserts.size()>0){
