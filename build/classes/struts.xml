@@ -537,6 +537,18 @@
 	<result name="success" type="redirect">/DessertHouse/orders</result>
 				
 		</action>
+		<action name="comment" class="dessert.action.CommentAction">
+
+			<result name="success" type="redirect">/jsp/comment1.jsp</result>
+
+				
+		</action>
+		<action name="addComment" class="dessert.action.AddCommentAction">
+
+			<result name="success" type="redirect">/DessertHouse/orders</result>
+
+				
+		</action>
 		<!--  -->
 
 	</package>

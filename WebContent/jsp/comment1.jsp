@@ -14,12 +14,12 @@
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">半亩田</div>
+   <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+        <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="container" style="margin-top:-30px">
@@ -37,6 +37,8 @@
                 	  
 		 %>
 <div class="list_class">
+	<form action="/DessertHouse/addComment?orderid=<%=orderID%>" method="post">	
+
 <p align="center" style="font-size:12px">订单号:<%=orderID %></p>
 <table class="comment_title" >
   <colgroup>
@@ -67,10 +69,10 @@
           <td>
          <div class="good" style="margin:0 auto">
          <div class="good-item">
-           <a href="#"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
+           <a  href="/DessertHouse/commodity?dessertid=<%=dessertId[i] %>"><img src="<%=dessertPicture[i] %>" title="" width="60px" height="60px"></a>
          </div>
          <div class="good-mes">
-            <a href="#"><%=dessertName[i] %></a>
+            <a  href="/DessertHouse/commodity?dessertid=<%=dessertId[i] %>"><%=dessertName[i] %></a>
          </div>
          </div>        
       </td>
@@ -80,6 +82,7 @@
     onblur="if(this.value == ''){this.style.color = '#ACA899'; this.value = '商品好用吗？分享下评价吧'; }" 
     onfocus="if(this.value == '商品好用吗？分享下评价吧'){this.value =''; this.style.color = '#000000'; }" 
                                 style="color:#ACA899;">商品好用吗？分享下评价吧</textarea>
+                                	<input class='a'  type="text" name="dessertid" value= <%=dessertId[i]%>>
         </div>
       </td>
       
@@ -100,6 +103,8 @@
 	  </div>
    </div>
 </div>
+</form>
+
 </div>
 
 </div>
@@ -116,6 +121,11 @@ $(document).ready(function() {
 	
 	
 });
+$(function(){
+
+	   $(".a").hide();
+
+	});
 </script>
 
 </html>
