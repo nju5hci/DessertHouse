@@ -104,7 +104,7 @@ public class ConfirmOrderAction extends BaseAction{
 			Orders orders=new Orders(orderId, mid, total, Configure.ORDER_UNXIA,
 					time, "", "", "", "", discount);
 
-		orderService.addOrders(orders);
+	//	orderService.addOrders(orders);
 		
 
 			return success;

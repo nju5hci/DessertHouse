@@ -97,12 +97,13 @@
                         		int []orderId=(int [])request.getServletContext().getAttribute("orderId");
                         		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
-                        		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
+                 
+                    			int num_dessert = (Integer)request.getServletContext().getAttribute("num");
                         		maxpage=num_dessert/4;
                         		int beginnumber=0;
                         		int endnumber=0;
                         		int pagesize=4;
-                        		System.out.println(num_dessert+"大小:");
+                        		
                         		if(num_dessert<=pagesize){
                         			beginnumber=0;
                         			endnumber=num_dessert;
@@ -112,12 +113,16 @@
                         			
                         		    if((beginnumber+4)>num_dessert){
                         		    	endnumber=num_dessert;
+                        		    	System.out.println(beginnumber+4);
+                        		    	System.out.println(num_dessert);
                         		    }else{
                         		    	endnumber=beginnumber+4;
                         		    }
                         		}
-                        		
+                        		System.out.println(beginnumber);
+                        		System.out.println(endnumber);
                         		for(int i = beginnumber;i<endnumber;i++){
+                        			System.out.println(i+"bf3jqrhb");
                 %>
             <!-- 显示空白 -->
     <tr class="noshow_row">
@@ -176,9 +181,9 @@
         
         <div class="goog-buy">
          <% if(orderState[i].equals("待付款")){%>
-        <span> <a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">付款</a></span>
+        <span> <a href="/DessertHouse/payOrder?orderid=<%=orderId[i] %>">付款</a></span>
         <%}else if(orderState[i].equals("未收货")){ %>
-         <span><a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
+         <span><a href="/DessertHouse/comfirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
          <%}else if(orderState[i].equals("未评价")){ %>
            <span><a href="#">评价</a></span>
            <%}else if(orderState[i].equals("已评价")){ %>

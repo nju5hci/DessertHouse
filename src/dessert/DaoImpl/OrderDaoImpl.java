@@ -3,7 +3,10 @@ package dessert.DaoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.criteria.Order;
+
 import org.hibernate.Session;
+import org.hibernate.hql.internal.ast.util.SyntheticAndFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -14,6 +17,7 @@ import dessert.model.Activity;
 import dessert.model.Member;
 import dessert.model.MemberCard;
 import dessert.model.Orders;
+import javafx.collections.ListChangeListener.Change;
 
 public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao{
 	@Autowired
@@ -70,12 +74,25 @@ public class OrderDaoImpl  extends YeekuHibernateDaoSupport  implements OrderDao
 			for(int i=0;i<desserts.size();i++){
 				dessertList.add(desserts.get(i));
 			}
+			
 		}else{
 			System.out.println("找不到这个订单");
 		}
-		return dessertList;
+		return cccccc(dessertList);
 	}
-
+private List<Orders> cccccc(List<Orders>  old){
+	Orders demo=new Orders();
+	for(int i=0;i<old.size();i++){
+		for(int j=i;j<old.size();j++){
+			if(old.get(j).getOrderDate().compareTo(old.get(i).getOrderDate())>0){
+				demo=old.get(j);
+				old.set(j, old.get(i));
+				old.set(i, demo);
+			}
+		}
+	}
+	return old;
+}
 	@Override
 	public List<Orders> getOrdersByDateAndMemberId(String date, int memberId) {
 		List<Orders> dessertList=new ArrayList<Orders>();

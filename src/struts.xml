@@ -458,7 +458,7 @@
 
 				
 		</action>
-		<action name="confirmOrder" class="dessert.action.ComfirmOrderAction">
+		<action name="comfirmOrder" class="dessert.action.ComfirmOrderAction">
 
 			<result name="success" type="redirect">/DessertHouse/orders</result>
 
@@ -526,6 +526,11 @@
 		<action name="buy" class="dessert.action.BuyAction">
 		
 	<result name="success" type="redirect">/jsp/buy.jsp</result>
+				
+		</action>
+			<action name="confirmOrder2" class="dessert.action.ConfirmOrder2Action">
+		
+	<result name="success" type="redirect">/DessertHouse/orders</result>
 				
 		</action>
 		<!--  -->

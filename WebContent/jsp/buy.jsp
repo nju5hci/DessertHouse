@@ -202,7 +202,9 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
+    	    <a href="/DessertHouse/confirmOrder2">
     		<span class="confirm">提交订单</span>
+    		</a>
     	</div>
         <div class="clear-fix"></div>
     </div>

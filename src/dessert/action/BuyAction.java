@@ -70,7 +70,7 @@ public class BuyAction extends BaseAction{
 			
 			  BigDecimal b = new BigDecimal(total);
 			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-			   
+			   System.out.println("21463798665"+f1);
 			sc.setAttribute("num", orderLists.size());
 			sc.setAttribute("dessertId", dessertId);
 			sc.setAttribute("orderListId", orderListId);
