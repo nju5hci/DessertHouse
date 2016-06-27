@@ -42,12 +42,14 @@ public class Configure {
 	public static final int SOIL_UNLENDED=	0;
 	//订单的四个状态
 	/**
-	 * 待下单0；
+	 * 没下单-1
+	 * 没买单0
 	 * 未收货1
 	 * 未评价2
 	 * 评价3
 	 * 
 	 */
+	public static final int ORDER_UNXIA	=	-1;
 	public static final int ORDER_UNCHECK		=	0;
 	public static final int ORDER_UNRECEIVE		=	1;
 	public static final int ORDER_UNASSESS	=	2;

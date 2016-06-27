@@ -11,17 +11,17 @@
 <link rel="stylesheet" type="text/css" href="../css/orderpage.css">
 <link rel="stylesheet" type="text/css" href="../css/stepflex.css">
 <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script> 
-<title>我的订单</title>
+<title>半亩田-我的订单</title>
 </head>
 <body>
 <div class="wapper">
 <div class="header">
-    <div class="title">半亩田</div>
+  <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="/DessertHouse/personalSet">设置</a>
-        <a href="/DessertHouse/personalSet">退出</a>
+        <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="choose_panel" style="margin-top:-30px;">
@@ -97,12 +97,13 @@
                         		int []orderId=(int [])request.getServletContext().getAttribute("orderId");
                         		String []orderState=(String [])request.getServletContext().getAttribute("orderState");
                     			List<List<OrderList>> list=(List<List<OrderList>>)request.getServletContext().getAttribute("list");
-                        		int num_dessert = (Integer)request.getServletContext().getAttribute("num");
+                 
+                    			int num_dessert = (Integer)request.getServletContext().getAttribute("num");
                         		maxpage=num_dessert/4;
                         		int beginnumber=0;
                         		int endnumber=0;
                         		int pagesize=4;
-                        		System.out.println(num_dessert+"大小:");
+                        		
                         		if(num_dessert<=pagesize){
                         			beginnumber=0;
                         			endnumber=num_dessert;
@@ -112,12 +113,16 @@
                         			
                         		    if((beginnumber+4)>num_dessert){
                         		    	endnumber=num_dessert;
+                        		    	System.out.println(beginnumber+4);
+                        		    	System.out.println(num_dessert);
                         		    }else{
                         		    	endnumber=beginnumber+4;
                         		    }
                         		}
-                        		
+                        		System.out.println(beginnumber);
+                        		System.out.println(endnumber);
                         		for(int i = beginnumber;i<endnumber;i++){
+                        			System.out.println(i+"bf3jqrhb");
                 %>
             <!-- 显示空白 -->
     <tr class="noshow_row">
@@ -176,9 +181,9 @@
         
         <div class="goog-buy">
          <% if(orderState[i].equals("待付款")){%>
-        <span> <a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">付款</a></span>
+        <span> <a href="/DessertHouse/payOrder?orderid=<%=orderId[i] %>">付款</a></span>
         <%}else if(orderState[i].equals("未收货")){ %>
-         <span><a href="/DessertHouse/confirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
+         <span><a href="/DessertHouse/comfirmOrder?orderid=<%=orderId[i] %>">确认收货</a></span>
          <%}else if(orderState[i].equals("未评价")){ %>
            <span><a href="#">评价</a></span>
            <%}else if(orderState[i].equals("已评价")){ %>

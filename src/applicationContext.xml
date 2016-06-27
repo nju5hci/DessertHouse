@@ -435,6 +435,11 @@
 		
 			<property name="dessertService" ref="dessertService" ></property>
 	</bean>
+	<bean id="SearchAction" class="dessert.action.SearchAction">
+	
+		
+			<property name="dessertService" ref="dessertService" ></property>
+	</bean>
 	<bean id="Index2Action" class="dessert.action.Index2Action">
 	
 		
@@ -468,6 +473,11 @@
 	<bean id="BuyAction" class="dessert.action.BuyAction">
 	<property name="orderService" ref="orderService" ></property>
 		
+		
+	</bean>
+	<bean id="ConfirmOrder2Action" class="dessert.action.ConfirmOrder2Action">
+	<property name="orderService" ref="orderService" ></property>
+			<property name="memberCardService" ref="memberCardService" ></property>
 		
 	</bean>
 		<!-- 定义 Autowired 自动注入 bean -->

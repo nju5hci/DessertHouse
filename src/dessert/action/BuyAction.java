@@ -1,10 +1,14 @@
 package dessert.action;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sun.org.apache.xerces.internal.util.DraconianErrorHandler;
 
 import dessert.model.OrderList;
 import dessert.service.OrderService;
@@ -49,6 +53,7 @@ public class BuyAction extends BaseAction{
 		double[] dessertPrice=new double[orderLists.size()];
 			double[] totalPrice=new double[orderLists.size()];
 			String[] dessertPicture=new String[orderLists.size()];
+		double total=0.0;
 		
 			for(int i=0;i<orderLists.size();i++){
 				orderListId[i]=orderLists.get(i).getOrderListId();
@@ -58,11 +63,14 @@ public class BuyAction extends BaseAction{
 				dessertPrice[i]=orderLists.get(i).getDessertPrice();
 				totalPrice[i]=orderLists.get(i).getTotalPrice();
 				dessertPicture[i]=orderLists.get(i).getDessertPicture();
-
+					total=total+orderLists.get(i).getDessertNum()*orderLists.get(i).getDessertPrice();
 			
 
 		}
 			
+			  BigDecimal b = new BigDecimal(total);
+			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+			   System.out.println("21463798665"+f1);
 			sc.setAttribute("num", orderLists.size());
 			sc.setAttribute("dessertId", dessertId);
 			sc.setAttribute("orderListId", orderListId);
@@ -70,6 +78,7 @@ public class BuyAction extends BaseAction{
 			sc.setAttribute("dessertName", dessertName);
 			sc.setAttribute("dessertPrice", dessertPrice);
 			sc.setAttribute("totalPrice", totalPrice);
+			sc.setAttribute("total", f1);
 			sc.setAttribute("dessertPicture", dessertPicture);
 			
 			return success;

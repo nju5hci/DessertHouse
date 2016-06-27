@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>一亩田-商品详情</title>
-   <link rel="stylesheet" type="text/css" href="../css/style.css">
+   <title>半亩田-商品详情</title>
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.5.0/css/font-awesome.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
         <script src="../js/script.js"></script>
@@ -16,21 +16,21 @@
 </head>
 <body>
 <div class="header">
-    <div class="title">一亩田首页</div>
+ <a href="/DessertHouse/index2" class="title">半亩田首页</a>
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+     <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="wapper">
     <div class="wapper-header">
     <!--跳转到首页-->
-    <a href="" class="title">一亩田</a>
+    <a href="/DessertHouse/index2" class="title">半亩田</a>
     <div class="float-right">
-        <form method="get">
-          <input class="input-long" type="text" placeholder="请输入要搜索的关键词"></input>  
+        <form action="/DessertHouse/search" method="get">
+          <input class="input-long"name="word" type="text" placeholder="请输入要搜索的关键词"></input>  
           <input class="input-submit" type="submit" value="搜索"></input>
         </form>
     </div>
@@ -167,6 +167,7 @@
         <p>2016.6.15</p>
     </div>
 </div>
+<div id="toaster-container"></div>
 </body>
 <script>
 $(document).ready(function(){

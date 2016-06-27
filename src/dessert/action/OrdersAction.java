@@ -39,6 +39,7 @@ public class OrdersAction extends BaseAction{
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
 			List<OrderWithList> orderWithListrs=orderService.getOrdersByMemberId(mid);
+			System.out.println(orderWithListrs.size()+"dsiaohgofhgib");
 	/**
 	 * 	private int orderId;//订单号
 	private int memberId;//谁下的订单
@@ -57,12 +58,14 @@ public class OrdersAction extends BaseAction{
 			
 			for(int i=0;i<orderWithListrs.size();i++){
 				orderId[i]=orderWithListrs.get(i).getOrderId();
+				System.out.println("iorderoreroder"+orderId[i]);
 						orderState[i]=change(orderWithListrs.get(i).getOrderState());
 						totalPrice[i]=orderWithListrs.get(i).getTotalPrice();
 						orderDate[i]=orderWithListrs.get(i).getOrderDate();
 		list.add(orderWithListrs.get(i).getList());
 			
 			}
+			System.out.println(list.size());
 			sc.setAttribute("num", orderWithListrs.size());
 			sc.setAttribute("orderId", orderId);
 			sc.setAttribute("totalPrice", totalPrice);

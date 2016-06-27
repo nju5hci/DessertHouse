@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>半亩田-确认订单</title>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../font-awesome-4.5.0/css/font-awesome.css">
         <script src="../js/jquery-2.2.3.min.js"></script>
         <script src="../js/script.js"></script>
@@ -15,18 +15,19 @@
 </head>
 <body>
 <div class="header">
-    <div class="title">半亩田首页</div>
+  <a href="/DessertHouse/index2" class="title">半亩田首页</a>
+ 
     <div class="float-right">
-        <a href="">购物车</a>
-        <a href="">我的订单</a>
-        <a href="">设置</a>
-        <a href="">退出</a>
+       <a href="/DessertHouse/chart">购物车</a>
+        <a href="/DessertHouse/orders">我的订单</a>
+        <a href="/DessertHouse/personalSet">个人信息</a>
+        <a href="login.jsp">退出</a>
     </div>
 </div>
 <div class="wapper">
 	<div class="wapper-header">
     <!--跳转到首页-->
-    <a href="" class="title">半亩田</a>
+    <a href="/DessertHouse/index2" class="title">半亩田</a>
         <div id="A_Stepbar" class="flowstep float-right">
             <ol class="flowstep-5">
                 <li class="step-first">
@@ -145,7 +146,7 @@
     <div class="red-seperator"></div>
     <div class="wapper-chart-title">
         <div class="float-left checkbox">
-            <input class="js-check-all" type="checkbox" id="check-all">
+            <input class="js-check-all:checked" type="checkbox" id="check-all">
             <label class="checkbox-img" for="check-all"></label>
         </div>
     	<span id="title-1">全选</span>
@@ -159,7 +160,7 @@
     <div class="wapper-chart-list">
          <% 
                                 String[] dessertName = (String[])request.getServletContext().getAttribute("dessertName");
-            		double total=0;
+            		double total=(Double)request.getServletContext().getAttribute("total");
             		if(dessertName!=null){
                         		String[] dessertPicture = (String[])request.getServletContext().getAttribute("dessertPicture");
                         		double[] dessertPrice = (double[])request.getServletContext().getAttribute("dessertPrice");
@@ -176,7 +177,7 @@
     	
     	<div class="wapper-chart-item">
     		<div class="float-left checkbox">
-                <input class="js-check" name="orderList" type="checkbox">
+                <input class="js-check:checked" name="orderList" type="checkbox">
                 <label class="checkbox-img"></label>
             </div>
             <div class="float-left chart-item-info">
@@ -193,7 +194,7 @@
 
     	</div>
       <%
-     	total=total+totalPrice[i];
+    
                         		}
     	     }
                          %>
@@ -202,7 +203,9 @@
     <div class="wapper-chart-bottom">
     	<div class="float-right">
     	    <div class="chart-amount">总金额：<%=total %></div>
+    	    <a href="/DessertHouse/confirmOrder2">
     		<span class="confirm">提交订单</span>
+    		</a>
     	</div>
         <div class="clear-fix"></div>
     </div>

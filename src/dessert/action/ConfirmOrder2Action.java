@@ -1,5 +1,6 @@
 package dessert.action;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -9,17 +10,14 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sun.javafx.image.IntPixelAccessor;
-
 import dessert.configure.Configure;
 import dessert.model.MemberCard;
 import dessert.model.OrderList;
 import dessert.model.Orders;
 import dessert.service.MemberCardService;
-import dessert.service.MemberService;
 import dessert.service.OrderService;
 
-public class ConfirmOrderAction extends BaseAction{
+public class ConfirmOrder2Action extends BaseAction{
 	 
 		private String success = "success";
 		
@@ -54,23 +52,14 @@ public class ConfirmOrderAction extends BaseAction{
 		public String execute() throws Exception {
 			ServletContext sc = request.getServletContext();
 			int  mid = Integer.parseInt((String)sc.getAttribute("account"));
-			String[]  orderList = 	(request.getParameterValues("orderList"));
-			
-			
-			int []orderListId=new int[orderList.length];
-			for(int i=0;i<orderList.length;i++){
-				orderListId[i]=Integer.parseInt(orderList[i]);
-		
-			}
-			String[]  numbers = 	(request.getParameterValues("number"));
-			int[]nums=new int[orderList.length];
+			List<OrderList> orderLists=orderService.getOrdersListByOrdersId(-mid);
+	
 			double total=0.0;
-			for(int i=0;i<orderList.length;i++){
-				nums[i]=Integer.parseInt(numbers[i]);
-				OrderList orderList2=	orderService.getOrderListById(orderListId[i]);
-				orderList2.setDessertNum(nums[i]);
-				orderService.updateOrdersList(orderList2);
-				total=total+nums[i]*orderList2.getDessertPrice();
+			for(int i=0;i<orderLists.size();i++){
+			
+			
+			
+				total=total+orderLists.get(i).getDessertNum()*orderLists.get(i).getDessertPrice();
 			}
 			//List<OrderList> orderLists=orderService.getOrdersListByOrdersId(mid);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
@@ -88,23 +77,29 @@ public class ConfirmOrderAction extends BaseAction{
 				discount=Configure.THREE_DISCOUNT;
 			}
 			//double totalPrice=Double.parseDouble(request.getParameter("total"));
-			
+			total=total*discount;
+			  BigDecimal b = new BigDecimal(total);
+			  double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			int orderId = 0;
 			do{
 				Random r = new Random(); 
 				orderId = r.nextInt(99999999);
 			}while(orderId>10000000);
-			for(int i=0;i<orderList.length;i++){
+			for(int i=0;i<orderLists.size();i++){
 				
-			OrderList orderList2=	orderService.getOrderListById(orderListId[i]);
-			orderList2.setOrderId(-mid);
+			OrderList orderList2=	orderLists.get(i);
+			orderList2.setOrderId(orderId);
 			orderService.updateOrdersList(orderList2);
 			}
+			/**
+			 * String sendAddress,
+			String sendTime, String sendWay, String payWay
+			 */
 			
-			Orders orders=new Orders(orderId, mid, total, Configure.ORDER_UNXIA,
+			Orders orders=new Orders(orderId, mid, f1, Configure.ORDER_UNCHECK,
 					time, "", "", "", "", discount);
 
-	//	orderService.addOrders(orders);
+		orderService.addOrders(orders);
 		
 
 			return success;
