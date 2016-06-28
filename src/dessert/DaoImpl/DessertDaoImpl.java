@@ -88,16 +88,12 @@ public class DessertDaoImpl  extends YeekuHibernateDaoSupport implements Dessert
 		System.out.println(hql);
 		Session session=baseDao.getNewSession();
 		List<Dessert> desserts=session.createQuery(hql).list();
-		if(desserts.size()>8){
-			for(int i=0;i<8;i++){
-				dessertList.add(desserts.get(i));
-			}
-		}else if(desserts.size()>0){
+		System.out.println(desserts.size()+"23425473684697");
+		if(desserts.size()>0){
 			for(int i=0;i<desserts.size();i++){
 				dessertList.add(desserts.get(i));
 			}
-		}
-		else{
+		}else{
 			System.out.println("找不到这个甜品");
 		}
 		return dessertList;

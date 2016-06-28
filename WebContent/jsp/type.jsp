@@ -35,6 +35,14 @@
     <div class="seperator"></div>
     </div>
     <div class="box category float-left ">
+      <% int currentpage=0; 
+      if(request.getParameter("page")!=null){
+    	  currentpage=Integer.parseInt(request.getParameter("page"));    	  
+    	//  System.out.println(currentpage);
+      }
+    System.out.println("----"+currentpage);
+   %> 
+ 
     	<div class="category-header">所有类目</div>
     	<div class="category-list-div">
     		<ul class="category-list">
@@ -76,17 +84,49 @@
     	    <div class="commodity-row">
     	     <% 
                                 String[] money_dessert = (String[])request.getServletContext().getAttribute("money_dessert");
+    	     int maxpage=0;
     	     if(money_dessert!=null){
                         		String[] address_dessert = (String[])request.getServletContext().getAttribute("address_dessert");
                         		String[] name_dessert = (String[])request.getServletContext().getAttribute("name_dessert");
                         		int []id_dessert=(int [])request.getServletContext().getAttribute("id_dessert");
                         		int num_dessert = (Integer)request.getServletContext().getAttribute("num_dessert");
-                        	int num=num_dessert;
-                        	
-                        		if(num_dessert>4){
-                        			 num=4;
-                        		}
-                        		for(int i = 0;i<num;i++){
+                      System.out.println(currentpage);
+                      System.out.println(num_dessert);
+                        	maxpage=num_dessert/8;
+                    		int beginnumber=0;
+                    		int endnumber=0;
+                    		int beginnumber1=0;
+                    		int endnumber1=0;
+                    		int pagesize=8;
+                    		boolean hasxia=false;
+                    		if(num_dessert<=4){
+                    			beginnumber=0;
+                    			endnumber=num_dessert;
+                    			hasxia=false;
+                    		}else if(num_dessert<=8){
+                    			endnumber=4;
+                    			beginnumber1=4;
+                    			endnumber1=num_dessert;
+                    			hasxia=true;
+                    		}else {
+                    			beginnumber=currentpage*8;
+                    			if(beginnumber+4>=num_dessert){
+                    				
+                    				endnumber=num_dessert;
+                    			}else if(beginnumber+8>=num_dessert){
+                    				hasxia=true;
+                    				endnumber=beginnumber+4;
+                    				beginnumber1=beginnumber+4;
+                        			endnumber1=num_dessert;
+                    			}else{
+                    				hasxia=true;
+                    				endnumber=beginnumber+4;
+                    				beginnumber1=beginnumber+4;
+                        			endnumber1=beginnumber1+4;
+                    			}
+                    		}
+                        		
+                        		for(int i = beginnumber;i<endnumber;i++){
                 	     %>
     		    <div class="type-commodity box">
     		    
@@ -108,14 +148,17 @@
     	    </div>
     	       <div class="commodity-row">
     	       <%
-                        	if(num_dessert<4){
+    	   	if(beginnumber+4>=num_dessert){
+				hasxia=false;}
+    	       
+                        	if(!hasxia){
                         		
                          %>
     	       <%
                         		}else{
                         		
                         			
-                        		    for(int i = 4;i<num_dessert;i++){
+                        		    for(int i = beginnumber1;i<endnumber1;i++){
                          %>
     	 
     	
@@ -138,21 +181,38 @@
         </div>
         <div id="bottomList" class="float-right">
                 <div id="pageList">
-                    <a href="" class="prevPage">上一页</a>
-                    <a href="" class="page pageActive">1</a>
-       <!--        <a href="" class="page">2</a>
-                <a href="" class="page">3</a>
-                    <a href="" class="page">4</a>
-                    <a href="" class="page">5</a>
-                    <a href="" class="page">6</a>
-                    <strong>...</strong>
-                    <a href="" class="endPage">233</a> -->
-                    <a href="" class="nextPage">下一页</a>
+    
+                      <button class='prevPage' id='prevPage'>上一页</button>
+                       <%
+                      
+                       int begin=0;
+                       int end=0;
+                       if(maxpage<=5){
+                    	   end=maxpage;
+                       }else{
+                    	   begin=currentpage;
+                    	   if(maxpage>begin+5){
+                    		   end=begin+5;
+                    	   }else{
+                    		   end=maxpage;
+                    	   }
+                       }
+                      
+                        	for(int i=begin;i<=end;i++){
+                         %>
+                    <a href="type.jsp?page=<%=i%>" class="page pageActive"><%=i+1 %></a>
+					 <%
+                        		}
+                         %>
+    	   
+                    
+     <button class='nextPage' id='nextPage'>下一页</button>
                 </div>
                 <div id="skipPages">
-                     <span id="totalPages">共1页，跳至</span>
-                     <input id="inputPages"/>
-                     <span id="pageNum">页</span>
+               <span id="totalPages">共1页，跳至</span>
+                     <input class="xx" id="inputPages"value="<%=currentpage+1%>" />
+                     <span id="pageNum">页</span>  
+                  
                 </div>
             </div>
     </div>
@@ -168,7 +228,54 @@
 <div id="toaster-container"></div>
 <script type="text/javascript">
 add_to_chart();
-    
+change_page();
+var pagenumber=<%=currentpage%>;
+if(pagenumber==0){
+//	alert(pagenumber);
+	document.getElementById("prevPage").disabled=true;
+	$("#prevPage").removeClass("prevPage");
+	
+}else{
+	document.getElementById("prevPage").disabled=false;
+	$("#prevPage").addClass("prevPage");
+	
+	}
+if(pagenumber==<%=maxpage%>){
+	document.getElementById("nextPage").disabled=true;
+	$("#nextPage").removeClass("prevPage");
+	}else{
+	document.getElementById("nextPage").disabled=false;
+	$("#nextPage").addClass("prevPage");
+	}
+
+
+$("#nextPage").click(function(){
+
+	var number=pagenumber+1;
+
+	var url="type.jsp?page="+number;
+
+	window.location.href=url;
+});
+$("#prevPage").click(function(){
+
+	var number=pagenumber-1;
+	var url="type.jsp?page="+number;
+
+	window.location.href=url;
+});
+
+function change_page(){
+	$(".xx").click(function(){
+		
+		var num=$(".xx").val();
+		num=num-1;
+		window.location.href="type.jsp?page="+num;
+
+	     
+     });
+
+}
 </script>
 </body>
 </html>
