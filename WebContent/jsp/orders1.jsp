@@ -123,6 +123,7 @@
                         		System.out.println(endnumber);
                         		for(int i = beginnumber;i<endnumber;i++){
                         			System.out.println(i+"bf3jqrhb");
+                        			if(list.get(i).size()!=0){
                 %>
             <!-- 显示空白 -->
     <tr class="noshow_row">
@@ -229,7 +230,7 @@
                         		}
                          %>
     
-     <%
+     <%	}
                         		}
         }
                          %>

@@ -95,9 +95,19 @@ public class ConfirmOrder2Action extends BaseAction{
 			 * String sendAddress,
 			String sendTime, String sendWay, String payWay
 			 */
+			//String[] sendTime=request.getParameterValues("sendTime");
+			String sendAddress=request.getParameter("sendAddress");
+			System.out.println(sendAddress);
+			String sendTime=request.getParameter("sendTime");
+//			String time2="";
+//			for(int i=0;i<sendTime.length;i++){
+//				time2=time2+sendTime[i];
+//			}
+			String sendWay="快递上门";
 			
+			String payWay=request.getParameter("patyWay");
 			Orders orders=new Orders(orderId, mid, f1, Configure.ORDER_UNCHECK,
-					time, "", "", "", "", discount);
+					time, sendAddress, sendTime, sendWay, payWay, discount);
 
 		orderService.addOrders(orders);
 		

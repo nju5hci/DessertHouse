@@ -146,17 +146,22 @@
     </div>
     <div class="clear-fix"></div>
     <div class="red-seperator"></div>
-    <div class="wapper-chart-title">
-        <div class="float-left checkbox">
-            <input class="js-check-all:checked" type="checkbox" id="check-all">
-            <label class="checkbox-img" for="check-all"></label>
+      <div class="wapper-chart-pay">
+        <div class="wapper-pay-title">支付方式</div>
+        <div class="wapper-pay-list">
+            <span class="wapper-pay-item box wapper-pay-item-active">货到付款</span>
+            <span class="wapper-pay-item box">微信支付</span>
+            <span class="wapper-pay-item box">支付宝支付</span>
+            <span class="wapper-pay-item box ">银行卡支付</span>
         </div>
-    	<span id="title-1">全选</span>
-    	<span id="title-2">商品信息</span>
-    	<span id="title-3">单价（元）</span>
-    	<span id="title-4">数量</span>
-    	<span id="title-5">金额</span>
-    	<span id="title-6">操作</span>
+    </div>
+  <div class="red-seperator"></div>
+    <div class="wapper-chart-title">
+    	<span id="title-7">商品信息</span>
+    	<span id="title-8">单价（元）</span>
+    	<span id="title-9">数量</span>
+    	<span id="title-10">金额</span>
+    	<span id="title-11">操作</span>
     </div>
     <div class="seperator"></div>
     <div class="wapper-chart-list">
@@ -179,18 +184,15 @@
                 	     
     	
     	<div class="wapper-chart-item">
-    		<div class="float-left checkbox">
-                <input class="js-check:checked" name="orderList" type="checkbox">
-                <label class="checkbox-img"></label>
-            </div>
+    	
             <div class="float-left chart-item-info">
             	<img src="<%=dessertPicture[i] %>" class="chart-item-photo">
             	<a href="" class="chart-item-name"><%=dessertName[i] %></a>
                 <input class="commodity-id" type="hidden" id="1" value="1"></input>
             </div>
             <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
-            <div class="float-left chart-item-num">
-            	<input class="input-small" value="1" id="input-1" name="number"></input>
+                      <div class="float-left chart-item-num">
+            	<span class="label"><%=dessertNum[i] %></span>
             </div>
             <div class="float-left chart-item-amount"><%=totalPrice[i] %></div>
             <div class="float-left chart-item-operator">删除</div>
@@ -229,15 +231,56 @@
 </div>
 <div id="toaster-container"></div>
 <script type="text/javascript">
-    initCheckBox();
-    addressItemClicked();
-    timeDelete();
-    commodityDelete();
-    addTime();
-    addAddress();
-  
+addressItemClicked();
+timeDelete();
+addTime();
+addAddress();
+deletePopup();
+payItemClicked();
+add_to_chart();
 $('#element_id').cxCalendar();
 
+
+function add_to_chart(){
+	$(".confirm").click(function(){
+		var sendAddress="NJU";
+		var sendTime="12:34";
+
+
+		var payWay="货到付款";
+	//	window.location.href="/DessertHouse/addToChart2?dessertid="+id;
+//	wapper-address-str
+
+
+	 $.ajax({
+
+			url:'/DessertHouse/confirmOrder2',
+
+			data:{
+				sendAddress:sendAddress,
+				sendTime:sendTime, 
+			
+				payWay:payWay
+			
+			},
+       
+			type:'post',
+
+			success:function(data){
+
+			if(data=="success\n"){
+				toaster("已添加到购物车","success");
+
+			}else{
+			
+			  }
+
+			}
+
+	     
+     });
+	}); 
+}
 </script>
 
 <script type="text/javascript">
