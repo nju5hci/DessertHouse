@@ -549,6 +549,11 @@
 
 				
 		</action>
+			<action name="deleteOrderList" class="dessert.action.DeleteOrderListAction">
+
+		
+				
+		</action>
 		<!--  -->
 
 	</package>

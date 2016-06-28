@@ -45,7 +45,7 @@
    </div>
    <div class="bottom" id="bottom">
    <div class="input" id="input">
-   <input type="button" class="input-submit" id="Update" value="修改" style="width:20%;margin-left:80px;float:left"/>
+   <input type="button" class="input-submit" id="Update" value="修改信息" style="width:20%;margin-left:80px;float:left"/>
    <input type="button" class="input-submit" id="updateP" value="修改密码" style="width:20%;margin-left:30px;float:left"/>
    </div>
    </div>

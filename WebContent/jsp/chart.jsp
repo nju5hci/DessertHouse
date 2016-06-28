@@ -80,11 +80,13 @@
             </div>
             <div class="float-left chart-item-price"><%=dessertPrice[i] %></div>
             <div class="float-left chart-item-num">
-                <input class="input-small" value="1" name="number" ></input>
+                <input class="input-small" value="<%=dessertNum[i] %>" name="number" ></input>
             </div>
          
                  <div class="float-left chart-item-amount"><%=totalPrice[i] %></div>
-            <div class="float-left chart-item-operator">删除</div>
+                
+            <div class="float-left chart-item-operator" id=<%=orderListId[i] %>>删除</div>
+         
             <div class="clear-fix"></div>
     	</div>
         
@@ -118,6 +120,42 @@
 initCheckBox();
 deletePopup();
 changeAmount();
+deletechart();
+function deletechart(){
+	$(".chart-item-operator").click(function(){
+		var id=$(this).attr("id");
+
+	//	window.location.href="/DessertHouse/addToChart2?dessertid="+id;
+//		alert(id);
+
+
+	 $.ajax({
+
+			url:'/DessertHouse/deleteOrderList',
+
+			data:{
+
+				orderListId:id,
+			
+			},
+       
+			type:'post',
+
+			success:function(data){
+
+			if(data=="success\n"){
+			
+
+			}else{
+			
+			  }
+
+			}
+
+	     
+     });
+	}); 
+}
 </script>
 </body>
 </html>
